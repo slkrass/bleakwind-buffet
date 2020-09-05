@@ -14,16 +14,20 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// A class representing Fried Miraak
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, 
+    /// and special instructions for a Fried Miraak.
+    /// </remarks>
     public class FriedMiraak
     {
-        /// <summary>
-        /// The price of Fried Miraak
-        /// </summary>
-        private double price = 1.78;
+        /* Private variable declaration for the Fried Miraak */
+        private double price = 1.78;    // The price of Fried Miraak
+        private uint calories = 151;    // The calories of the Fried Miraak
+        private Size size = Size.Small; // The size of Fried Miraak
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Fried Miraak
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -35,14 +39,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The calories of the Fried Miraak
-        /// </summary>
-        private uint calories = 151;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Fried Miraak
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -54,14 +53,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The size of Fried Miraak
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Fried Miraak
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -75,10 +69,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Fried Miraak
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -91,7 +84,9 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Fried Miraak</returns>
+        /// <returns>
+        /// The string representation of Fried Miraak
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

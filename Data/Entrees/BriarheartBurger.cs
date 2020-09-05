@@ -13,27 +13,32 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A class representing the Briarheart Burger 
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, ketchup, bun, 
+    /// mustard, pickle, cheese, and special instructions for a Briarheart Burger.
+    /// </remarks>
     public class BriarheartBurger
     {
+        /* Private variable declaration for the Briarheart Burger */
+        private bool ketchup = true;    // Holds whether or not there is ketchup on the burger
+        private bool bun = true;        // Holds whether or not there a bun for the burger
+        private bool mustard = true;    // Holds whether or not there is mustard on the burger
+        private bool pickle = true;     // Holds whether or not there is pickles on the burger
+        private bool cheese = true;     // Holds whether or not there is cheese on the burger
 
-        /// <summary>
+        /// <value>
         /// Gets the price of the burger
-        /// </summary>
+        /// </value>
         public double Price => 6.32;
 
-        /// <summary>
+        /// <value>
         /// Gets the calories of the burger
-        /// </summary>
+        /// </value>
         public uint Calories => 743;
 
-        /// <summary>
-        /// Holds whether or not there is ketchup on the burger
-        /// </summary>
-        private bool ketchup = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether there is ketchup on the burger
-        /// </summary>
+        /// </value>
         public bool Ketchup
         {
             get
@@ -47,14 +52,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Holds whether or not there a bun for the burger
-        /// </summary>
-        private bool bun = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether or not there is a bun
-        /// </summary>
+        /// </value>
         public bool Bun
         {
             get
@@ -68,14 +68,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Holds whether or not there is mustard on the burger
-        /// </summary>
-        private bool mustard = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether or not there is mustard on the burger
-        /// </summary>
+        /// </value>
         public bool Mustard
         {
             get
@@ -89,14 +84,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Holds whether or not there is pickles on the burger
-        /// </summary>
-        private bool pickle = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether or not there is pickles on the burger
-        /// </summary>
+        /// </value>
         public bool Pickle
         {
             get
@@ -110,14 +100,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Holds whether or not there is cheese on the burger
-        /// </summary>
-        private bool cheese = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether or not there is cheese on the burger
-        /// </summary>
+        /// </value>
         public bool Cheese
         {
             get
@@ -130,9 +115,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for the burger
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -152,7 +137,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Briarheart Burger</returns>
+        /// <returns>
+        /// The string representation of Briarheart Burger
+        /// </returns>
         public override string ToString()
         {
             return "Briarheart Burger";

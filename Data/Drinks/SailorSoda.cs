@@ -11,18 +11,24 @@ using System.Text;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
-    /// A class representing Sailor's Soda
+    /// A class representing Sailor's Soda.
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, ice, flavor, 
+    /// and special instructions for a Sailor's Soda.
+    /// </remarks>
     public class SailorSoda
     {
-        /// <summary>
-        /// The price of Sailor's soda
-        /// </summary>
-        private double price = 1.42;
+        /* Private variable declaration for the Sailor's Soda */
+        private double price = 1.42;                    // The price of Sailor's soda
+        private uint calories = 117;                    // The calories of the Sailor's Soda
+        private Size size = Size.Small;                 // The size of Sailor's Soda
+        private bool ice = true;                        // If there is ice in Sailor's Soda
+        private SodaFlavor flavor = SodaFlavor.Cherry;  // The flavor of the soda
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Sailor's Soda
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -34,14 +40,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The calories of the Sailor's Soda
-        /// </summary>
-        private uint calories = 117;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Sailor's Soda
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -53,14 +54,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The size of Sailor's Soda
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Sailor's Soda
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -74,14 +70,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is ice in Sailor's Soda
-        /// </summary>
-        private bool ice = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if there is ice in Sailor's Soda
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get
@@ -95,11 +86,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The flavor of the soda
-        /// </summary>
-        private SodaFlavor flavor = SodaFlavor.Cherry;
-
+        /// <value>
+        /// Gets and sets the flavor of the Sailor's Soda
+        /// </value>
         public SodaFlavor Flavor
         {
             get
@@ -113,9 +102,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Sailor's Soda
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -129,7 +118,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Sailor's Soda</returns>
+        /// <returns>
+        /// The string representation of Sailor's Soda
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

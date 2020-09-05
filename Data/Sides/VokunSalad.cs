@@ -14,16 +14,20 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// A class representing Vokun Salad
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, 
+    /// and special instructions for a Vokun Salad.
+    /// </remarks>
     public class VokunSalad
     {
-        /// <summary>
-        /// The price of Vokun Salad
-        /// </summary>
-        private double price = 0.93;
+        /* Private variable declaration for the Vokun Salad */
+        private double price = 0.93;    // The price of Vokun Salad
+        private uint calories = 41;     // The calories of the Vokun Salad
+        private Size size = Size.Small; // The size of Vokun Salad
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Vokun Salad
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -35,14 +39,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The calories of the Vokun Salad
-        /// </summary>
-        private uint calories = 41;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Vokun Salad
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -54,14 +53,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The size of Vokun Salad
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Vokun Salad
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -75,10 +69,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Vokun Salad
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -91,7 +84,9 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Vokun Salad</returns>
+        /// <returns>
+        /// The string representation of Vokun Salad
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

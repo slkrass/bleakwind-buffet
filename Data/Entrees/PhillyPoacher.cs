@@ -12,26 +12,30 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A class representing the Philly Poacher (Philly cheesesteak sandwhich)
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, sirloin, onion, roll, 
+    /// and special instructions for a Philly Poacher.
+    /// </remarks>
     public class PhillyPoacher
     {
-        /// <summary>
+        /* Private variable declaration for the Philly Poacher */
+        private bool sirloin = true;    // Holds whether or not there is sirloin on the Philly Poacher
+        private bool onion = true;      // Holds whether or not there onion for the Philly Poacher
+        private bool roll = true;       // Holds whether or not there is roll on the Philly Poacher
+
+        /// <value>
         /// Gets the price of the Philly Poacher
-        /// </summary>
+        /// </value>
         public double Price => 7.23;
 
-        /// <summary>
+        /// <value>
         /// Gets the calories of the Philly Poacher
-        /// </summary>
+        /// </value>
         public uint Calories => 784;
 
-        /// <summary>
-        /// Holds whether or not there is sirloin on the Philly Poacher
-        /// </summary>
-        private bool sirloin = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether there is sirloin on the Philly Poacher
-        /// </summary>
+        /// </value>
         public bool Sirloin
         {
             get
@@ -45,14 +49,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Holds whether or not there onion for the Philly Poacher
-        /// </summary>
-        private bool onion = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether or not there is a onion on the Philly Poacher
-        /// </summary>
+        /// </value>
         public bool Onion
         {
             get
@@ -66,14 +65,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Holds whether or not there is roll on the Philly Poacher
-        /// </summary>
-        private bool roll = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets whether or not there is roll on the Philly Poacher
-        /// </summary>
+        /// </value>
         public bool Roll
         {
             get
@@ -87,10 +81,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for the Philly Poacher
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -108,7 +101,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Philly Poacher</returns>
+        /// <returns
+        /// >The string representation of Philly Poacher
+        /// </returns>
         public override string ToString()
         {
             return "Philly Poacher";

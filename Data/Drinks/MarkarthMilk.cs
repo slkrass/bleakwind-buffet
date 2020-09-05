@@ -11,18 +11,23 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
-    /// A class representing Markarth Milk
+    /// A class representing Markarth Milk.
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, ice, 
+    /// and special instructions for a Markarth Milk.
+    /// </remarks>
     public class MarkarthMilk
     {
-        /// <summary>
-        /// The price of Markarth Milk
-        /// </summary>
-        private double price = 1.05;
+        /* Private variable declaration for the Markarth Milk */
+        private double price = 1.05;        // The price of Markarth Milk
+        private uint calories = 56;         // The calories of the Markarth Milk
+        private Size size = Size.Small;     // The size of Markarth Milk
+        private bool ice = false;           // If there is ice in Markarth Milk
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Markarth Milk
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -34,14 +39,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The calories of the Markarth Milk
-        /// </summary>
-        private uint calories = 56;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Markarth Milk
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -53,14 +53,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The size of Markarth Milk
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Markarth Milk
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -74,14 +69,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is ice in Markarth Milk
-        /// </summary>
-        private bool ice = false;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if there is ice in Markarth Milk
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get
@@ -95,9 +85,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Markarth Milk
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -108,10 +98,12 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Overrides the ToString method to return a custom string
-        /// </summary>
-        /// <returns>The string representation of Markarth Milk</returns>
+        /// </value>
+        /// <returns>
+        /// The string representation of Markarth Milk
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

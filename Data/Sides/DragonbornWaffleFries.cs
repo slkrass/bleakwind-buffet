@@ -14,16 +14,20 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// A class representing Dragonborn Waffle Fries
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, 
+    /// and special instructions for a Dragonborn Waffle Fries.
+    /// </remarks>
     public class DragonbornWaffleFries
     {
-        /// <summary>
-        /// The price of Dragonborn Waffle Fries
-        /// </summary>
-        private double price = 0.42;
+        /* Private variable declaration for the Dragonborn Waffle Fries */
+        private double price = 0.42;        // The price of Dragonborn Waffle Fries
+        private uint calories = 77;         // The calories of the Dragonborn Waffle Fries
+        private Size size = Size.Small;     // The size of Dragonborn Waffle Fries
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Dragonborn Waffle Fries
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -35,14 +39,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The calories of the Dragonborn Waffle Fries
-        /// </summary>
-        private uint calories = 77;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Dragonborn Waffle Fries
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -54,14 +53,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The size of Dragonborn Waffle Fries
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Dragonborn Waffle Fries
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -75,10 +69,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Dragonborn Waffle Fries
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -91,7 +84,9 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Dragonborn Waffle Fries</returns>
+        /// <returns>
+        /// The string representation of Dragonborn Waffle Fries
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

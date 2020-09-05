@@ -11,18 +11,25 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
-    /// A class representing the Candlehearth Coffee
+    /// A class representing the Candlehearth Coffee.
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, ice, room for cream, 
+    /// caffination, and special instructions for a Candlehearth Coffee.
+    /// </remarks>
     public class CandlehearthCoffee
     {
-        /// <summary>
-        /// The price of Candlehearth Coffee
-        /// </summary>
-        private double price = 0.75;
+        /* Private variable declaration for the Candlehearth Coffee */
+        private double price = 0.75;        // The price of Candlehearth Coffee
+        private uint calories = 7;          // The calories of the Candlehearth Coffee
+        private Size size = Size.Small;     // The size of Candlehearth Coffee
+        private bool ice = false;           // If there is ice in Candlehearth Coffee
+        private bool roomForCream = false;  // If there is room for cream in Candlehearth Coffee
+        private bool decaf = false;         // If the coffee is decaf Candlehearth Coffee
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -34,14 +41,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The calories of the Candlehearth Coffee
-        /// </summary>
-        private uint calories = 7;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -53,14 +55,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The size of Candlehearth Coffee
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -74,14 +71,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is ice in Candlehearth Coffee
-        /// </summary>
-        private bool ice = false;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if there is ice in Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get
@@ -95,14 +87,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is room for cream in Candlehearth Coffee
-        /// </summary>
-        private bool roomForCream = false;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if there is room for cream in Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public bool RoomForCream
         {
             get
@@ -116,14 +103,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If the coffee is decaf Candlehearth Coffee
-        /// </summary>
-        private bool decaf = false;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if the coffee is decaf Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public bool Decaf
         {
             get
@@ -137,9 +119,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -154,7 +136,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Candlehearth Coffee</returns>
+        /// <returns>
+        /// The string representation of Candlehearth Coffee
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

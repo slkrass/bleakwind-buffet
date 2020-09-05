@@ -11,18 +11,24 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
-    /// A class representing Warrior Water
+    /// A class representing Warrior Water.
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, ice, lemon, 
+    /// and special instructions for a Warrior Water.
+    /// </remarks>
     public class WarriorWater
     {
-        /// <summary>
-        /// The price of Warrior Water
-        /// </summary>
-        private double price = 0;
+        /* Private variable declaration for the  Warrior Water */
+        private double price = 0;       // The price of Warrior Water
+        private uint calories = 0;      // The calories of the Warrior Water
+        private Size size = Size.Small; // The size of Warrior Water
+        private bool ice = true;        // If there is ice in Warrior Water
+        private bool lemon = false;     // If there is lemon in Warrior Water
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Warrior Water
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -31,14 +37,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The calories of the Warrior Water
-        /// </summary>
-        private uint calories = 0;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Warrior Water
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -47,14 +48,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The size of Warrior Water
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Warrior Water
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -68,14 +64,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is ice in Warrior Water
-        /// </summary>
-        private bool ice = true;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if there is ice in Warrior Water
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get
@@ -89,14 +80,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is lemon in Warrior Water
-        /// </summary>
-        private bool lemon = false;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets if there is lemon in Warrior Water
-        /// </summary>
+        /// </value>
         public bool Lemon
         {
             get
@@ -110,9 +96,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Warrior Water
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -127,7 +113,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Warrior Water</returns>
+        /// <returns>
+        /// The string representation of Warrior Water
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

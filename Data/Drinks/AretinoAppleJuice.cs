@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Stephanie Krass
- * Class name: ArentinoAppleJuice.cs
- * Purpose: Class used to represent the Arentino Apple Juice
+ * Class name: AretinoAppleJuice.cs
+ * Purpose: Class used to represent the Aretino Apple Juice
  */
 using System;
 using System.Collections.Generic;
@@ -11,18 +11,23 @@ using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
-    /// A class representing Arentino Apple Juice
+    /// A class representing Aretino Apple Juice.
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, ice, 
+    /// and special instructions for an Aretino Apple Juice.
+    /// </remarks>
     public class AretinoAppleJuice
     {
-        /// <summary>
-        /// The price of Arentino Apple Juice
-        /// </summary>
-        private double price = 0.62;
+        /* Private variable declaration for the Aretino Apple Juice */    
+        private double price = 0.62;    // The price of Aretino Apple Juice
+        private uint calories = 44;     // The calories of the Aretino Apple Juice
+        private Size size = Size.Small; // The size of Aretino Apple Juice
+        private bool ice = false;       // If there is ice in Aretino Apple Juice
 
-        /// <summary>
-        /// Gets the price of Arentino Apple Juice
-        /// </summary>
+        /// <value>
+        /// Gets the price of Aretino Apple Juice
+        /// </value>
         public double Price
         {
             get
@@ -34,14 +39,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The calories of the Arentino Apple Juice
-        /// </summary>
-        private uint calories = 44;
-
-        /// <summary>
-        /// Gets the calories of Arentino Apple Juice
-        /// </summary>
+        /// <value>
+        /// Gets the calories of Aretino Apple Juice
+        /// </value>
         public uint Calories
         {
             get
@@ -53,14 +53,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// The size of Arentino Apple Juice
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
-        /// Gets and sets the size of Arentino Apple Juice
-        /// </summary>
+        /// <value>
+        /// Gets and sets the size of Aretino Apple Juice
+        /// </valuey>
         public Size Size
         {
             get
@@ -74,14 +69,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// If there is ice in Arentino Apple Juice
-        /// </summary>
-        private bool ice = false;
-
-        /// <summary>
-        /// Gets and sets if there is ice in Arentino Apple Juice
-        /// </summary>
+        /// <value>
+        /// Gets and sets if there is ice in Aretino Apple Juice
+        /// </value>
         public bool Ice
         {
             get
@@ -95,9 +85,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// Gets the special instructions for Arentino Apple Juice
-        /// </summary>
+        /// <value>
+        /// Gets the special instructions for Aretino Apple Juice
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -111,7 +101,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Arentino Apple Juice</returns>
+        /// <returns>
+        /// The string representation of Aretino Apple Juice
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -119,7 +111,7 @@ namespace BleakwindBuffet.Data.Drinks
             if (size == Size.Medium) sb.Append("Medium ");
             if (size == Size.Large) sb.Append("Large ");
 
-            sb.Append("Arentino Apple Juice");
+            sb.Append("Aretino Apple Juice");
             return sb.ToString();
         }
     }

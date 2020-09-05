@@ -14,16 +14,20 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// A class representing Mad Otar Grits
     /// </summary>
+    /// <remarks>
+    /// This class keeps track of the price, calories, size, 
+    /// and special instructions for a Mad Otar Grits.
+    /// </remarks>
     public class MadOtarGrits
     {
-        /// <summary>
-        /// The price of Mad Otar Grits
-        /// </summary>
-        private double price = 1.22;
+        /* Private variable declaration for the Mad Otar Grits */
+        private double price = 1.22;    // The price of Mad Otar Grits
+        private uint calories = 105;    // The calories of the Mad Otar Grits
+        private Size size = Size.Small; // The size of Mad Otar Grits
 
-        /// <summary>
+        /// <value>
         /// Gets the price of Mad Otar Grits
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -35,14 +39,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The calories of the Mad Otar Grits
-        /// </summary>
-        private uint calories = 105;
-
-        /// <summary>
+        /// <value>
         /// Gets the calories of Mad Otar Grits
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -54,14 +53,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// The size of Mad Otar Grits
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the size of Mad Otar Grits
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get
@@ -75,10 +69,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-
-        /// <summary>
+        /// <value>
         /// Gets the special instructions for Mad Otar Grits
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -91,7 +84,9 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Overrides the ToString method to return a custom string
         /// </summary>
-        /// <returns>The string representation of Mad Otar Grits</returns>
+        /// <returns>
+        /// The string representation of Mad Otar Grits
+        /// </returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
