@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Vokun Salad.
     /// </remarks>
-    public class VokunSalad
+    public class VokunSalad : Side
     {
         /* Private variable declaration for the Vokun Salad */
         private double price = 0.93;    // The price of Vokun Salad
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the price of Vokun Salad
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the calories of Vokun Salad
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets and sets the size of Vokun Salad
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the special instructions for Vokun Salad
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories, sirloin, onion, roll, 
     /// and special instructions for a Philly Poacher.
     /// </remarks>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree
     {
         /* Private variable declaration for the Philly Poacher */
         private bool sirloin = true;    // Holds whether or not there is sirloin on the Philly Poacher
@@ -26,12 +26,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the price of the Philly Poacher
         /// </value>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <value>
         /// Gets the calories of the Philly Poacher
         /// </value>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         /// <value>
         /// Gets and sets whether there is sirloin on the Philly Poacher
@@ -84,7 +84,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the special instructions for the Philly Poacher
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

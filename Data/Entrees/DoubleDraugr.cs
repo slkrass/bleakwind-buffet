@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// mustard, pickle, cheese, tomato, lettuce, mayo, and special 
     /// instructions for a Double Draugr Burger.
     /// </remarks>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree
     {
         /* Private variable declaration for the Double Draugr Burger */
         private bool ketchup = true;    // Holds whether or not there is ketchup on the burger
@@ -33,12 +33,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the price of the burger
         /// </value>
-        public double Price => 7.32;
+        public override double Price => 7.32;
 
         /// <value>
         /// Gets the calories of the burger
         /// </value>
-        public uint Calories => 843;
+        public override uint Calories => 843;
 
         /// <value>
         /// Gets and sets whether there is ketchup on the burger
@@ -167,7 +167,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the special instructions for the burger
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

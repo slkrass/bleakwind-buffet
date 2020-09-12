@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// This class keeps track of the price, calories, size, ice, 
     /// and special instructions for a Markarth Milk.
     /// </remarks>
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink
     {
         /* Private variable declaration for the Markarth Milk */
         private double price = 1.05;        // The price of Markarth Milk
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the price of Markarth Milk
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the calories of Markarth Milk
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets and sets the size of Markarth Milk
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -88,7 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the special instructions for Markarth Milk
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

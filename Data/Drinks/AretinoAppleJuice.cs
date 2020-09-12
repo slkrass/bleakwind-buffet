@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// This class keeps track of the price, calories, size, ice, 
     /// and special instructions for an Aretino Apple Juice.
     /// </remarks>
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink
     {
         /* Private variable declaration for the Aretino Apple Juice */    
         private double price = 0.62;    // The price of Aretino Apple Juice
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the price of Aretino Apple Juice
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the calories of Aretino Apple Juice
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -55,8 +55,8 @@ namespace BleakwindBuffet.Data.Drinks
 
         /// <value>
         /// Gets and sets the size of Aretino Apple Juice
-        /// </valuey>
-        public Size Size
+        /// </value>
+        public override Size Size
         {
             get
             {
@@ -88,7 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the special instructions for Aretino Apple Juice
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories, ketchup, bun, 
     /// mustard, pickle, cheese, and special instructions for a Briarheart Burger.
     /// </remarks>
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree
     {
         /* Private variable declaration for the Briarheart Burger */
         private bool ketchup = true;    // Holds whether or not there is ketchup on the burger
@@ -29,12 +29,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the price of the burger
         /// </value>
-        public double Price => 6.32;
+        public override double Price => 6.32;
 
         /// <value>
         /// Gets the calories of the burger
         /// </value>
-        public uint Calories => 743;
+        public override uint Calories => 743;
 
         /// <value>
         /// Gets and sets whether there is ketchup on the burger
@@ -118,7 +118,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the special instructions for the burger
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

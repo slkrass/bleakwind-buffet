@@ -10,12 +10,25 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
-using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(water);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(water);
+        }
+
         [Fact]
         public void ShouldIncludeIceByDefault()
         {

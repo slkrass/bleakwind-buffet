@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// This class keeps track of the price, calories, size, ice, flavor, 
     /// and special instructions for a Sailor's Soda.
     /// </remarks>
-    public class SailorSoda
+    public class SailorSoda : Drink
     {
         /* Private variable declaration for the Sailor's Soda */
         private double price = 1.42;                    // The price of Sailor's soda
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the price of Sailor's Soda
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -43,7 +43,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the calories of Sailor's Soda
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -57,7 +57,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets and sets the size of Sailor's Soda
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -105,7 +105,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Gets the special instructions for Sailor's Soda
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

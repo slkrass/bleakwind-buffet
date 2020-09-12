@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Mad Otar Grits.
     /// </remarks>
-    public class MadOtarGrits
+    public class MadOtarGrits : Side
     {
         /* Private variable declaration for the Mad Otar Grits */
         private double price = 1.22;    // The price of Mad Otar Grits
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the price of Mad Otar Grits
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the calories of Mad Otar Grits
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets and sets the size of Mad Otar Grits
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the special instructions for Mad Otar Grits
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

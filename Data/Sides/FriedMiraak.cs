@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Fried Miraak.
     /// </remarks>
-    public class FriedMiraak
+    public class FriedMiraak : Side
     {
         /* Private variable declaration for the Fried Miraak */
         private double price = 1.78;    // The price of Fried Miraak
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the price of Fried Miraak
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the calories of Fried Miraak
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets and sets the size of Fried Miraak
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the special instructions for Fried Miraak
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

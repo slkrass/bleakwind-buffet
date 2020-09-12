@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories, broccoli, mushrooms, 
     /// tomato, cheddar, and special instructions for a Garden Orc Omelette.
     /// </remarks>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree
     {
         /* Private variable declaration for the Garden Orc Omelette */
         private bool broccoli = true; // Holds whether or not there is broccoli on the omelette
@@ -28,12 +28,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the price of the omelette
         /// </value>
-        public double Price => 4.57;
+        public override double Price => 4.57;
 
         /// <value>
         /// Gets the calories of the omelette
         /// </value>
-        public uint Calories => 404;
+        public override uint Calories => 404;
 
         /// <value>
         /// Gets and sets whether there is broccoli on the omelette
@@ -102,7 +102,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the special instructions for the omelette
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

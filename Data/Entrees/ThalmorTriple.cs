@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// mustard, pickle, cheese, tomato, lettuce, mayo, bacon, egg, 
     /// and special instructions for a Thalmor Triple Burger.
     /// </remarks>
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree
     {
         /* Private variable declaration for the Thalmor Triple Burger */
         private bool ketchup = true;    // Holds whether or not there is ketchup on the burger
@@ -34,12 +34,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the price of the burger
         /// </value>
-        public double Price => 8.32;
+        public override double Price => 8.32;
 
         /// <value>
         /// Gets the calories of the burger
         /// </value>
-        public uint Calories => 943;
+        public override uint Calories => 943;
 
         /// <value>
         /// Gets and sets whether there is ketchup on the burger
@@ -199,7 +199,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets the special instructions for the burger
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

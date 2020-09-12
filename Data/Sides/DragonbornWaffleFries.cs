@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Dragonborn Waffle Fries.
     /// </remarks>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : Side
     {
         /* Private variable declaration for the Dragonborn Waffle Fries */
         private double price = 0.42;        // The price of Dragonborn Waffle Fries
@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the price of Dragonborn Waffle Fries
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the calories of Dragonborn Waffle Fries
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets and sets the size of Dragonborn Waffle Fries
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Gets the special instructions for Dragonborn Waffle Fries
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
