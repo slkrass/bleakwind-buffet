@@ -8,13 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="200">
     <DockPanel>
         <TextBox Name="orderNumberText" DockPanel.Dock="Top" TextAlignment="Center" FontSize="18"/>
-        
-        
         <TextBox Name="totalText" DockPanel.Dock="Bottom" TextAlignment="Center" FontSize="18"/>
         <TextBox Name="taxText" DockPanel.Dock="Bottom" TextAlignment="Center" FontSize="18"/>
         <TextBox Name="subtotalText" DockPanel.Dock="Bottom" TextAlignment="Center" FontSize="18"/>
-        <TextBox Name="orderItemsText" DockPanel.Dock ="Bottom" FontWeight="Bold" TextAlignment="Left" FontSize="18"/>
-        
+        <ListView Name="orderItemsText"/>
 
     </DockPanel>
 </UserControl>

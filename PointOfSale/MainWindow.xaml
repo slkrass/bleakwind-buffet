@@ -7,9 +7,6 @@
         mc:Ignorable="d"
         Title="Bleakwind Buffet Point of Sale" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
+        <local:MenuContainer/>
     </Grid>
 </Window>
