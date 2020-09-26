@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{B66B462C-DA57-4DB7-9053-DEBD3953F479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTests", "DataTests\DataTests.csproj", "{B58727B9-F783-46C8-BCC7-5122A1A4537E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTests", "DataTests\DataTests.csproj", "{B58727B9-F783-46C8-BCC7-5122A1A4537E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{87D0AB57-01A4-4A99-B5F5-9E074231FDF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B58727B9-F783-46C8-BCC7-5122A1A4537E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B58727B9-F783-46C8-BCC7-5122A1A4537E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B58727B9-F783-46C8-BCC7-5122A1A4537E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87D0AB57-01A4-4A99-B5F5-9E074231FDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D0AB57-01A4-4A99-B5F5-9E074231FDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D0AB57-01A4-4A99-B5F5-9E074231FDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D0AB57-01A4-4A99-B5F5-9E074231FDF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="PointOfSale.MenuSelection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Grid.ColumnSpan="3" FontSize="16" FontWeight="Bold" TextAlignment="Center">Add to Order</TextBox>
+        <!-- Entree Buttons -->
+        <TextBox Grid.Row="1" Grid.Column="0" FontSize="16" FontWeight="Bold" TextAlignment="Center">Entrees</TextBox>
+        <Button Name="briarheartBurgerButton" Grid.Row="2" Grid.Column="0" FontSize="16">Briarheart Burger</Button>
+        <Button Name="doubleDraugrButton"  Grid.Row="3" Grid.Column="0" FontSize="16">Double Draugr</Button>
+        <Button Name="thalmorTripleButton"  Grid.Row="4" Grid.Column="0" FontSize="16">Thalmor Triple</Button>
+        <Button Name="smokehouseSkeletonButton"  Grid.Row="5" Grid.Column="0" FontSize="16">Smokehouse Skeleton</Button>
+        <Button Name="gardenOrcOmletteButton"  Grid.Row="6" Grid.Column="0" FontSize="16">Garden Orc Omlette</Button>
+        <Button Name="thugsTBoneButton"  Grid.Row="7" Grid.Column="0" FontSize="16">Thugs T-Bone</Button>
+        <!-- Drink Buttons -->
+        <TextBox Grid.Row="1" Grid.Column="1" FontSize="16" FontWeight="Bold" TextAlignment="Center">Drinks</TextBox>
+        <Button Name ="sailorSodaButton" Grid.Row="2" Grid.Column="1" FontSize="16">Sailor Soda</Button>
+        <Button Name ="markarthMilkButton"  Grid.Row="3" Grid.Column="1" FontSize="16">Markarth Milk</Button>
+        <Button Name ="aretinoAppleJuiceButton"  Grid.Row="4" Grid.Column="1" FontSize="16">Aretino Apple Juice</Button>
+        <Button Name="candlehearthCoffeeButton"  Grid.Row="5" Grid.Column="1" FontSize="16">Candlehearth Coffee</Button>
+        <Button Name="warriorWaterButton"  Grid.Row="6" Grid.Column="1" FontSize="16">Warrior Water</Button>
+        <!-- Side Buttons -->
+        <TextBox Grid.Row="1" Grid.Column="2" FontSize="16" FontWeight="Bold" TextAlignment="Center">Sides</TextBox>
+        <Button Name="vokunSalad" Grid.Row="2" Grid.Column="2" FontSize="16">Vokun Salad</Button>
+        <Button Name="friedMiraakButton" Grid.Row="3" Grid.Column="2" FontSize="16">Fried Miraak</Button>
+        <Button Name="madOtarGritsButton"  Grid.Row="4" Grid.Column="2" FontSize="16">Mad Otar Grits</Button>
+        <Button Name="dragonbornWaffleFriesButton"  Grid.Row="5" Grid.Column="2" FontSize="16">Dragonborn Waffle Fries</Button>
+        
+    </Grid>
+</UserControl>
