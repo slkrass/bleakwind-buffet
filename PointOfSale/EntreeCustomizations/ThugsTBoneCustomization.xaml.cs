@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale
+namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
     /// Interaction logic for ThugsTBoneCustomization.xaml
