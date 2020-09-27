@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: MainWindow.xaml.cs
+ * Purpose: Class used for interaction logic for MainWindow.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor for the MainWindow
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

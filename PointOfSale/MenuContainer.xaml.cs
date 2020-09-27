@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: MenuContainer.xaml.cs
+ * Purpose: Class used for interaction logic for MenuContainer.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,13 +23,22 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuContainer : UserControl
     {
-        MenuSelection menuSelection = new MenuSelection();
-        OrderList orderList = new OrderList();
+        /* Private variable declaration */
+        private MenuSelection menuSelection;
+        private OrderList orderList;
+
+        /// <summary>
+        /// Constructor for the MenuContainer
+        /// </summary>
         public MenuContainer()
         {
             InitializeComponent();
+
+            menuSelection = new MenuSelection(this);
+            orderList = new OrderList();
             menuBorder.Child = menuSelection;
             currentItemsInOrderBorder.Child = orderList;
         }
+
     }
 }

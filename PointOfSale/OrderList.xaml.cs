@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: OrderList.xaml.cs
+ * Purpose: Class used for interaction logic for OrderList.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +23,9 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderList : UserControl
     {
+        /// <summary>
+        /// Constructor for OrderList
+        /// </summary>
         public OrderList()
         {
             InitializeComponent();
