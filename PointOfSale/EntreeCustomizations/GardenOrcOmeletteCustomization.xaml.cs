@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Stephanie Krass
- * Class name: GardenOrcOmletteCustomization.xaml.cs
- * Purpose: Class used for interaction logic for GardenOrcOmletteCustomization.xaml
+ * Class name: GardenOrcOmeletteCustomization.xaml.cs
+ * Purpose: Class used for interaction logic for GardenOrcOmeletteCustomization.xaml
  */
 
 using System;
@@ -20,18 +20,18 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for GardenOrcOmletteCustomization.xaml
+    /// Interaction logic for GardenOrcOmeletteCustomization.xaml
     /// </summary>
-    public partial class GardenOrcOmletteCustomization : UserControl
+    public partial class GardenOrcOmeletteCustomization : UserControl
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
 
         /// <summary>
-        /// Constructor for the GardenOrcOmletteCustomization Class
+        /// Constructor for the GardenOrcOmeletteCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the GardenOrcOmletteCustomization.xaml</param>
-        public GardenOrcOmletteCustomization(MenuContainer container)
+        /// <param name="container">The MenuContainer instance that contains the GardenOrcOmeletteCustomization.xaml</param>
+        public GardenOrcOmeletteCustomization(MenuContainer container)
         {
             InitializeComponent();
             menuContainer = container;

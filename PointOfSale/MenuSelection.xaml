@@ -30,7 +30,7 @@
         <Button Name="doubleDraugrButton"       Click="AddItemToOrder" Grid.Row="3" Grid.Column="0" FontSize="16">Double Draugr</Button>
         <Button Name="thalmorTripleButton"      Click="AddItemToOrder" Grid.Row="4" Grid.Column="0" FontSize="16">Thalmor Triple</Button>
         <Button Name="smokehouseSkeletonButton" Click="AddItemToOrder" Grid.Row="5" Grid.Column="0" FontSize="16">Smokehouse Skeleton</Button>
-        <Button Name="gardenOrcOmletteButton"   Click="AddItemToOrder" Grid.Row="6" Grid.Column="0" FontSize="16">Garden Orc Omlette</Button>
+        <Button Name="gardenOrcOmeletteButton"   Click="AddItemToOrder" Grid.Row="6" Grid.Column="0" FontSize="16">Garden Orc Omelette</Button>
         <Button Name="phillyPoacherButton"      Click="AddItemToOrder" Grid.Row="7" Grid.Column="0" FontSize="16">Philly Poacher</Button>
         <Button Name="thugsTBoneButton"         Click="AddItemToOrder" Grid.Row="8" Grid.Column="0" FontSize="16">Thugs T-Bone</Button>
         <!-- Drink Buttons -->

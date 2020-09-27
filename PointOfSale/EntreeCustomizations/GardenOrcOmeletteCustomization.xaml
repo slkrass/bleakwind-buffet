@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.GardenOrcOmletteCustomization"
+﻿<UserControl x:Class="PointOfSale.GardenOrcOmeletteCustomization"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,7 +20,7 @@
             <RowDefinition Height="58.5"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Garden Orc Omlette:</TextBlock>
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Garden Orc Omelette:</TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <CheckBox FontSize="16">Hold broccoli</CheckBox>
             <CheckBox FontSize="16">Hold mushrooms</CheckBox>

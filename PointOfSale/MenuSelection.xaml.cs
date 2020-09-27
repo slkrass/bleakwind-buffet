@@ -48,7 +48,7 @@ namespace PointOfSale
             else if (pressedButton.Name == "doubleDraugrButton")            menuContainer.menuBorder.Child = new DoubleDraugrCustomization(menuContainer);
             else if (pressedButton.Name == "thalmorTripleButton")           menuContainer.menuBorder.Child = new ThalmorTripleCustomization(menuContainer);
             else if (pressedButton.Name == "smokehouseSkeletonButton")      menuContainer.menuBorder.Child = new SmokehouseSkeletonCustomization(menuContainer);
-            else if (pressedButton.Name == "gardenOrcOmletteButton")        menuContainer.menuBorder.Child = new GardenOrcOmletteCustomization(menuContainer);
+            else if (pressedButton.Name == "gardenOrcOmeletteButton")       menuContainer.menuBorder.Child = new GardenOrcOmeletteCustomization(menuContainer);
             else if (pressedButton.Name == "phillyPoacherButton")           menuContainer.menuBorder.Child = new PhillyPoacherCustomization(menuContainer);
             else if (pressedButton.Name == "thugsTBoneButton")              menuContainer.menuBorder.Child = new ThugsTBoneCustomization(menuContainer);
             else if (pressedButton.Name == "sailorSodaButton")              menuContainer.menuBorder.Child = new SailorSodaCustomization(menuContainer);
