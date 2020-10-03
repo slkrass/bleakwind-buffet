@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -16,8 +17,10 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories,
     /// and special instructions for a Thugs T-Bone.
     /// </remarks>
-    public class ThugsTBone : Entree
+    public class ThugsTBone : Entree, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged; 
+
         /// <value>
         /// Gets the price of Thugs T-Bone
         /// </value>

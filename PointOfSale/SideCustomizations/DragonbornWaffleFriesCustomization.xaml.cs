@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -25,6 +27,7 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
+        private DragonbornWaffleFries fries;
 
         /// <summary>
         /// Constructor for the DragonbornWaffleFriesCustomization Class
@@ -33,7 +36,33 @@ namespace BleakwindBuffet.PointOfSale
         public DragonbornWaffleFriesCustomization(MenuContainer container)
         {
             InitializeComponent();
+            fries = new DragonbornWaffleFries();
+            DataContext = fries;
             menuContainer = container;
+        }
+
+        /// <summary>
+        /// Allows the DataContext's Size Property to be updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ChangedSize(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is DragonbornWaffleFries fries)
+            {
+                if ((bool)smallSize.IsChecked)
+                {
+                    fries.Size = Data.Enums.Size.Small;
+                }
+                else if ((bool)largeSize.IsChecked)
+                {
+                    fries.Size = Data.Enums.Size.Large;
+                }
+                else if ((bool)mediumSize.IsChecked)
+                {
+                    fries.Size = Data.Enums.Size.Medium;
+                }
+            }
         }
 
         /// <summary>

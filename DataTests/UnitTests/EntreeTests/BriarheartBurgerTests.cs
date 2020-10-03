@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -156,6 +158,58 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.Equal("Briarheart Burger", burger.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            BriarheartBurger burger = new BriarheartBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(burger);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingBunNotifiesBunProperty(bool bun)
+        {
+            BriarheartBurger burger = new BriarheartBurger();
+            Assert.PropertyChanged(burger, "Bun", () => burger.Bun = bun);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingKetchupNotifiesKetchupProperty(bool ketchup)
+        {
+            BriarheartBurger burger = new BriarheartBurger();
+            Assert.PropertyChanged(burger, "Ketchup", () => burger.Ketchup = ketchup);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingMustardNotifiesMustardProperty(bool mustard)
+        {
+            BriarheartBurger burger = new BriarheartBurger();
+            Assert.PropertyChanged(burger, "Mustard", () => burger.Mustard = mustard);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingPickleNotifiesPickleProperty(bool pickle)
+        {
+            BriarheartBurger burger = new BriarheartBurger();
+            Assert.PropertyChanged(burger, "Pickle", () => burger.Pickle = pickle);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingCheeseNotifiesCheeseProperty(bool cheese)
+        {
+            BriarheartBurger burger = new BriarheartBurger();
+            Assert.PropertyChanged(burger, "Cheese", () => burger.Cheese = cheese);
         }
     }
 }

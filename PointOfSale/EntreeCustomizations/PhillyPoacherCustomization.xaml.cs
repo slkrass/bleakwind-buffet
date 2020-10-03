@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -26,6 +28,7 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
+        private PhillyPoacher philly;
 
         /// <summary>
         /// Constructor for the PhillyPoacherCustomization Class
@@ -34,6 +37,8 @@ namespace BleakwindBuffet.PointOfSale
         public PhillyPoacherCustomization(MenuContainer container)
         {
             InitializeComponent();
+            philly = new PhillyPoacher();
+            DataContext = philly;
             menuContainer = container;
         }
 

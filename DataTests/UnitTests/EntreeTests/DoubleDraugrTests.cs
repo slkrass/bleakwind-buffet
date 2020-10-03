@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -216,5 +218,88 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             DoubleDraugr burger = new DoubleDraugr();
             Assert.Equal("Double Draugr", burger.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(burger);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingBunNotifiesBunProperty(bool bun)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Bun", () => burger.Bun = bun);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingKetchupNotifiesKetchupProperty(bool ketchup)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Ketchup", () => burger.Ketchup = ketchup);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingMustardNotifiesMustardProperty(bool mustard)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Mustard", () => burger.Mustard = mustard);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingPickleNotifiesPickleProperty(bool pickle)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Pickle", () => burger.Pickle = pickle);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingCheeseNotifiesCheeseProperty(bool cheese)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Cheese", () => burger.Cheese = cheese);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingTomatoNotifiesTomatoProperty(bool tomato)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Tomato", () => burger.Tomato = tomato);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingLettuceNotifiesLettuceProperty(bool lettuce)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Lettuce", () => burger.Lettuce = lettuce);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingMayoNotifiesMayoProperty(bool mayo)
+        {
+            DoubleDraugr burger = new DoubleDraugr();
+            Assert.PropertyChanged(burger, "Mayo", () => burger.Mayo = mayo);
+        }
+
+
+
+
     }
 }

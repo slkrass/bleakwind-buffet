@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 
 namespace BleakwindBuffet.Data.Sides
@@ -18,8 +19,10 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Fried Miraak.
     /// </remarks>
-    public class FriedMiraak : Side
+    public class FriedMiraak : Side, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /* Private variable declaration for the Fried Miraak */
         private double price = 1.78;    // The price of Fried Miraak
         private uint calories = 151;    // The calories of the Fried Miraak
@@ -66,6 +69,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 

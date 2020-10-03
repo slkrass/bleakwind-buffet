@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -16,8 +17,10 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories, sirloin, onion, roll, 
     /// and special instructions for a Philly Poacher.
     /// </remarks>
-    public class PhillyPoacher : Entree
+    public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /* Private variable declaration for the Philly Poacher */
         private bool sirloin = true;    // Holds whether or not there is sirloin on the Philly Poacher
         private bool onion = true;      // Holds whether or not there onion for the Philly Poacher
@@ -46,6 +49,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -62,6 +67,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -78,6 +85,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

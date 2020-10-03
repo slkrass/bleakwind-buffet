@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -27,6 +29,8 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
 
+        private ThugsTBone tBone;
+
         /// <summary>
         /// Constructor for the ThugsTBoneCustomization Class
         /// </summary>
@@ -34,6 +38,8 @@ namespace BleakwindBuffet.PointOfSale
         public ThugsTBoneCustomization(MenuContainer container)
         {
             InitializeComponent();
+            tBone = new ThugsTBone();
+            DataContext = tBone;
             menuContainer = container;
         }
 

@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -137,6 +139,49 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", omelette.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(omelette);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingBroccoliNotifiesBroccoliProperty(bool broc)
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.PropertyChanged(omelette, "Broccoli", () => omelette.Broccoli = broc);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingMushroomsNotifiesMushroomsProperty(bool mushrooms)
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.PropertyChanged(omelette, "Mushrooms", () => omelette.Mushrooms = mushrooms);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingTomatoNotifiesTomatoProperty(bool tomato)
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.PropertyChanged(omelette, "Tomato", () => omelette.Tomato = tomato);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingCheddarNotifiesCheddarProperty(bool cheddar)
+        {
+            GardenOrcOmelette omelette = new GardenOrcOmelette();
+            Assert.PropertyChanged(omelette, "Cheddar", () => omelette.Cheddar = cheddar);
         }
     }
 }

@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -138,5 +140,49 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", skeleton.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(skeleton);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingSausageNotifiesSausageProperty(bool sausage)
+        {
+            SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
+            Assert.PropertyChanged(skeleton, "SausageLink", () => skeleton.SausageLink = sausage);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingEggNotifiesEggProperty(bool egg)
+        {
+            SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
+            Assert.PropertyChanged(skeleton, "Egg", () => skeleton.Egg = egg);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingHashBrownsNotifiesHashBrownsProperty(bool hash)
+        {
+            SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
+            Assert.PropertyChanged(skeleton, "HashBrowns", () => skeleton.HashBrowns = hash);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingPancakeNotifiesPancakeProperty(bool pancake)
+        {
+            SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
+            Assert.PropertyChanged(skeleton, "Pancake", () => skeleton.Pancake = pancake);
+        }
+
     }
 }

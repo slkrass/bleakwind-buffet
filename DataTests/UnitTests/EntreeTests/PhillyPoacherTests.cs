@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -118,6 +120,40 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.Equal("Philly Poacher", philly.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            PhillyPoacher philly = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(philly);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingSirloinNotifiesSirloinProperty(bool sir)
+        {
+            PhillyPoacher philly = new PhillyPoacher();
+            Assert.PropertyChanged(philly, "Sirloin", () => philly.Sirloin = sir);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingOnionsNotifiesOnionsProperty(bool onion)
+        {
+            PhillyPoacher philly = new PhillyPoacher();
+            Assert.PropertyChanged(philly, "Onion", () => philly.Onion = onion);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingRollNotifiesRollProperty(bool roll)
+        {
+            PhillyPoacher philly = new PhillyPoacher();
+            Assert.PropertyChanged(philly, "Roll", () => philly.Roll = roll);
         }
     }
 }

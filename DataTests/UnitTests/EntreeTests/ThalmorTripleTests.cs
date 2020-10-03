@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -253,6 +255,103 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple burger = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", burger.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(burger);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingBunNotifiesBunProperty(bool bun)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Bun", () => burger.Bun = bun);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingKetchupNotifiesKetchupProperty(bool ketchup)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Ketchup", () => burger.Ketchup = ketchup);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingMustardNotifiesMustardProperty(bool mustard)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Mustard", () => burger.Mustard = mustard);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingPickleNotifiesPickleProperty(bool pickle)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Pickle", () => burger.Pickle = pickle);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingCheeseNotifiesCheeseProperty(bool cheese)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Cheese", () => burger.Cheese = cheese);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingTomatoNotifiesTomatoProperty(bool tomato)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Tomato", () => burger.Tomato = tomato);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingLettuceNotifiesLettuceProperty(bool lettuce)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Lettuce", () => burger.Lettuce = lettuce);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingMayoNotifiesMayoProperty(bool mayo)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Mayo", () => burger.Mayo = mayo);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingEggNotifiesEggProperty(bool egg)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Egg", () => burger.Egg = egg);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingBaconNotifiesBaconProperty(bool bacon)
+        {
+            ThalmorTriple burger = new ThalmorTriple();
+            Assert.PropertyChanged(burger, "Bacon", () => burger.Bacon = bacon);
         }
     }
 }

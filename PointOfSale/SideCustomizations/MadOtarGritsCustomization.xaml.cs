@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -26,6 +28,7 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
+        private MadOtarGrits madGrits;
 
         /// <summary>
         /// Constructor for the MadOtarGritsCustomization Class
@@ -34,7 +37,33 @@ namespace BleakwindBuffet.PointOfSale
         public MadOtarGritsCustomization(MenuContainer container)
         {
             InitializeComponent();
+            madGrits = new MadOtarGrits();
+            DataContext = madGrits;
             menuContainer = container;
+        }
+
+        /// <summary>
+        /// Allows the DataContext's Size Property to be updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ChangedSize(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MadOtarGrits grits)
+            {
+                if ((bool)smallSize.IsChecked)
+                {
+                    grits.Size = Data.Enums.Size.Small;
+                }
+                else if ((bool)largeSize.IsChecked)
+                {
+                    grits.Size = Data.Enums.Size.Large;
+                }
+                else if ((bool)mediumSize.IsChecked)
+                {
+                    grits.Size = Data.Enums.Size.Medium;
+                }
+            }
         }
 
         /// <summary>

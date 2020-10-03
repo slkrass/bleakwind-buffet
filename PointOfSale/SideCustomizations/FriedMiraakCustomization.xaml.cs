@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -25,6 +27,7 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
+        private FriedMiraak miraak;
 
         /// <summary>
         /// Constructor for the FriedMiraakCustomization Class
@@ -33,7 +36,33 @@ namespace BleakwindBuffet.PointOfSale
         public FriedMiraakCustomization(MenuContainer container)
         {
             InitializeComponent();
+            miraak = new FriedMiraak();
+            DataContext = miraak;
             menuContainer = container;
+        }
+
+        /// <summary>
+        /// Allows the DataContext's Size Property to be updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ChangedSize(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is FriedMiraak miraak)
+            {
+                if ((bool)smallSize.IsChecked)
+                {
+                    miraak.Size = Data.Enums.Size.Small;
+                }
+                else if ((bool)largeSize.IsChecked)
+                {
+                    miraak.Size = Data.Enums.Size.Large;
+                }
+                else if ((bool)mediumSize.IsChecked)
+                {
+                    miraak.Size = Data.Enums.Size.Medium;
+                }
+            }
         }
 
         /// <summary>

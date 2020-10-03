@@ -44,7 +44,7 @@
         <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Width="75"/>
         
         <!-- Special Instruction Controls -->
-        <CheckBox  IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Add Ice</CheckBox>
+        <CheckBox IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Add Ice</CheckBox>
         
         
         

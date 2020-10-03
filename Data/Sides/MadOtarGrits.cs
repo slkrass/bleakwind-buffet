@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 
 namespace BleakwindBuffet.Data.Sides
@@ -18,8 +19,10 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Mad Otar Grits.
     /// </remarks>
-    public class MadOtarGrits : Side
+    public class MadOtarGrits : Side, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /* Private variable declaration for the Mad Otar Grits */
         private double price = 1.22;    // The price of Mad Otar Grits
         private uint calories = 105;    // The calories of the Mad Otar Grits
@@ -66,6 +69,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 
