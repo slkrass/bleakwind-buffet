@@ -46,7 +46,7 @@
 
         <!-- Special Instruction Controls -->
         <CheckBox  IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Add Ice</CheckBox>
-        <CheckBox  IsChecked="{Binding Path= RoomForCream}" Grid.Column="0" Grid.Row="2" FontSize="16">Add Cream</CheckBox>
+        <CheckBox  IsChecked="{Binding Path= !RoomForCream}" Grid.Column="0" Grid.Row="2" FontSize="16">Add Cream</CheckBox>
 
 
         <!-- Image for Decaf(?) -->

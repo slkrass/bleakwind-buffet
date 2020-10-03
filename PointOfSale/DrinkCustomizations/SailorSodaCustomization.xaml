@@ -43,7 +43,7 @@
         <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Height="60"/>
         
         <!-- Special Instruction Controls -->
-        <CheckBox  IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold Ice</CheckBox>
+        <CheckBox  IsChecked="{Binding Path= !Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold Ice</CheckBox>
         
         <!-- Images For Flavors -->
         <Image Source="../Images/blackberry.jpg"    Grid.Column="2"     Grid.Row="1" VerticalAlignment="Bottom" Height="60"/>
