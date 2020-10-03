@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
 
@@ -24,39 +26,40 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        <!-- Heading -->
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Sailor Soda Customization:</TextBlock>
 
+        <!-- Images For Sizes -->
         <Image Source="../Images/soda.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Height="45"/>
-        <RadioButton  GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
-
         <Image Source="../Images/soda.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Height="55"/>
-        <RadioButton  GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
-
         <Image Source="../Images/soda.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Height="65"/>
-        <RadioButton  GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
-
+        
+        <!-- Size Controls -->
+        <RadioButton  Name="smallSize"  Click="ChangedSize" IsChecked="True" GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
+        <RadioButton  Name="mediumSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
+        <RadioButton  Name="largeSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
+        
+        <!-- Images For SpecialInstructions -->
         <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Height="60"/>
-        <CheckBox  Grid.Column="0" Grid.Row="1" FontSize="16">Hold Ice</CheckBox>
-
-
+        
+        <!-- Special Instruction Controls -->
+        <CheckBox  IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold Ice</CheckBox>
+        
+        <!-- Images For Flavors -->
         <Image Source="../Images/blackberry.jpg"    Grid.Column="2"     Grid.Row="1" VerticalAlignment="Bottom" Height="60"/>
-        <RadioButton  GroupName="Flavor"            Grid.Column="2"     Grid.Row="1" FontSize="16">Blackberry</RadioButton>
-
         <Image Source="../Images/cherry.jpg"        Grid.Column="2"     Grid.Row="2" VerticalAlignment="Bottom" Height="60" />
-        <RadioButton  GroupName="Flavor"            Grid.Column="2"     Grid.Row="2" FontSize="16">Cherry</RadioButton>
-
         <Image Source="../Images/grapefruit.jpg"    Grid.Column="2"     Grid.Row="3" VerticalAlignment="Bottom" Height="60"/>
-        <RadioButton  GroupName="Flavor"            Grid.Column="2"     Grid.Row="3" FontSize="16">Grapefruit</RadioButton>
-
         <Image Source="../Images/lemon.jpg"         Grid.Column="2"     Grid.Row="4" VerticalAlignment="Bottom" Height="60"/>
-        <RadioButton  GroupName="Flavor"            Grid.Column="2"     Grid.Row="4" FontSize="16">Lemon</RadioButton>
-
         <Image Source="../Images/peach.jpg"         Grid.Column="2"     Grid.Row="5" VerticalAlignment="Bottom" Height="55"/>
-        <RadioButton  GroupName="Flavor"            Grid.Column="2"     Grid.Row="5" FontSize="16">Peach</RadioButton>
-
         <Image Source="../Images/watermelon.jpg"    Grid.Column="2"     Grid.Row="6" VerticalAlignment="Bottom" Height="55"/>
-        <RadioButton  GroupName="Flavor"            Grid.Column="2"     Grid.Row="6" FontSize="16">Watermelon</RadioButton>
+        
+        <!-- Flavor Controls -->
+        <RadioButton  Name="Blackberry"  Click="ChangedFlavor" GroupName="Flavor"  Grid.Column="2"     Grid.Row="1" FontSize="16">Blackberry</RadioButton>
+        <RadioButton  Name="Cherry"  Click="ChangedFlavor" IsChecked="True" GroupName="Flavor"            Grid.Column="2"     Grid.Row="2" FontSize="16">Cherry</RadioButton>
+        <RadioButton  Name="Grapefruit"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="3" FontSize="16">Grapefruit</RadioButton>
+        <RadioButton  Name="Lemon"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="4" FontSize="16">Lemon</RadioButton>
+        <RadioButton  Name="Peach"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="5" FontSize="16">Peach</RadioButton>
+        <RadioButton  Name="Watermelon"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="6" FontSize="16">Watermelon</RadioButton>
 
 
         <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>

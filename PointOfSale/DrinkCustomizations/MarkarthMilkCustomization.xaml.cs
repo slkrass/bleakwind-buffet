@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -25,6 +26,7 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
+        private MarkarthMilk milk;
 
         /// <summary>
         /// Constructor for the MarkarthMilkCustomization Class
@@ -33,7 +35,33 @@ namespace BleakwindBuffet.PointOfSale
         public MarkarthMilkCustomization(MenuContainer container)
         {
             InitializeComponent();
+            milk = new MarkarthMilk();
+            DataContext = milk;
             menuContainer = container;
+        }
+
+        /// <summary>
+        /// Allows the DataContext's Size Property to be updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ChangedSize(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MarkarthMilk milk)
+            {
+                if ((bool)smallSize.IsChecked)
+                {
+                    milk.Size = Data.Enums.Size.Small;
+                }
+                else if ((bool)largeSize.IsChecked)
+                {
+                    milk.Size = Data.Enums.Size.Large;
+                }
+                else if ((bool)mediumSize.IsChecked)
+                {
+                    milk.Size = Data.Enums.Size.Medium;
+                }
+            }
         }
 
         /// <summary>

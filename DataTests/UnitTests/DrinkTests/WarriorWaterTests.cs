@@ -10,6 +10,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -136,6 +137,42 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater water = new WarriorWater();
             water.Size = size;
             Assert.Equal(name, water.ToString());
+        }
+
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(water);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotifiesSizeProperty(Size size)
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.PropertyChanged(water, "Size", () => water.Size = size);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingIceNotifiesIceProperty(bool ice)
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.PropertyChanged(water, "Ice", () => water.Ice = ice);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingLemonNotifiesLemonProperty(bool lemon)
+        {
+            WarriorWater water = new WarriorWater();
+            Assert.PropertyChanged(water, "Lemon", () => water.Lemon = lemon);
         }
     }
 }

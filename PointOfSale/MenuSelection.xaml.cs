@@ -43,23 +43,25 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddItemToOrder(object sender, RoutedEventArgs e)
         {
-            Button pressedButton = (Button)sender;
-            if (pressedButton.Name == "briarheartBurgerButton")             menuContainer.menuBorder.Child = new BriarheartBurgerCustomization(menuContainer);
-            else if (pressedButton.Name == "doubleDraugrButton")            menuContainer.menuBorder.Child = new DoubleDraugrCustomization(menuContainer);
-            else if (pressedButton.Name == "thalmorTripleButton")           menuContainer.menuBorder.Child = new ThalmorTripleCustomization(menuContainer);
-            else if (pressedButton.Name == "smokehouseSkeletonButton")      menuContainer.menuBorder.Child = new SmokehouseSkeletonCustomization(menuContainer);
-            else if (pressedButton.Name == "gardenOrcOmeletteButton")       menuContainer.menuBorder.Child = new GardenOrcOmeletteCustomization(menuContainer);
-            else if (pressedButton.Name == "phillyPoacherButton")           menuContainer.menuBorder.Child = new PhillyPoacherCustomization(menuContainer);
-            else if (pressedButton.Name == "thugsTBoneButton")              menuContainer.menuBorder.Child = new ThugsTBoneCustomization(menuContainer);
-            else if (pressedButton.Name == "sailorSodaButton")              menuContainer.menuBorder.Child = new SailorSodaCustomization(menuContainer);
-            else if (pressedButton.Name == "markarthMilkButton")            menuContainer.menuBorder.Child = new MarkarthMilkCustomization(menuContainer);
-            else if (pressedButton.Name == "aretinoAppleJuiceButton")       menuContainer.menuBorder.Child = new AretinoAppleJuiceCustomization(menuContainer);
-            else if (pressedButton.Name == "candlehearthCoffeeButton")      menuContainer.menuBorder.Child = new CandlehearthCoffeeCustomization(menuContainer);
-            else if (pressedButton.Name == "warriorWaterButton")            menuContainer.menuBorder.Child = new WarriorWaterCustomization(menuContainer);
-            else if (pressedButton.Name == "vokunSaladButton")              menuContainer.menuBorder.Child = new VokunSaladCustomization(menuContainer);
-            else if (pressedButton.Name == "friedMiraakButton")             menuContainer.menuBorder.Child = new FriedMiraakCustomization(menuContainer);
-            else if (pressedButton.Name == "madOtarGritsButton")            menuContainer.menuBorder.Child = new MadOtarGritsCustomization(menuContainer);
-            else if (pressedButton.Name == "dragonbornWaffleFriesButton")   menuContainer.menuBorder.Child = new DragonbornWaffleFriesCustomization(menuContainer);
+            if (sender is Button pressedButton)
+            {
+                if (pressedButton.Name == "briarheartBurgerButton") menuContainer.menuBorder.Child = new BriarheartBurgerCustomization(menuContainer);
+                else if (pressedButton.Name == "doubleDraugrButton") menuContainer.menuBorder.Child = new DoubleDraugrCustomization(menuContainer);
+                else if (pressedButton.Name == "thalmorTripleButton") menuContainer.menuBorder.Child = new ThalmorTripleCustomization(menuContainer);
+                else if (pressedButton.Name == "smokehouseSkeletonButton") menuContainer.menuBorder.Child = new SmokehouseSkeletonCustomization(menuContainer);
+                else if (pressedButton.Name == "gardenOrcOmeletteButton") menuContainer.menuBorder.Child = new GardenOrcOmeletteCustomization(menuContainer);
+                else if (pressedButton.Name == "phillyPoacherButton") menuContainer.menuBorder.Child = new PhillyPoacherCustomization(menuContainer);
+                else if (pressedButton.Name == "thugsTBoneButton") menuContainer.menuBorder.Child = new ThugsTBoneCustomization(menuContainer);
+                else if (pressedButton.Name == "sailorSodaButton") menuContainer.menuBorder.Child = new SailorSodaCustomization(menuContainer);
+                else if (pressedButton.Name == "markarthMilkButton") menuContainer.menuBorder.Child = new MarkarthMilkCustomization(menuContainer);
+                else if (pressedButton.Name == "aretinoAppleJuiceButton") menuContainer.menuBorder.Child = new AretinoAppleJuiceCustomization(menuContainer);
+                else if (pressedButton.Name == "candlehearthCoffeeButton") menuContainer.menuBorder.Child = new CandlehearthCoffeeCustomization(menuContainer);
+                else if (pressedButton.Name == "warriorWaterButton") menuContainer.menuBorder.Child = new WarriorWaterCustomization(menuContainer);
+                else if (pressedButton.Name == "vokunSaladButton") menuContainer.menuBorder.Child = new VokunSaladCustomization(menuContainer);
+                else if (pressedButton.Name == "friedMiraakButton") menuContainer.menuBorder.Child = new FriedMiraakCustomization(menuContainer);
+                else if (pressedButton.Name == "madOtarGritsButton") menuContainer.menuBorder.Child = new MadOtarGritsCustomization(menuContainer);
+                else if (pressedButton.Name == "dragonbornWaffleFriesButton") menuContainer.menuBorder.Child = new DragonbornWaffleFriesCustomization(menuContainer);
+            }
         }
     }
 }

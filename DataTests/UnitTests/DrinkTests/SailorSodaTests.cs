@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -159,5 +160,45 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             soda.Size = size;
             Assert.Equal(name, soda.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            SailorSoda soda = new SailorSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(soda);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotifiesSizeProperty(Size size)
+        {
+            SailorSoda soda = new SailorSoda();
+            Assert.PropertyChanged(soda, "Size", () => soda.Size = size);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingIceNotifiesIceProperty(bool ice)
+        {
+            SailorSoda soda = new SailorSoda();
+            Assert.PropertyChanged(soda, "Ice", () => soda.Ice = ice);
+        }
+
+        [Theory]
+        [InlineData(SodaFlavor.Blackberry)]
+        [InlineData(SodaFlavor.Cherry)]
+        [InlineData(SodaFlavor.Grapefruit)]
+        [InlineData(SodaFlavor.Lemon)]
+        [InlineData(SodaFlavor.Peach)]
+        [InlineData(SodaFlavor.Watermelon)]
+        public void ChangingFlavorNotifiesFlavorProperty(SodaFlavor flavor)
+        {
+            SailorSoda soda = new SailorSoda();
+            Assert.PropertyChanged(soda, "Flavor", () => soda.Flavor = flavor);
+        }
+
     }
 }

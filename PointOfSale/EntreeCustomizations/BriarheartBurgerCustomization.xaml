@@ -26,6 +26,14 @@
         </Grid.RowDefinitions>
         
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Briarheart Burger Customization:</TextBlock>
+
+        <!-- Images For Sizes -->
+
+        <!-- Size Controls -->
+
+        <!-- Images For SpecialInstructions -->
+
+        <!-- Special Instruction Controls -->
         <Image Source="../Images/ketchup.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Height="50"/>
         <CheckBox Grid.Column="0" Grid.Row="1" FontSize="16">Hold ketchup</CheckBox>
 

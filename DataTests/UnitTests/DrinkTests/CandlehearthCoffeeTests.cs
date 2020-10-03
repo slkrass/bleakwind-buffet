@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -163,6 +164,50 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             coffee.Decaf = decaf;
             coffee.Size = size;
             Assert.Equal(name, coffee.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAnINofityPropertyChanged()
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(coffee);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeNotifiesSizeProperty(Size size)
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            Assert.PropertyChanged(coffee, "Size", () => coffee.Size = size);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingIceNotifiesIceProperty(bool ice)
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            Assert.PropertyChanged(coffee, "Ice", () => coffee.Ice = ice);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingCreamNotifiesRoomForCreamProperty(bool cream)
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            Assert.PropertyChanged(coffee, "RoomForCream", () => coffee.RoomForCream = cream);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ChangingDecafNotifiesDecafProperty(bool decaf)
+        {
+            CandlehearthCoffee coffee = new CandlehearthCoffee();
+            Assert.PropertyChanged(coffee, "Decaf", () => coffee.Decaf = decaf);
         }
     }
 }

@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
 
@@ -24,18 +26,24 @@
             <RowDefinition/>
             <RowDefinition Height="58.5"/>
         </Grid.RowDefinitions>
-
+        <!-- Heading -->
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Markarth Milk Customization:</TextBlock>
 
+        <!-- Images For Sizes -->
         <Image Source="../Images/milk.jpg" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Height="45"/>
-        <RadioButton  GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
         <Image Source="../Images/milk.jpg" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Height="55"/>
-        <RadioButton  GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
         <Image Source="../Images/milk.jpg" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Height="65"/>
-        <RadioButton  GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
-
+        
+        <!-- Size Controls -->
+        <RadioButton  Name="smallSize"  Click="ChangedSize" IsChecked="True" GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
+        <RadioButton  Name="mediumSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
+        <RadioButton  Name="largeSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
+        
+        <!-- Images For SpecialInstructions -->
         <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Width="75"/>
-        <CheckBox  Grid.Column="0" Grid.Row="1" FontSize="16">Add Ice</CheckBox>
+        
+        <!-- Special Instruction Controls -->
+        <CheckBox  IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Add Ice</CheckBox>
 
 
         <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>

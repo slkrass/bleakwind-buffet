@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
+using System.Net.Http.Headers;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -17,9 +19,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// This class keeps track of the price, calories, size, ice, 
     /// and special instructions for an Aretino Apple Juice.
     /// </remarks>
-    public class AretinoAppleJuice : Drink
+    public class AretinoAppleJuice : Drink, INotifyPropertyChanged
     {
-        /* Private variable declaration for the Aretino Apple Juice */    
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /* Private variable declaration for the Aretino Apple Juice */
         private double price = 0.62;    // The price of Aretino Apple Juice
         private uint calories = 44;     // The calories of the Aretino Apple Juice
         private Size size = Size.Small; // The size of Aretino Apple Juice
@@ -66,6 +70,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -82,6 +89,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
+               
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

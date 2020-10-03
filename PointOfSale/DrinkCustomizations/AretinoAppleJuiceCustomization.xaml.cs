@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -26,6 +28,8 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
 
+        private AretinoAppleJuice appleJuice;
+
         /// <summary>
         /// Constructor for the AretinoAppleJuiceCustomization Class
         /// </summary>
@@ -33,7 +37,33 @@ namespace BleakwindBuffet.PointOfSale
         public AretinoAppleJuiceCustomization(MenuContainer container)
         {
             InitializeComponent();
+            appleJuice = new AretinoAppleJuice();
+            DataContext = appleJuice;
             menuContainer = container;
+        }
+
+        /// <summary>
+        /// Allows the DataContext's Size Property to be updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ChangedSize(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is AretinoAppleJuice aj)
+            {
+                if((bool)smallSize.IsChecked)
+                {
+                    aj.Size = Data.Enums.Size.Small;
+                }
+                else if ((bool)largeSize.IsChecked)
+                {
+                    aj.Size = Data.Enums.Size.Large;
+                }
+                else if((bool) mediumSize.IsChecked)
+                {
+                    aj.Size = Data.Enums.Size.Medium;
+                }
+            }
         }
 
         /// <summary>
