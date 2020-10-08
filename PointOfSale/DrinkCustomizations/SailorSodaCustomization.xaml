@@ -8,7 +8,29 @@
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="sizes" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="flavors" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:SodaFlavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="0,30,0,30"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -33,12 +55,10 @@
         <Image Source="../Images/soda.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Height="45"/>
         <Image Source="../Images/soda.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Height="55"/>
         <Image Source="../Images/soda.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Height="65"/>
-        
+
         <!-- Size Controls -->
-        <RadioButton  Name="smallSize"  Click="ChangedSize" IsChecked="True" GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
-        <RadioButton  Name="mediumSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
-        <RadioButton  Name="largeSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
-        
+        <ListBox BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Source={StaticResource sizes}}" SelectedItem="{Binding Path=Size}" Grid.Row="1"  Grid.RowSpan="4" Grid.Column="1" FontSize="16"/>
+
         <!-- Images For SpecialInstructions -->
         <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Height="60"/>
         
@@ -46,20 +66,15 @@
         <CheckBox  IsChecked="{Binding Path= !Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold Ice</CheckBox>
         
         <!-- Images For Flavors -->
-        <Image Source="../Images/blackberry.jpg"    Grid.Column="2"     Grid.Row="1" VerticalAlignment="Bottom" Height="60"/>
-        <Image Source="../Images/cherry.jpg"        Grid.Column="2"     Grid.Row="2" VerticalAlignment="Bottom" Height="60" />
-        <Image Source="../Images/grapefruit.jpg"    Grid.Column="2"     Grid.Row="3" VerticalAlignment="Bottom" Height="60"/>
-        <Image Source="../Images/lemon.jpg"         Grid.Column="2"     Grid.Row="4" VerticalAlignment="Bottom" Height="60"/>
-        <Image Source="../Images/peach.jpg"         Grid.Column="2"     Grid.Row="5" VerticalAlignment="Bottom" Height="55"/>
-        <Image Source="../Images/watermelon.jpg"    Grid.Column="2"     Grid.Row="6" VerticalAlignment="Bottom" Height="55"/>
+        <Image Source="../Images/blackberry.jpg"    Grid.Column="2"     Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="60"/>
+        <Image Source="../Images/cherry.jpg"        Grid.Column="2"     Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="60" />
+        <Image Source="../Images/grapefruit.jpg"    Grid.Column="2"     Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="60"/>
+        <Image Source="../Images/lemon.jpg"         Grid.Column="2"     Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="60"/>
+        <Image Source="../Images/peach.jpg"         Grid.Column="2"     Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Height="55"/>
+        <Image Source="../Images/watermelon.jpg"    Grid.Column="2"     Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="55"/>
         
         <!-- Flavor Controls -->
-        <RadioButton  Name="Blackberry"  Click="ChangedFlavor" GroupName="Flavor"  Grid.Column="2"     Grid.Row="1" FontSize="16">Blackberry</RadioButton>
-        <RadioButton  Name="Cherry"  Click="ChangedFlavor" IsChecked="True" GroupName="Flavor"            Grid.Column="2"     Grid.Row="2" FontSize="16">Cherry</RadioButton>
-        <RadioButton  Name="Grapefruit"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="3" FontSize="16">Grapefruit</RadioButton>
-        <RadioButton  Name="Lemon"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="4" FontSize="16">Lemon</RadioButton>
-        <RadioButton  Name="Peach"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="5" FontSize="16">Peach</RadioButton>
-        <RadioButton  Name="Watermelon"  Click="ChangedFlavor" GroupName="Flavor"            Grid.Column="2"     Grid.Row="6" FontSize="16">Watermelon</RadioButton>
+        <ListBox BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Source={StaticResource flavors}}" SelectedItem="{Binding Path=Flavor}" Grid.Row="0"  Grid.RowSpan="8" Grid.Column="2" FontSize="16"/>
 
 
         <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>

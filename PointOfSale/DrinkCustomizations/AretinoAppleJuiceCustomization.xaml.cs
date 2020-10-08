@@ -43,30 +43,6 @@ namespace BleakwindBuffet.PointOfSale
         }
 
         /// <summary>
-        /// Allows the DataContext's Size Property to be updated
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ChangedSize(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is AretinoAppleJuice aj)
-            {
-                if((bool)smallSize.IsChecked)
-                {
-                    aj.Size = Data.Enums.Size.Small;
-                }
-                else if ((bool)largeSize.IsChecked)
-                {
-                    aj.Size = Data.Enums.Size.Large;
-                }
-                else if((bool) mediumSize.IsChecked)
-                {
-                    aj.Size = Data.Enums.Size.Medium;
-                }
-            }
-        }
-
-        /// <summary>
         /// Allows the special instructions and size to be recorded 
         /// </summary>
         /// <param name="sender"></param>

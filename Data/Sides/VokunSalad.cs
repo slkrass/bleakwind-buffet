@@ -19,9 +19,8 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Vokun Salad.
     /// </remarks>
-    public class VokunSalad : Side, INotifyPropertyChanged
+    public class VokunSalad : Side
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private variable declaration for the Vokun Salad */
         private double price = 0.93;    // The price of Vokun Salad
@@ -69,9 +68,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
         }
 

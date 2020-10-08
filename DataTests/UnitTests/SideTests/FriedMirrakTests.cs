@@ -100,10 +100,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             FriedMiraak fm = new FriedMiraak();
             Assert.PropertyChanged(fm, "Size", () => fm.Size = size);
+            Assert.PropertyChanged(fm, "Calories", () => fm.Size = size);
+            Assert.PropertyChanged(fm, "Price", () => fm.Size = size);
         }
     }
 }

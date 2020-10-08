@@ -8,7 +8,24 @@
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="sizes" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="0,30,0,30"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -36,9 +53,7 @@
         <Image Source="../Images/coffee.jpg" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Height="60"/>
 
         <!-- Size Controls -->
-        <RadioButton  Name="smallSize"  Click="ChangedSize" IsChecked="True" GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
-        <RadioButton  Name="mediumSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
-        <RadioButton  Name="largeSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
+        <ListBox BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Source={StaticResource sizes}}" SelectedItem="{Binding Path=Size}" Grid.Row="1"  Grid.RowSpan="4" Grid.Column="1" FontSize="16"/>
         
         <!-- Images For SpecialInstructions -->
         <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Width="75"/>

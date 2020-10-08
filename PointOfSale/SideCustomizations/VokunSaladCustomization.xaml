@@ -8,7 +8,24 @@
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="sizes" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="0,30,0,30"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,14 +47,12 @@
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Vokun Salad Customization:</TextBlock>
 
         <!-- Images For Sizes -->
-        <Image Source="../Images/fruitSalad.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Height="40"/>
-        <Image Source="../Images/fruitSalad.jpg"  VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Height="50"/>
-        <Image Source="../Images/fruitSalad.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Height="60"/>
+        <Image Source="../Images/fruitSalad.jpg" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Height="40"/>
+        <Image Source="../Images/fruitSalad.jpg"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Height="50"/>
+        <Image Source="../Images/fruitSalad.jpg" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" Height="60"/>
 
         <!-- Size Controls -->
-        <RadioButton  Name="smallSize"  Click="ChangedSize" IsChecked="True" GroupName="Size" Grid.Column ="1" Grid.Row="1" FontSize="16">Small</RadioButton>
-        <RadioButton  Name="mediumSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="2" FontSize="16">Medium</RadioButton>
-        <RadioButton  Name="largeSize"  Click="ChangedSize" GroupName="Size" Grid.Column ="1" Grid.Row="3" FontSize="16">Large</RadioButton>
+        <ListBox BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Source={StaticResource sizes}}" SelectedItem="{Binding Path=Size}" Grid.Row="1"  Grid.RowSpan="4" Grid.Column="1" FontSize="16"/>
 
 
         <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>

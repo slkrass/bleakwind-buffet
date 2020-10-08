@@ -151,37 +151,41 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingBroccoliNotifiesBroccoliProperty(bool broc)
+        public void ChangingBroccoliNotifiesBroccoliANDSpecialInstructionsProperty(bool broc)
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Broccoli", () => omelette.Broccoli = broc);
+            Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Broccoli = broc);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingMushroomsNotifiesMushroomsProperty(bool mushrooms)
+        public void ChangingMushroomsNotifiesMushroomsANDSpecialInstructionsProperty(bool mushrooms)
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Mushrooms", () => omelette.Mushrooms = mushrooms);
+            Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Mushrooms = mushrooms);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingTomatoNotifiesTomatoProperty(bool tomato)
+        public void ChangingTomatoNotifiesTomatoANDSpecialInstructionsProperty(bool tomato)
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Tomato", () => omelette.Tomato = tomato);
+            Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Tomato = tomato);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingCheddarNotifiesCheddarProperty(bool cheddar)
+        public void ChangingCheddarNotifiesCheddarANDSpecialInstructionsProperty(bool cheddar)
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Cheddar", () => omelette.Cheddar = cheddar);
+            Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Cheddar = cheddar);
         }
     }
 }

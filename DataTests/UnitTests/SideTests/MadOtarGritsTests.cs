@@ -99,10 +99,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             MadOtarGrits grits = new MadOtarGrits();
             Assert.PropertyChanged(grits, "Size", () => grits.Size = size);
+            Assert.PropertyChanged(grits, "Calories", () => grits.Size = size);
+            Assert.PropertyChanged(grits, "Price", () => grits.Size = size);
         }
     }
 }

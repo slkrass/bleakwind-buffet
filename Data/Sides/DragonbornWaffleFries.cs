@@ -19,9 +19,8 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Dragonborn Waffle Fries.
     /// </remarks>
-    public class DragonbornWaffleFries : Side, INotifyPropertyChanged
+    public class DragonbornWaffleFries : Side
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private variable declaration for the Dragonborn Waffle Fries */
         private double price = 0.42;        // The price of Dragonborn Waffle Fries
@@ -69,9 +68,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
         }
 

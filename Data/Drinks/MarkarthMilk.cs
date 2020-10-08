@@ -18,9 +18,8 @@ namespace BleakwindBuffet.Data.Drinks
     /// This class keeps track of the price, calories, size, ice, 
     /// and special instructions for a Markarth Milk.
     /// </remarks>
-    public class MarkarthMilk : Drink, INotifyPropertyChanged
+    public class MarkarthMilk : Drink
     {
-        public event PropertyChangedEventHandler PropertyChanged; 
 
         /* Private variable declaration for the Markarth Milk */
         private double price = 1.05;        // The price of Markarth Milk
@@ -69,9 +68,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -88,8 +87,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

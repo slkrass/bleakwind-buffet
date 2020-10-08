@@ -132,28 +132,31 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingSirloinNotifiesSirloinProperty(bool sir)
+        public void ChangingSirloinNotifiesSirloinANDSpecialInstructionsProperty(bool sir)
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.PropertyChanged(philly, "Sirloin", () => philly.Sirloin = sir);
+            Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Sirloin = sir);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingOnionsNotifiesOnionsProperty(bool onion)
+        public void ChangingOnionsNotifiesOnionsANDSpecialInstructionsProperty(bool onion)
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.PropertyChanged(philly, "Onion", () => philly.Onion = onion);
+            Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Onion = onion);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingRollNotifiesRollProperty(bool roll)
+        public void ChangingRollNotifiesRollANDSpecialInstructionsProperty(bool roll)
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.PropertyChanged(philly, "Roll", () => philly.Roll = roll);
+            Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Roll = roll);
         }
     }
 }

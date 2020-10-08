@@ -122,19 +122,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             MarkarthMilk milk = new MarkarthMilk();
             Assert.PropertyChanged(milk, "Size", () => milk.Size = size);
+            Assert.PropertyChanged(milk, "Calories", () => milk.Size = size);
+            Assert.PropertyChanged(milk, "Price", () => milk.Size = size);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingIceNotifiesIceProperty(bool ice)
+        public void ChangingIceNotifiesIceANDSpecialInstructionsProperty(bool ice)
         {
             MarkarthMilk milk = new MarkarthMilk();
             Assert.PropertyChanged(milk, "Ice", () => milk.Ice = ice);
+            Assert.PropertyChanged(milk, "SpecialInstructions", () => milk.Ice = ice);
         }
     }
 }

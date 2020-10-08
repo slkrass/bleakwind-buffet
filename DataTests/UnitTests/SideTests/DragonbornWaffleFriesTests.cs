@@ -101,10 +101,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             DragonbornWaffleFries fries = new DragonbornWaffleFries();
             Assert.PropertyChanged(fries, "Size", () => fries.Size = size);
+            Assert.PropertyChanged(fries, "Calories", () => fries.Size = size);
+            Assert.PropertyChanged(fries, "Price", () => fries.Size = size);
         }
     }
 }

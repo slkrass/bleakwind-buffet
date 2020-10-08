@@ -19,9 +19,8 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Mad Otar Grits.
     /// </remarks>
-    public class MadOtarGrits : Side, INotifyPropertyChanged
+    public class MadOtarGrits : Side
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private variable declaration for the Mad Otar Grits */
         private double price = 1.22;    // The price of Mad Otar Grits
@@ -69,9 +68,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
         }
 

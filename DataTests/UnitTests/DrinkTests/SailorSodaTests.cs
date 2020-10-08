@@ -172,19 +172,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             SailorSoda soda = new SailorSoda();
             Assert.PropertyChanged(soda, "Size", () => soda.Size = size);
+            Assert.PropertyChanged(soda, "Calories", () => soda.Size = size);
+            Assert.PropertyChanged(soda, "Price", () => soda.Size = size);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingIceNotifiesIceProperty(bool ice)
+        public void ChangingIceNotifiesIceANDSpecialInstructionsProperty(bool ice)
         {
             SailorSoda soda = new SailorSoda();
             Assert.PropertyChanged(soda, "Ice", () => soda.Ice = ice);
+            Assert.PropertyChanged(soda, "SpecialInstructions", () => soda.Ice = ice);
         }
 
         [Theory]

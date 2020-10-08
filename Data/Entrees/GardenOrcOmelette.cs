@@ -17,9 +17,8 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories, broccoli, mushrooms, 
     /// tomato, cheddar, and special instructions for a Garden Orc Omelette.
     /// </remarks>
-    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
+    public class GardenOrcOmelette : Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private variable declaration for the Garden Orc Omelette */
         private bool broccoli = true; // Holds whether or not there is broccoli on the omelette
@@ -51,8 +50,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 broccoli = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Broccoli"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -69,8 +68,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mushrooms = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Mushrooms"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -87,8 +86,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tomato"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -105,8 +104,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheddar = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Cheddar"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

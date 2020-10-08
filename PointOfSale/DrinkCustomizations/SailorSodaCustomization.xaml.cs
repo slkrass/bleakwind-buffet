@@ -40,48 +40,8 @@ namespace BleakwindBuffet.PointOfSale
             menuContainer = container;
         }
 
-        /// <summary>
-        /// Allows the DataContext's Size Property to be updated
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ChangedSize(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is SailorSoda soda)
-            {
-                if ((bool)smallSize.IsChecked)
-                {
-                    soda.Size = Data.Enums.Size.Small;
-                }
-                else if ((bool)largeSize.IsChecked)
-                {
-                    soda.Size = Data.Enums.Size.Large;
-                }
-                else if ((bool)mediumSize.IsChecked)
-                {
-                    soda.Size = Data.Enums.Size.Medium;
-                }
-            }
-        }
 
-        /// <summary>
-        /// Allows the DataContext's Size Property to be updated
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ChangedFlavor(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is SailorSoda soda)
-            {
-                if ((bool)Blackberry.IsChecked)          soda.Flavor = Data.Enums.SodaFlavor.Blackberry;
-                else if ((bool)Cherry.IsChecked)     soda.Flavor = Data.Enums.SodaFlavor.Cherry;
-                else if ((bool)Grapefruit.IsChecked)    soda.Flavor = Data.Enums.SodaFlavor.Grapefruit;
-                else if ((bool)Lemon.IsChecked)     soda.Flavor = Data.Enums.SodaFlavor.Lemon;
-                else if ((bool)Peach.IsChecked)    soda.Flavor = Data.Enums.SodaFlavor.Peach;
-                else if ((bool)Watermelon.IsChecked)     soda.Flavor = Data.Enums.SodaFlavor.Watermelon;
 
-            }
-        }
 
         /// <summary>
         /// Allows the special instructions and size to be recorded 

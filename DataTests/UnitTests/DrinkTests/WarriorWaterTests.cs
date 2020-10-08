@@ -151,28 +151,32 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             WarriorWater water = new WarriorWater();
             Assert.PropertyChanged(water, "Size", () => water.Size = size);
+            Assert.PropertyChanged(water, "Calories", () => water.Size = size);
+            Assert.PropertyChanged(water, "Price", () => water.Size = size);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingIceNotifiesIceProperty(bool ice)
+        public void ChangingIceNotifiesIceANDSpecialInstructionsProperty(bool ice)
         {
             WarriorWater water = new WarriorWater();
             Assert.PropertyChanged(water, "Ice", () => water.Ice = ice);
+            Assert.PropertyChanged(water, "SpecialInstructions", () => water.Ice = ice);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingLemonNotifiesLemonProperty(bool lemon)
+        public void ChangingLemonNotifiesLemonANDSpecialInstructionsProperty(bool lemon)
         {
             WarriorWater water = new WarriorWater();
             Assert.PropertyChanged(water, "Lemon", () => water.Lemon = lemon);
+            Assert.PropertyChanged(water, "SpecialInstructions", () => water.Lemon = lemon);
         }
     }
 }

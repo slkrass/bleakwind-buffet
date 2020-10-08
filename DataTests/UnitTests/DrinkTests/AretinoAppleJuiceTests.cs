@@ -124,19 +124,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.PropertyChanged(aj, "Size", () => aj.Size = size);
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = size);
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = size);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingIceNotifiesIceProperty(bool ice)
+        public void ChangingIceNotifiesIceANDSpecialInstructionsProperty(bool ice)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.PropertyChanged(aj, "Ice", () => aj.Ice = ice);
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = ice);
         }
     }
 }

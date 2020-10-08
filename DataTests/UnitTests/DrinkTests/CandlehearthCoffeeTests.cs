@@ -177,28 +177,32 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "Size", () => coffee.Size = size);
+            Assert.PropertyChanged(coffee, "Calories", () => coffee.Size = size);
+            Assert.PropertyChanged(coffee, "Price", () => coffee.Size = size);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingIceNotifiesIceProperty(bool ice)
+        public void ChangingIceNotifiesIceANDSpecialInstructionsProperty(bool ice)
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "Ice", () => coffee.Ice = ice);
+            Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.Ice = ice);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingCreamNotifiesRoomForCreamProperty(bool cream)
+        public void ChangingCreamNotifiesRoomForCreamANDSpecialInstructionsProperty(bool cream)
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "RoomForCream", () => coffee.RoomForCream = cream);
+            Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.RoomForCream = cream);
         }
 
         [Theory]

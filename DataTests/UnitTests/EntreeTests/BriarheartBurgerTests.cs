@@ -170,46 +170,51 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingBunNotifiesBunProperty(bool bun)
+        public void ChangingBunNotifiesBunANDSpecialInstructionsProperty(bool bun)
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Bun", () => burger.Bun = bun);
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Bun = bun);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingKetchupNotifiesKetchupProperty(bool ketchup)
+        public void ChangingKetchupNotifiesKetchupANDSpecialInstructionsProperty(bool ketchup)
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Ketchup", () => burger.Ketchup = ketchup);
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Ketchup = ketchup);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingMustardNotifiesMustardProperty(bool mustard)
+        public void ChangingMustardNotifiesMustardANDSpecialInstructionsProperty(bool mustard)
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Mustard", () => burger.Mustard = mustard);
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Mustard = mustard);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingPickleNotifiesPickleProperty(bool pickle)
+        public void ChangingPickleNotifiesPickleANDSpecialInstructionsProperty(bool pickle)
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Pickle", () => burger.Pickle = pickle);
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Pickle = pickle);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingCheeseNotifiesCheeseProperty(bool cheese)
+        public void ChangingCheeseNotifiesCheeseANDSpecialInstructionsProperty(bool cheese)
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Cheese", () => burger.Cheese = cheese);
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Cheese = cheese);
         }
     }
 }

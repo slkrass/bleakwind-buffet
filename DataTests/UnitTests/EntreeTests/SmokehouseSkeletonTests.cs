@@ -151,37 +151,41 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingSausageNotifiesSausageProperty(bool sausage)
+        public void ChangingSausageNotifiesSausageANDSpecialInstructionsProperty(bool sausage)
         {
             SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
             Assert.PropertyChanged(skeleton, "SausageLink", () => skeleton.SausageLink = sausage);
+            Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.SausageLink = sausage);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingEggNotifiesEggProperty(bool egg)
+        public void ChangingEggNotifiesEggANDSpecialInstructionsProperty(bool egg)
         {
             SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
             Assert.PropertyChanged(skeleton, "Egg", () => skeleton.Egg = egg);
+            Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.Egg = egg);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingHashBrownsNotifiesHashBrownsProperty(bool hash)
+        public void ChangingHashBrownsNotifiesHashBrownsANDSpecialInstructionsProperty(bool hash)
         {
             SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
             Assert.PropertyChanged(skeleton, "HashBrowns", () => skeleton.HashBrowns = hash);
+            Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.HashBrowns = hash);
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void ChangingPancakeNotifiesPancakeProperty(bool pancake)
+        public void ChangingPancakeNotifiesPancakeANDSpecialInstructionsProperty(bool pancake)
         {
             SmokehouseSkeleton skeleton = new SmokehouseSkeleton();
             Assert.PropertyChanged(skeleton, "Pancake", () => skeleton.Pancake = pancake);
+            Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.Pancake = pancake);
         }
 
     }

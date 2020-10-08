@@ -18,10 +18,8 @@ namespace BleakwindBuffet.Data.Drinks
     /// This class keeps track of the price, calories, size, ice, flavor, 
     /// and special instructions for a Sailor's Soda.
     /// </remarks>
-    public class SailorSoda : Drink, INotifyPropertyChanged
+    public class SailorSoda : Drink
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /* Private variable declaration for the Sailor's Soda */
         private double price = 1.42;                    // The price of Sailor's soda
         private uint calories = 117;                    // The calories of the Sailor's Soda
@@ -70,9 +68,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -89,8 +87,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -107,7 +105,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Flavor"));
             }
         }
 

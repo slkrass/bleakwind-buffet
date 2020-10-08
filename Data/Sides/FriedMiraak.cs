@@ -19,9 +19,8 @@ namespace BleakwindBuffet.Data.Sides
     /// This class keeps track of the price, calories, size, 
     /// and special instructions for a Fried Miraak.
     /// </remarks>
-    public class FriedMiraak : Side, INotifyPropertyChanged
+    public class FriedMiraak : Side
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private variable declaration for the Fried Miraak */
         private double price = 1.78;    // The price of Fried Miraak
@@ -69,9 +68,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
         }
 

@@ -100,10 +100,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ChangingSizeNotifiesSizeProperty(Size size)
+        public void ChangingSizeNotifiesSizeCaloriesANDPriceProperty(Size size)
         {
             VokunSalad salad = new VokunSalad();
             Assert.PropertyChanged(salad, "Size", () => salad.Size = size);
+            Assert.PropertyChanged(salad, "Calories", () => salad.Size = size);
+            Assert.PropertyChanged(salad, "Price", () => salad.Size = size);
         }
     }
 }

@@ -17,9 +17,8 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories,
     /// and special instructions for a Thugs T-Bone.
     /// </remarks>
-    public class ThugsTBone : Entree, INotifyPropertyChanged
+    public class ThugsTBone : Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged; 
 
         /// <value>
         /// Gets the price of Thugs T-Bone

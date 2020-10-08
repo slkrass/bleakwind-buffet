@@ -42,29 +42,6 @@ namespace BleakwindBuffet.PointOfSale
             menuContainer = container;
         }
 
-        /// <summary>
-        /// Allows the DataContext's Size Property to be updated
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ChangedSize(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is MadOtarGrits grits)
-            {
-                if ((bool)smallSize.IsChecked)
-                {
-                    grits.Size = Data.Enums.Size.Small;
-                }
-                else if ((bool)largeSize.IsChecked)
-                {
-                    grits.Size = Data.Enums.Size.Large;
-                }
-                else if ((bool)mediumSize.IsChecked)
-                {
-                    grits.Size = Data.Enums.Size.Medium;
-                }
-            }
-        }
 
         /// <summary>
         /// Allows the special instructions and size to be recorded 

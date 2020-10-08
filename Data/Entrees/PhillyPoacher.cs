@@ -17,9 +17,8 @@ namespace BleakwindBuffet.Data.Entrees
     /// This class keeps track of the price, calories, sirloin, onion, roll, 
     /// and special instructions for a Philly Poacher.
     /// </remarks>
-    public class PhillyPoacher : Entree, INotifyPropertyChanged
+    public class PhillyPoacher : Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private variable declaration for the Philly Poacher */
         private bool sirloin = true;    // Holds whether or not there is sirloin on the Philly Poacher
@@ -49,8 +48,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Sirloin"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -67,8 +66,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Onion"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -85,8 +84,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Roll"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
