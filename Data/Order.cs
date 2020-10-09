@@ -35,6 +35,10 @@ namespace BleakwindBuffet.Data
             set
             {
                 salesTaxRate = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("SalesTaxRate"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
             }
         }
 
@@ -144,8 +148,9 @@ namespace BleakwindBuffet.Data
         /// <param name="e"></param>
         void CollectionChangedListener(object sender, NotifyCollectionChangedEventArgs e)
         {
-            OnPropertyChanged(new PropertyChangedEventArgs("SalesTaxRate"));
+            
             OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
             OnPropertyChanged(new PropertyChangedEventArgs("Total"));
             OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             OnPropertyChanged(new PropertyChangedEventArgs("StringTax"));
@@ -162,13 +167,6 @@ namespace BleakwindBuffet.Data
                         else if (item is MarkarthMilk mm) { mm.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is SailorSoda ss) { ss.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is WarriorWater ww) { ww.PropertyChanged += CollectionItemChangedListener; }
-                        else if (item is BriarheartBurger briar) { briar.PropertyChanged += CollectionItemChangedListener;}
-                        else if (item is DoubleDraugr draugr) { draugr.PropertyChanged += CollectionItemChangedListener; }
-                        else if (item is GardenOrcOmelette goo) { goo.PropertyChanged += CollectionItemChangedListener; }
-                        else if (item is PhillyPoacher pp) { pp.PropertyChanged += CollectionItemChangedListener; }
-                        else if (item is SmokehouseSkeleton shs) { shs.PropertyChanged += CollectionItemChangedListener; }
-                        else if (item is ThalmorTriple thal) {thal.PropertyChanged += CollectionItemChangedListener; }
-                        else if (item is ThugsTBone tBone) { tBone.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is DragonbornWaffleFries dwf) { dwf.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is FriedMiraak fm) { fm.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is MadOtarGrits mog) { mog.PropertyChanged += CollectionItemChangedListener; }
@@ -183,17 +181,10 @@ namespace BleakwindBuffet.Data
                         else if (item is MarkarthMilk mm) { mm.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is SailorSoda ss) { ss.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is WarriorWater ww) { ww.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is BriarheartBurger briar) { briar.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is DoubleDraugr draugr) { draugr.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is GardenOrcOmelette goo) { goo.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is PhillyPoacher pp) { pp.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is SmokehouseSkeleton shs) { shs.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is ThalmorTriple thal) { thal.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is ThugsTBone tBone) { tBone.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is DragonbornWaffleFries dwf) { dwf.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is FriedMiraak fm) { fm.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is MadOtarGrits mog) { mog.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is VokunSalad vs) { vs.PropertyChanged -= CollectionItemChangedListener; }
+                        else if (item is VokunSalad vs) { vs.PropertyChanged -= CollectionItemChangedListener; } 
                     }
                     break;
                 case NotifyCollectionChangedAction.Reset:
@@ -212,7 +203,7 @@ namespace BleakwindBuffet.Data
             {
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SalesTaxRate"));
-                OnPropertyChanged(new PropertyChangedEventArgs("SalesTax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Total"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Name"));
@@ -222,13 +213,6 @@ namespace BleakwindBuffet.Data
                 OnPropertyChanged(new PropertyChangedEventArgs("StringSubtotal"));
                 OnPropertyChanged(new PropertyChangedEventArgs("StringTotal"));
 
-            }
-
-            if(e.PropertyName == "SalesTaxRate")
-            {
-                OnPropertyChanged(new PropertyChangedEventArgs("SalesTaxRate"));
-                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
-                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
             }
         }
     }

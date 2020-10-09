@@ -207,7 +207,6 @@ namespace BleakwindBuffet.PointOfSale
         {
             if(sender is Button button)
             {
-                //menuContainer.currentItemsInOrderBorder.Child = new OrderList(menuContainer);
                 menuContainer.OrderControl = new Order();
                 menuContainer.currentItemsInOrderBorder.Child = new OrderList(menuContainer);
             }

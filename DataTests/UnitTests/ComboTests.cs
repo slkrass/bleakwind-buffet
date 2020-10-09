@@ -114,8 +114,40 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             Combo combo = new Combo();
             SailorSoda soda = new SailorSoda();
-            soda.Flavor = SodaFlavor.Blackberry;
-            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboDrink = soda);
+            combo.ComboDrink = soda;
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => ((SailorSoda)combo.ComboDrink).Flavor = SodaFlavor.Blackberry);
+        }
+
+        [Fact]
+        public void Changing_SpecialInstructions_Should_Notify_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+            SailorSoda soda = new SailorSoda();
+            combo.ComboDrink = soda;
+            combo.ComboEntree = new BriarheartBurger();
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => ((SailorSoda)combo.ComboDrink).Ice = false);
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => ((BriarheartBurger)combo.ComboEntree).Ketchup = false);
+        }
+
+        [Fact]
+        public void SpecialInstructions_Should_Include_Entree_Drink_And_Side_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+            combo.ComboDrink = new SailorSoda();
+            combo.ComboEntree = new BriarheartBurger();
+            combo.ComboSide = new MadOtarGrits();
+            ((SailorSoda)combo.ComboDrink).Ice = false;
+            ((BriarheartBurger)combo.ComboEntree).Ketchup = false;
+
+            Assert.Contains(((SailorSoda)combo.ComboDrink).Name, combo.SpecialInstructions);
+            Assert.Contains(((BriarheartBurger)combo.ComboEntree).Name, combo.SpecialInstructions);
+            Assert.Contains(((MadOtarGrits)combo.ComboSide).Name, combo.SpecialInstructions);
+
+            foreach(string instruct in ((SailorSoda)combo.ComboDrink).SpecialInstructions)
+                Assert.Contains(instruct, combo.SpecialInstructions);
+
+            foreach (string instruct in ((BriarheartBurger)combo.ComboEntree).SpecialInstructions)
+                Assert.Contains(instruct, combo.SpecialInstructions);
         }
 
     }

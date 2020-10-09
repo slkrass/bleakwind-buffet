@@ -67,8 +67,6 @@ namespace BleakwindBuffet.PointOfSale
 
             if (sender is ListView list)
             {
-                //if (list.SelectedItem is IOrderItem item)
-               // {
                     if (list.SelectedItem is AretinoAppleJuice aj) { menuContainer.menuBorder.Child = new AretinoAppleJuiceCustomization(menuContainer, aj); }
                     else if (list.SelectedItem is CandlehearthCoffee cc) { menuContainer.menuBorder.Child = new CandlehearthCoffeeCustomization(menuContainer, cc); }
                     else if (list.SelectedItem is MarkarthMilk mm) { menuContainer.menuBorder.Child = new MarkarthMilkCustomization(menuContainer, mm); }
@@ -77,7 +75,7 @@ namespace BleakwindBuffet.PointOfSale
                     else if (list.SelectedItem is BriarheartBurger briar) { menuContainer.menuBorder.Child = new BriarheartBurgerCustomization(menuContainer, briar); }
                     else if (list.SelectedItem is DoubleDraugr draugr) { menuContainer.menuBorder.Child = new DoubleDraugrCustomization(menuContainer, draugr); }
                     else if (list.SelectedItem is GardenOrcOmelette goo) { menuContainer.menuBorder.Child = new GardenOrcOmeletteCustomization(menuContainer, goo); }
-                    else if (list.SelectedItem  is PhillyPoacher pp) { menuContainer.menuBorder.Child = new PhillyPoacherCustomization(menuContainer, pp); }
+                    else if (list.SelectedItem is PhillyPoacher pp) { menuContainer.menuBorder.Child = new PhillyPoacherCustomization(menuContainer, pp); }
                     else if (list.SelectedItem is SmokehouseSkeleton shs) { menuContainer.menuBorder.Child = new SmokehouseSkeletonCustomization(menuContainer, shs); }
                     else if (list.SelectedItem is ThalmorTriple thal) { menuContainer.menuBorder.Child = new ThalmorTripleCustomization(menuContainer, thal); }
                     else if (list.SelectedItem is ThugsTBone tBone) { menuContainer.menuBorder.Child = new ThugsTBoneCustomization(menuContainer, tBone); }
@@ -85,7 +83,6 @@ namespace BleakwindBuffet.PointOfSale
                     else if (list.SelectedItem is FriedMiraak fm) { menuContainer.menuBorder.Child = new FriedMiraakCustomization(menuContainer, fm); }
                     else if (list.SelectedItem is MadOtarGrits mog) { menuContainer.menuBorder.Child = new MadOtarGritsCustomization(menuContainer, mog); }
                     else if (list.SelectedItem is VokunSalad vs) { menuContainer.menuBorder.Child = new VokunSaladCustomization(menuContainer, vs); }
-                //}
             }
             
         }
