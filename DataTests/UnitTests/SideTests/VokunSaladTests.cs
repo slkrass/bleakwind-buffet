@@ -54,17 +54,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             VokunSalad salad = new VokunSalad();
             Assert.Empty(salad.SpecialInstructions);
+            Assert.Empty(salad.StringSpecialInstructions);
         }
 
         [Theory]
-        [InlineData(Size.Small, 0.93)]
-        [InlineData(Size.Medium, 1.28)]
-        [InlineData(Size.Large, 1.82)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        [InlineData(Size.Small, 0.93, "$0.93")]
+        [InlineData(Size.Medium, 1.28, "$1.28")]
+        [InlineData(Size.Large, 1.82, "$1.82")]
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price, string p)
         {
             VokunSalad salad = new VokunSalad();
             salad.Size = size;
             Assert.Equal(price, salad.Price);
+            Assert.Equal(p, salad.StringPrice);
         }
 
         [Theory]
@@ -87,6 +89,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             VokunSalad salad = new VokunSalad();
             salad.Size = size;
             Assert.Equal(name, salad.ToString());
+            Assert.Equal(name, salad.Name);
+
         }
 
         [Fact]
@@ -106,6 +110,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(salad, "Size", () => salad.Size = size);
             Assert.PropertyChanged(salad, "Calories", () => salad.Size = size);
             Assert.PropertyChanged(salad, "Price", () => salad.Size = size);
+            Assert.PropertyChanged(salad, "Name", () => salad.Size = size);
         }
     }
 }

@@ -53,11 +53,7 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                StringBuilder sb = new StringBuilder();
-                foreach (String s in SpecialInstructions)
-                {
-                    sb.Append("- " + s + "\n");
-                }
+                StringBuilder sb = new StringBuilder(); 
                 return sb.ToString();
             }
         }

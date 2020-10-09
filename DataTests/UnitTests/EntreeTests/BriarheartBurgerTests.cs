@@ -34,6 +34,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.True(burger.Bun);
+            Assert.False(burger.HoldBun);
         }
 
         [Fact]
@@ -41,6 +42,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.True(burger.Ketchup);
+            Assert.False(burger.HoldKetchup);
         }
 
         [Fact]
@@ -48,6 +50,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.True(burger.Mustard);
+            Assert.False(burger.HoldMustard);
         }
 
         [Fact]
@@ -55,6 +58,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.True(burger.Pickle);
+            Assert.False(burger.HoldPickle);
         }
 
         [Fact]
@@ -62,6 +66,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.True(burger.Cheese);
+            Assert.False(burger.HoldCheese);
         }
 
         [Fact]
@@ -119,6 +124,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.Equal(6.32, burger.Price);
+            Assert.Equal("$6.32", burger.StringPrice);
         }
 
         [Fact]
@@ -149,8 +155,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.Contains("Hold mustard", burger.SpecialInstructions);
                 Assert.Contains("Hold pickle", burger.SpecialInstructions);
                 Assert.Contains("Hold cheese", burger.SpecialInstructions);
+
+                Assert.Contains("Hold bun", burger.StringSpecialInstructions);
+                Assert.Contains("Hold ketchup", burger.StringSpecialInstructions);
+                Assert.Contains("Hold mustard", burger.StringSpecialInstructions);
+                Assert.Contains("Hold pickle", burger.StringSpecialInstructions);
+                Assert.Contains("Hold cheese", burger.StringSpecialInstructions);
             }
-            else Assert.Empty(burger.SpecialInstructions);
+            else
+            {
+                Assert.Empty(burger.SpecialInstructions);
+                Assert.Empty(burger.StringSpecialInstructions);
+            }
         }
 
         [Fact]
@@ -158,6 +174,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger burger = new BriarheartBurger();
             Assert.Equal("Briarheart Burger", burger.ToString());
+            Assert.Equal("Briarheart Burger", burger.Name);
         }
 
         [Fact]
@@ -175,6 +192,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Bun", () => burger.Bun = bun);
             Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Bun = bun);
+            Assert.PropertyChanged(burger, "HoldBun", () => burger.HoldBun = !bun);
+            Assert.PropertyChanged(burger, "StringSpecialInstructions", () => burger.Bun = bun);
         }
 
         [Theory]
@@ -185,6 +204,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Ketchup", () => burger.Ketchup = ketchup);
             Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Ketchup = ketchup);
+            Assert.PropertyChanged(burger, "HoldKetchup", () => burger.HoldKetchup = !ketchup);
+            Assert.PropertyChanged(burger, "StringSpecialInstructions", () => burger.Ketchup = ketchup);
         }
 
         [Theory]
@@ -195,6 +216,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Mustard", () => burger.Mustard = mustard);
             Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Mustard = mustard);
+            Assert.PropertyChanged(burger, "HoldMustard", () => burger.HoldMustard = !mustard);
+            Assert.PropertyChanged(burger, "StringSpecialInstructions", () => burger.Mustard = mustard);
         }
 
         [Theory]
@@ -205,6 +228,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Pickle", () => burger.Pickle = pickle);
             Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Pickle = pickle);
+            Assert.PropertyChanged(burger, "HoldPickle", () => burger.HoldPickle = !pickle);
+            Assert.PropertyChanged(burger, "StringSpecialInstructions", () => burger.Pickle = pickle);
         }
 
         [Theory]
@@ -215,6 +240,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger burger = new BriarheartBurger();
             Assert.PropertyChanged(burger, "Cheese", () => burger.Cheese = cheese);
             Assert.PropertyChanged(burger, "SpecialInstructions", () => burger.Cheese = cheese);
+            Assert.PropertyChanged(burger, "HoldCheese", () => burger.HoldCheese = !cheese);
+            Assert.PropertyChanged(burger, "StringSpecialInstructions", () => burger.Cheese = cheese);
         }
     }
 }

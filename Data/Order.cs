@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class: Order.cs
+ * Purpose: This class is used to represent an order of multiple IOrderItems
+ */
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

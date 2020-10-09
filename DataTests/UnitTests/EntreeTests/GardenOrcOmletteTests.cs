@@ -34,6 +34,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.True(omelette.Broccoli);
+            Assert.False(omelette.HoldBroccoli);
         }
 
         [Fact]
@@ -41,6 +42,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.True(omelette.Mushrooms);
+            Assert.False(omelette.HoldMushrooms);
         }
 
         [Fact]
@@ -48,6 +50,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.True(omelette.Tomato);
+            Assert.False(omelette.HoldTomato);
         }
 
         [Fact]
@@ -55,6 +58,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.True(omelette.Cheddar);
+            Assert.False(omelette.HoldCheddar);
         }
 
         [Fact]
@@ -102,6 +106,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.Equal(4.57, omelette.Price);
+            Assert.Equal("$4.57", omelette.StringPrice);
         }
 
         [Fact]
@@ -130,8 +135,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.Contains("Hold mushrooms", omelette.SpecialInstructions);
                 Assert.Contains("Hold tomato", omelette.SpecialInstructions);
                 Assert.Contains("Hold cheddar", omelette.SpecialInstructions);
+
+                Assert.Contains("Hold broccoli", omelette.StringSpecialInstructions);
+                Assert.Contains("Hold mushrooms", omelette.StringSpecialInstructions);
+                Assert.Contains("Hold tomato", omelette.StringSpecialInstructions);
+                Assert.Contains("Hold cheddar", omelette.StringSpecialInstructions);
             }
-            else Assert.Empty(omelette.SpecialInstructions);
+            else
+            {
+                Assert.Empty(omelette.SpecialInstructions);
+                Assert.Empty(omelette.StringSpecialInstructions);
+            }
         }
 
         [Fact]
@@ -139,6 +153,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", omelette.ToString());
+            Assert.Equal("Garden Orc Omelette", omelette.Name);
         }
 
         [Fact]
@@ -156,6 +171,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Broccoli", () => omelette.Broccoli = broc);
             Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Broccoli = broc);
+            Assert.PropertyChanged(omelette, "HoldBroccoli", () => omelette.HoldBroccoli = !broc);
+            Assert.PropertyChanged(omelette, "StringSpecialInstructions", () => omelette.Broccoli = broc);
         }
 
         [Theory]
@@ -166,6 +183,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Mushrooms", () => omelette.Mushrooms = mushrooms);
             Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Mushrooms = mushrooms);
+            Assert.PropertyChanged(omelette, "HoldMushrooms", () => omelette.HoldMushrooms = !mushrooms);
+            Assert.PropertyChanged(omelette, "StringSpecialInstructions", () => omelette.Mushrooms = mushrooms);
         }
 
         [Theory]
@@ -176,6 +195,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Tomato", () => omelette.Tomato = tomato);
             Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Tomato = tomato);
+            Assert.PropertyChanged(omelette, "HoldTomato", () => omelette.HoldTomato = !tomato);
+            Assert.PropertyChanged(omelette, "StringSpecialInstructions", () => omelette.Tomato = tomato);
         }
 
         [Theory]
@@ -186,6 +207,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.PropertyChanged(omelette, "Cheddar", () => omelette.Cheddar = cheddar);
             Assert.PropertyChanged(omelette, "SpecialInstructions", () => omelette.Cheddar = cheddar);
+            Assert.PropertyChanged(omelette, "HoldCheddar", () => omelette.HoldCheddar = !cheddar);
+            Assert.PropertyChanged(omelette, "StringSpecialInstructions", () => omelette.Cheddar = cheddar);
         }
     }
 }

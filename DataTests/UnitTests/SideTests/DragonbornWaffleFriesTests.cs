@@ -55,17 +55,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries fries = new DragonbornWaffleFries();
             Assert.Empty(fries.SpecialInstructions);
+            Assert.Empty(fries.StringSpecialInstructions);
         }
 
         [Theory]
-        [InlineData(Size.Small, 0.42)]
-        [InlineData(Size.Medium, 0.76)]
-        [InlineData(Size.Large, 0.96)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        [InlineData(Size.Small, 0.42, "$0.42")]
+        [InlineData(Size.Medium, 0.76, "$0.76")]
+        [InlineData(Size.Large, 0.96, "$0.96")]
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price, string p)
         {
             DragonbornWaffleFries fries = new DragonbornWaffleFries();
             fries.Size = size;
             Assert.Equal(price, fries.Price);
+            Assert.Equal(p, fries.StringPrice);
         }
 
         [Theory]
@@ -88,6 +90,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             DragonbornWaffleFries fries = new DragonbornWaffleFries();
             fries.Size = size;
             Assert.Equal(name, fries.ToString());
+            Assert.Equal(name, fries.Name);
         }
 
         [Fact]
@@ -107,6 +110,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(fries, "Size", () => fries.Size = size);
             Assert.PropertyChanged(fries, "Calories", () => fries.Size = size);
             Assert.PropertyChanged(fries, "Price", () => fries.Size = size);
+            Assert.PropertyChanged(fries, "Name", () => fries.Size = size);
         }
     }
 }

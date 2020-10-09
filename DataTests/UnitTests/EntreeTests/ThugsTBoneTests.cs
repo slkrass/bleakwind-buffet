@@ -34,6 +34,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone tBone = new ThugsTBone();
             Assert.Equal(6.44, tBone.Price);
+            Assert.Equal("$6.44", tBone.StringPrice);
         }
 
         [Fact]
@@ -49,6 +50,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone tBone = new ThugsTBone();
             Assert.Empty(tBone.SpecialInstructions);
+            Assert.Empty(tBone.StringSpecialInstructions);
         }
 
         [Fact]
@@ -56,6 +58,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone tBone = new ThugsTBone();
             Assert.Equal("Thugs T-Bone", tBone.ToString());
+            Assert.Equal("Thugs T-Bone", tBone.Name);
         }
 
         [Fact]

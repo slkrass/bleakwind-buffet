@@ -34,6 +34,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.True(philly.Sirloin);
+            Assert.False(philly.HoldSirloin);
         }
 
         [Fact]
@@ -41,6 +42,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.True(philly.Onion);
+            Assert.False(philly.HoldOnion);
         }
 
         [Fact]
@@ -48,6 +50,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.True(philly.Roll);
+            Assert.False(philly.HoldRoll);
         }
 
         [Fact]
@@ -85,6 +88,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.Equal(7.23, philly.Price);
+            Assert.Equal("$7.23", philly.StringPrice);
         }
 
         [Fact]
@@ -111,8 +115,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.Contains("Hold sirloin", philly.SpecialInstructions);
                 Assert.Contains("Hold onions", philly.SpecialInstructions);
                 Assert.Contains("Hold roll", philly.SpecialInstructions);
+
+                Assert.Contains("Hold sirloin", philly.StringSpecialInstructions);
+                Assert.Contains("Hold onions", philly.StringSpecialInstructions);
+                Assert.Contains("Hold roll", philly.StringSpecialInstructions);
             }
-            else Assert.Empty(philly.SpecialInstructions);
+            else
+            {
+                Assert.Empty(philly.SpecialInstructions);
+                Assert.Empty(philly.StringSpecialInstructions);
+            }
         }
 
         [Fact]
@@ -120,6 +132,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher philly = new PhillyPoacher();
             Assert.Equal("Philly Poacher", philly.ToString());
+            Assert.Equal("Philly Poacher", philly.Name);
         }
 
         [Fact]
@@ -137,6 +150,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher philly = new PhillyPoacher();
             Assert.PropertyChanged(philly, "Sirloin", () => philly.Sirloin = sir);
             Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Sirloin = sir);
+            Assert.PropertyChanged(philly, "HoldSirloin", () => philly.HoldSirloin = !sir);
+            Assert.PropertyChanged(philly, "StringSpecialInstructions", () => philly.Sirloin = sir);
         }
 
         [Theory]
@@ -147,6 +162,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher philly = new PhillyPoacher();
             Assert.PropertyChanged(philly, "Onion", () => philly.Onion = onion);
             Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Onion = onion);
+            Assert.PropertyChanged(philly, "HoldOnion", () => philly.HoldOnion = !onion);
+            Assert.PropertyChanged(philly, "StringSpecialInstructions", () => philly.Onion = onion);
         }
 
         [Theory]
@@ -157,6 +174,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher philly = new PhillyPoacher();
             Assert.PropertyChanged(philly, "Roll", () => philly.Roll = roll);
             Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Roll = roll);
+            Assert.PropertyChanged(philly, "HoldRoll", () => philly.HoldRoll = !roll);
+            Assert.PropertyChanged(philly, "StringSpecialInstructions", () => philly.Roll = roll);
         }
     }
 }

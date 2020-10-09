@@ -54,17 +54,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             FriedMiraak fm = new FriedMiraak();
             Assert.Empty(fm.SpecialInstructions);
+            Assert.Empty(fm.StringSpecialInstructions);
         }
 
         [Theory]
-        [InlineData(Size.Small, 1.78)]
-        [InlineData(Size.Medium, 2.01)]
-        [InlineData(Size.Large, 2.88)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        [InlineData(Size.Small, 1.78, "$1.78")]
+        [InlineData(Size.Medium, 2.01, "$2.01")]
+        [InlineData(Size.Large, 2.88, "$2.88")]
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price, string p)
         {
             FriedMiraak fm = new FriedMiraak();
             fm.Size = size;
             Assert.Equal(price, fm.Price);
+            Assert.Equal(p, fm.StringPrice);
         }
 
         [Theory]
@@ -87,6 +89,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             FriedMiraak fm = new FriedMiraak();
             fm.Size = size;
             Assert.Equal(name, fm.ToString());
+            Assert.Equal(name, fm.Name);
         }
 
         [Fact]
@@ -106,6 +109,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(fm, "Size", () => fm.Size = size);
             Assert.PropertyChanged(fm, "Calories", () => fm.Size = size);
             Assert.PropertyChanged(fm, "Price", () => fm.Size = size);
+            Assert.PropertyChanged(fm, "Name", () => fm.Size = size);
         }
     }
 }

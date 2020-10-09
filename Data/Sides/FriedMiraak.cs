@@ -54,10 +54,6 @@ namespace BleakwindBuffet.Data.Sides
             get
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (String s in SpecialInstructions)
-                {
-                    sb.Append("- " + s + "\n");
-                }
                 return sb.ToString();
             }
         }

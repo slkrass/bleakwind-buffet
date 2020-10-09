@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class: Combo.cs
+ * Purpose: This class is used to represent a combo meal consisting of a drink, entree and side
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;

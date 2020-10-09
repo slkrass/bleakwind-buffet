@@ -54,17 +54,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             MadOtarGrits grits = new MadOtarGrits();
             Assert.Empty(grits.SpecialInstructions);
+            Assert.Empty(grits.StringSpecialInstructions);
         }
 
         [Theory]
-        [InlineData(Size.Small, 1.22)]
-        [InlineData(Size.Medium, 1.58)]
-        [InlineData(Size.Large, 1.93)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        [InlineData(Size.Small, 1.22, "$1.22")]
+        [InlineData(Size.Medium, 1.58, "$1.58")]
+        [InlineData(Size.Large, 1.93, "$1.93")]
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price, string p)
         {
             MadOtarGrits grits = new MadOtarGrits();
             grits.Size = size;
             Assert.Equal(price, grits.Price);
+            Assert.Equal(p, grits.StringPrice);
         }
 
         [Theory]
@@ -87,6 +89,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             MadOtarGrits grits = new MadOtarGrits();
             grits.Size = size;
             Assert.Equal(name, grits.ToString());
+            Assert.Equal(name, grits.Name);
         }
         [Fact]
         public void ShouldBeAnINofityPropertyChanged()
@@ -105,6 +108,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(grits, "Size", () => grits.Size = size);
             Assert.PropertyChanged(grits, "Calories", () => grits.Size = size);
             Assert.PropertyChanged(grits, "Price", () => grits.Size = size);
+            Assert.PropertyChanged(grits, "Name", () => grits.Size = size);
         }
     }
 }
