@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the BriarheartBurgerCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the BriarheartBurgerCustomization.xaml</param>
-        public BriarheartBurgerCustomization(MenuContainer container)
+        public BriarheartBurgerCustomization(MenuContainer container, BriarheartBurger briar)
         {
             InitializeComponent();
-            burger = new BriarheartBurger();
+            burger = briar;
             DataContext = burger;
             menuContainer = container;
         }

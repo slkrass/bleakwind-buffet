@@ -29,6 +29,42 @@ namespace BleakwindBuffet.Data.Drinks
         private bool roomForCream = false;  // If there is room for cream in Candlehearth Coffee
         private bool decaf = false;         // If the coffee is decaf Candlehearth Coffee
 
+
+        /// <summary>
+        /// Gets the name of the coffee
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
         /// <value>
         /// Gets the price of Candlehearth Coffee
         /// </value>
@@ -73,6 +109,9 @@ namespace BleakwindBuffet.Data.Drinks
                 OnPropertyChanged(new PropertyChangedEventArgs("Size"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Price"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -91,6 +130,7 @@ namespace BleakwindBuffet.Data.Drinks
                 ice = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -110,6 +150,7 @@ namespace BleakwindBuffet.Data.Drinks
 
                 OnPropertyChanged(new PropertyChangedEventArgs("RoomForCream"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -127,6 +168,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 decaf = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Decaf"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
             }
         }
 

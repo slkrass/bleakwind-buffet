@@ -32,10 +32,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the WarriorWaterCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the WarriorWaterCustomization.xaml</param>
-        public WarriorWaterCustomization(MenuContainer container)
+        public WarriorWaterCustomization(MenuContainer container, WarriorWater warrior)
         {
             InitializeComponent();
-            water = new WarriorWater();
+            water = warrior;
             DataContext = water;
             menuContainer = container;
         }

@@ -26,6 +26,40 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true; // Holds whether or not there is tomato on the omelette
         private bool cheddar = true; // Holds whether or not there is cheddar on the omelette
 
+        /// <summary>
+        /// Gets the name of the omelette
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
 
         /// <value>
         /// Gets the price of the omelette
@@ -52,6 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
                 broccoli = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Broccoli"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -70,6 +105,7 @@ namespace BleakwindBuffet.Data.Entrees
                 mushrooms = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Mushrooms"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -88,6 +124,7 @@ namespace BleakwindBuffet.Data.Entrees
                 tomato = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Tomato"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -106,6 +143,75 @@ namespace BleakwindBuffet.Data.Entrees
                 cheddar = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Cheddar"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether to hold broccoli on the omelette
+        /// </value>
+        public bool HoldBroccoli
+        {
+            get
+            {
+                return !broccoli;
+            }
+
+            set
+            {
+                Broccoli = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldBroccoli"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold mushrooms on the omelette
+        /// </value>
+        public bool HoldMushrooms
+        {
+            get
+            {
+                return !mushrooms;
+            }
+
+            set
+            {
+                Mushrooms = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldMushrooms"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold tomato on the omelette
+        /// </value>
+        public bool HoldTomato
+        {
+            get
+            {
+                return !tomato;
+            }
+
+            set
+            {
+                Tomato = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldTomato"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold cheddar on the omelette
+        /// </value>
+        public bool HoldCheddar
+        {
+            get
+            {
+                return !cheddar;
+            }
+
+            set
+            {
+                Cheddar = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldCheddar"));
             }
         }
 

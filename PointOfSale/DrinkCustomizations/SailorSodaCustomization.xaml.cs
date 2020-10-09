@@ -32,10 +32,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the SailorSodaCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the SailorSodaCustomization.xaml</param>
-        public SailorSodaCustomization(MenuContainer container)
+        public SailorSodaCustomization(MenuContainer container, SailorSoda sailor)
         {
             InitializeComponent();
-            soda = new SailorSoda();
+            soda = sailor;
             DataContext = soda;
             menuContainer = container;
         }

@@ -28,6 +28,41 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = true;        // If there is ice in Warrior Water
         private bool lemon = false;     // If there is lemon in Warrior Water
 
+        /// <summary>
+        /// Gets the name of the Warrior Water
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
         /// <value>
         /// Gets the price of Warrior Water
         /// </value>
@@ -66,6 +101,9 @@ namespace BleakwindBuffet.Data.Drinks
                 OnPropertyChanged(new PropertyChangedEventArgs("Size"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Price"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -84,6 +122,20 @@ namespace BleakwindBuffet.Data.Drinks
                 ice = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
+            }
+        }
+
+        /// <summary>
+        /// Gets and sets the opposite of Ice in order to work around checkboxes
+        /// </summary>
+        public bool HoldIce
+        {
+            get { return !ice; }
+            set
+            {
+                Ice = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldIce"));
             }
         }
 
@@ -102,6 +154,7 @@ namespace BleakwindBuffet.Data.Drinks
                 lemon = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Lemon"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 

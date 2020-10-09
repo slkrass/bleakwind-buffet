@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the PhillyPoacherCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the PhillyPoacherCustomization.xaml</param>
-        public PhillyPoacherCustomization(MenuContainer container)
+        public PhillyPoacherCustomization(MenuContainer container, PhillyPoacher pp)
         {
             InitializeComponent();
-            philly = new PhillyPoacher();
+            philly = pp;
             DataContext = philly;
             menuContainer = container;
         }

@@ -74,14 +74,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Theory]
-        [InlineData(Size.Small, 0.62)]
-        [InlineData(Size.Medium, 0.87)]
-        [InlineData(Size.Large, 1.01)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        [InlineData(Size.Small, 0.62, "$0.62")]
+        [InlineData(Size.Medium, 0.87, "$0.87")]
+        [InlineData(Size.Large, 1.01,"$1.01")]
+        public void ShouldHaveCorrectPriceForSize(Size size, double price, string pri)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             aj.Size = size;
             Assert.Equal(price, aj.Price);
+            Assert.Equal(pri, aj.StringPrice);
         }
 
         [Theory]
@@ -103,8 +104,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             aj.Ice = includeIce;
 
-            if (includeIce) Assert.Contains("Add ice", aj.SpecialInstructions);
-            else Assert.Empty(aj.SpecialInstructions);
+            if (includeIce)
+            {
+                Assert.Contains("Add ice", aj.SpecialInstructions);
+                Assert.Contains("Add ice", aj.StringSpecialInstructions);
+            }
+            else
+            {
+                Assert.Empty(aj.SpecialInstructions);
+                Assert.Empty(aj.StringSpecialInstructions);
+            }
             
 
         }
@@ -118,6 +127,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             aj.Size = size;
             Assert.Equal(name, aj.ToString());
+            Assert.Equal(name, aj.Name);
+            Assert.PropertyChanged(aj, "Name", () => aj.Size = size);
         }
 
         [Theory]
@@ -140,6 +151,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.PropertyChanged(aj, "Ice", () => aj.Ice = ice);
             Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = ice);
+            Assert.PropertyChanged(aj, "StringSpecialInstructions", () => aj.Ice = ice);
         }
     }
 }

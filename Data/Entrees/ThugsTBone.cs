@@ -19,6 +19,40 @@ namespace BleakwindBuffet.Data.Entrees
     /// </remarks>
     public class ThugsTBone : Entree
     {
+        /// <summary>
+        /// Gets the name of the TBone
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach(String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
 
         /// <value>
         /// Gets the price of Thugs T-Bone

@@ -33,10 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the VokunSaladCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the VokunSaladCustomization.xaml</param>
-        public VokunSaladCustomization(MenuContainer container)
+        public VokunSaladCustomization(MenuContainer container, VokunSalad vokunSalad)
         {
             InitializeComponent();
-            salad = new VokunSalad();
+            salad = vokunSalad;
             DataContext = salad;
             menuContainer = container;
         }

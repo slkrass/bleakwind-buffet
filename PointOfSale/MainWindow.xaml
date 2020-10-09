@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
         mc:Ignorable="d"
-        Title="Bleakwind Buffet Point of Sale" Height="600" Width="800">
+        Title="Bleakwind Buffet Point of Sale" Height="600" Width="1000">
     <Grid>
         <local:MenuContainer/>
     </Grid>

@@ -27,6 +27,41 @@ namespace BleakwindBuffet.Data.Sides
         private uint calories = 41;     // The calories of the Vokun Salad
         private Size size = Size.Small; // The size of Vokun Salad
 
+        /// <summary>
+        /// Gets the name of the salad
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
         /// <value>
         /// Gets the price of Vokun Salad
         /// </value>
@@ -71,6 +106,8 @@ namespace BleakwindBuffet.Data.Sides
                 OnPropertyChanged(new PropertyChangedEventArgs("Size"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Price"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
             }
         }
 

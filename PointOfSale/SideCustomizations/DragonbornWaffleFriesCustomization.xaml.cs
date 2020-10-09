@@ -33,10 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the DragonbornWaffleFriesCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the DragonbornWaffleFriesCustomization.xaml</param>
-        public DragonbornWaffleFriesCustomization(MenuContainer container)
+        public DragonbornWaffleFriesCustomization(MenuContainer container, DragonbornWaffleFries dragonborn)
         {
             InitializeComponent();
-            fries = new DragonbornWaffleFries();
+            fries = dragonborn;
             DataContext = fries;
             menuContainer = container;
         }

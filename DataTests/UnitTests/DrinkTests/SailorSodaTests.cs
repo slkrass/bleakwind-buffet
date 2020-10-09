@@ -56,8 +56,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda soda = new SailorSoda();
             soda.Ice = false;
             Assert.False(soda.Ice);
+            Assert.True(soda.HoldIce);
             soda.Ice = true;
             Assert.True(soda.Ice);
+            Assert.False(soda.HoldIce);
         }
 
         [Fact]
@@ -96,14 +98,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Theory]
-        [InlineData(Size.Small, 1.42)]
-        [InlineData(Size.Medium, 1.74)]
-        [InlineData(Size.Large, 2.07)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        [InlineData(Size.Small, 1.42, "$1.42")]
+        [InlineData(Size.Medium, 1.74, "$1.74")]
+        [InlineData(Size.Large, 2.07, "$2.07")]
+        public void ShouldHaveCorrectPriceForSize(Size size, double price, string p)
         {
             SailorSoda soda = new SailorSoda();
             soda.Size = size;
             Assert.Equal(price, soda.Price);
+            Assert.Equal(p, soda.StringPrice);
         }
 
         [Theory]
@@ -125,8 +128,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda soda = new SailorSoda();
             soda.Ice = includeIce;
 
-            if (!includeIce) Assert.Contains("Hold ice", soda.SpecialInstructions);
-            else Assert.Empty(soda.SpecialInstructions);
+            if (!includeIce)
+            {
+                Assert.Contains("Hold ice", soda.SpecialInstructions);
+                Assert.Contains("Hold ice", soda.StringSpecialInstructions);
+            }
+            else
+            {
+                Assert.Empty(soda.SpecialInstructions);
+                Assert.Empty(soda.StringSpecialInstructions);
+            }
         }
         
         [Theory]
@@ -159,6 +170,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             soda.Flavor = flavor;
             soda.Size = size;
             Assert.Equal(name, soda.ToString());
+            Assert.Equal(name, soda.Name);
         }
 
         [Fact]
@@ -178,6 +190,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(soda, "Size", () => soda.Size = size);
             Assert.PropertyChanged(soda, "Calories", () => soda.Size = size);
             Assert.PropertyChanged(soda, "Price", () => soda.Size = size);
+            Assert.PropertyChanged(soda, "Name", () => soda.Size = size);
         }
 
         [Theory]
@@ -187,7 +200,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda soda = new SailorSoda();
             Assert.PropertyChanged(soda, "Ice", () => soda.Ice = ice);
+            Assert.PropertyChanged(soda, "HoldIce", () => soda.HoldIce = !ice);
             Assert.PropertyChanged(soda, "SpecialInstructions", () => soda.Ice = ice);
+            Assert.PropertyChanged(soda, "StringSpecialInstructions", () => soda.Ice = ice);
         }
 
         [Theory]

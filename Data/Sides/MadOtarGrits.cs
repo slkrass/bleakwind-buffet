@@ -27,6 +27,41 @@ namespace BleakwindBuffet.Data.Sides
         private uint calories = 105;    // The calories of the Mad Otar Grits
         private Size size = Size.Small; // The size of Mad Otar Grits
 
+        /// <summary>
+        /// Gets the name of the grits
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+               return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
         /// <value>
         /// Gets the price of Mad Otar Grits
         /// </value>
@@ -71,6 +106,8 @@ namespace BleakwindBuffet.Data.Sides
                 OnPropertyChanged(new PropertyChangedEventArgs("Size"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Price"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
             }
         }
 

@@ -66,14 +66,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Theory]
-        [InlineData(Size.Small, 1.05)]
-        [InlineData(Size.Medium, 1.11)]
-        [InlineData(Size.Large, 1.22)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        [InlineData(Size.Small, 1.05, "$1.05")]
+        [InlineData(Size.Medium, 1.11, "$1.11")]
+        [InlineData(Size.Large, 1.22, "$1.22")]
+        public void ShouldHaveCorrectPriceForSize(Size size, double price, string p)
         {
             MarkarthMilk milk = new MarkarthMilk();
             milk.Size = size;
             Assert.Equal(price, milk.Price);
+            Assert.Equal(p, milk.StringPrice);
         }
 
         [Theory]
@@ -95,8 +96,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk milk = new MarkarthMilk();
             milk.Ice = includeIce;
 
-            if (includeIce) Assert.Contains("Add ice", milk.SpecialInstructions);
-            else Assert.Empty(milk.SpecialInstructions);
+            if (includeIce)
+            {
+                Assert.Contains("Add ice", milk.SpecialInstructions);
+                Assert.Contains("Add ice", milk.StringSpecialInstructions);
+            }
+            else
+            {
+                Assert.Empty(milk.SpecialInstructions);
+                Assert.Empty(milk.StringSpecialInstructions);
+            }
         }
 
         [Theory]
@@ -108,6 +117,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk milk = new MarkarthMilk();
             milk.Size = size;
             Assert.Equal(name, milk.ToString());
+            Assert.Equal(name, milk.Name);
 
         }
 
@@ -128,6 +138,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(milk, "Size", () => milk.Size = size);
             Assert.PropertyChanged(milk, "Calories", () => milk.Size = size);
             Assert.PropertyChanged(milk, "Price", () => milk.Size = size);
+            Assert.PropertyChanged(milk, "Name", () => milk.Size = size);
         }
 
         [Theory]
@@ -138,6 +149,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk milk = new MarkarthMilk();
             Assert.PropertyChanged(milk, "Ice", () => milk.Ice = ice);
             Assert.PropertyChanged(milk, "SpecialInstructions", () => milk.Ice = ice);
+            Assert.PropertyChanged(milk, "StringSpecialInstructions", () => milk.Ice = ice);
         }
     }
 }

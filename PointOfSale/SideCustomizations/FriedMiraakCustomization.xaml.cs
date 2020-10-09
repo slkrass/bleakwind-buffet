@@ -33,10 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the FriedMiraakCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the FriedMiraakCustomization.xaml</param>
-        public FriedMiraakCustomization(MenuContainer container)
+        public FriedMiraakCustomization(MenuContainer container, FriedMiraak fried)
         {
             InitializeComponent();
-            miraak = new FriedMiraak();
+            miraak = fried;
             DataContext = miraak;
             menuContainer = container;
         }

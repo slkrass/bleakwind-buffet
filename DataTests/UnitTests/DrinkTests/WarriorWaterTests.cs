@@ -57,8 +57,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater water = new WarriorWater();
             water.Ice = false;
             Assert.False(water.Ice);
+            Assert.True(water.HoldIce);
             water.Ice = true;
             Assert.True(water.Ice);
+            Assert.False(water.HoldIce);
         }
 
         [Fact]
@@ -88,6 +90,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             WarriorWater water = new WarriorWater();
             Assert.Equal(0, water.Price);
+            Assert.Equal("$0.00", water.StringPrice);
         }
 
         [Fact]
@@ -113,18 +116,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             {
                 Assert.Contains("Hold ice", water.SpecialInstructions);
                 Assert.Contains("Add lemon", water.SpecialInstructions);
+                Assert.Contains("Hold ice", water.StringSpecialInstructions);
+                Assert.Contains("Add lemon", water.StringSpecialInstructions);
             }
             else if (!includeIce)
             {
                 Assert.Contains("Hold ice", water.SpecialInstructions);
+                Assert.Contains("Hold ice", water.StringSpecialInstructions);
             }
             else if (includeLemon)
             {
                 Assert.Contains("Add lemon", water.SpecialInstructions);
+                Assert.Contains("Add lemon", water.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(water.SpecialInstructions);
+                Assert.Empty(water.StringSpecialInstructions);
             }
         }
 
@@ -137,6 +145,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater water = new WarriorWater();
             water.Size = size;
             Assert.Equal(name, water.ToString());
+            Assert.Equal(name, water.Name);
         }
 
 
@@ -157,6 +166,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(water, "Size", () => water.Size = size);
             Assert.PropertyChanged(water, "Calories", () => water.Size = size);
             Assert.PropertyChanged(water, "Price", () => water.Size = size);
+            Assert.PropertyChanged(water, "Name", () => water.Size = size);
         }
 
         [Theory]
@@ -167,6 +177,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater water = new WarriorWater();
             Assert.PropertyChanged(water, "Ice", () => water.Ice = ice);
             Assert.PropertyChanged(water, "SpecialInstructions", () => water.Ice = ice);
+            Assert.PropertyChanged(water, "HoldIce", () => water.HoldIce = !ice);
+            Assert.PropertyChanged(water, "StringSpecialInstructions", () => water.Ice = ice);
         }
 
         [Theory]
@@ -177,6 +189,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater water = new WarriorWater();
             Assert.PropertyChanged(water, "Lemon", () => water.Lemon = lemon);
             Assert.PropertyChanged(water, "SpecialInstructions", () => water.Lemon = lemon);
+            Assert.PropertyChanged(water, "StringSpecialInstructions", () => water.Lemon = lemon);
         }
     }
 }

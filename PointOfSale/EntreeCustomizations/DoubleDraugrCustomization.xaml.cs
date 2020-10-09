@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the DoubleDraugrCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the DoubleDraugrCustomization.xaml</param>
-        public DoubleDraugrCustomization(MenuContainer container)
+        public DoubleDraugrCustomization(MenuContainer container, DoubleDraugr draugr)
         {
             InitializeComponent();
-            burger = new DoubleDraugr();
+            burger = draugr;
             DataContext = burger;
             menuContainer = container;
         }

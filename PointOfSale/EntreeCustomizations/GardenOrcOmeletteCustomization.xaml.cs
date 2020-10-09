@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the GardenOrcOmeletteCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the GardenOrcOmeletteCustomization.xaml</param>
-        public GardenOrcOmeletteCustomization(MenuContainer container)
+        public GardenOrcOmeletteCustomization(MenuContainer container, GardenOrcOmelette goo)
         {
             InitializeComponent();
-            omelette = new GardenOrcOmelette();
+            omelette = goo;
             DataContext = omelette;
             menuContainer = container;
         }

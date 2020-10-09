@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         
         <!-- Entree Buttons -->
-        <TextBox Grid.Row="0" Grid.Column="0" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Entrees</TextBox>
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Entrees</TextBlock>
         <Image Source="Images/singleBurger.jpg"  Grid.Column="0" Grid.Row="1"  Width="100"/>
         <Button Name="briarheartBurgerButton"   Click="AddItemToOrder" Grid.Row="1" Grid.Column="0" Height="22" Width="115" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Briarheart Burger</Button>
         
@@ -47,7 +47,7 @@
         <Button Name="thugsTBoneButton"         Click="AddItemToOrder" Grid.Row="7" Grid.Column="0" Height="22" Width="105" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Thugs T-Bone</Button>
         
         <!-- Drink Buttons -->
-        <TextBox Grid.Row="0" Grid.Column="1" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Drinks</TextBox>
+        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Drinks</TextBlock>
         <Image Source="Images/soda.jpg" Grid.Column="1" Grid.Row="1" Height="80" />
         <Button Name ="sailorSodaButton"        Click="AddItemToOrder" Grid.Row="1" Grid.Column="1" Height="22" Width="85" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Sailor Soda</Button>
         
@@ -64,7 +64,7 @@
         <Button Name="warriorWaterButton"       Click="AddItemToOrder" Grid.Row="5" Grid.Column="1" Height="22" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Warrior Water</Button>
         
         <!-- Side Buttons -->
-        <TextBox Grid.Row="0" Grid.Column="2" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Sides</TextBox>
+        <TextBlock Grid.Row="0" Grid.Column="2" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Sides</TextBlock>
 
         <Image Source="Images/fruitSalad.jpg" Grid.Column="2" Grid.Row="1" Width="90"/>
         <Button Name="vokunSaladButton"         Click="AddItemToOrder" Grid.Row="1" Grid.Column="2" Height="22" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Vokun Salad</Button>
@@ -78,7 +78,7 @@
         <Image Source="Images/waffleFries.jpg"  Grid.Column="2" Grid.Row="4" Height="80" />
         <Button Name="dragonbornWaffleFriesButton"  Click="AddItemToOrder" Grid.Row="4" Grid.Column="2" Height="22" Width="145" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="12" FontWeight="SemiBold">Dragonborn Waffle Fries</Button>
 
-        <Button Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
+        <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
         <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
         
     </Grid>

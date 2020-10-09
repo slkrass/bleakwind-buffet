@@ -26,6 +26,41 @@ namespace BleakwindBuffet.Data.Entrees
         private bool hashBrowns = true;     // Holds whether or not the breakfast combo has hash browns
         private bool pancake = true;        // Holds whether or not the breakfast combo has pancakes
 
+        /// <summary>
+        /// Gets the name of the smokehouse skeleton
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
         /// <value>
         /// Gets the price of the breakfast combo
         /// </value>
@@ -51,6 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
                 sausageLink = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("SausageLink"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -69,6 +105,7 @@ namespace BleakwindBuffet.Data.Entrees
                 egg = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Egg"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -87,6 +124,7 @@ namespace BleakwindBuffet.Data.Entrees
                 hashBrowns = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("HashBrowns"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -105,6 +143,75 @@ namespace BleakwindBuffet.Data.Entrees
                 pancake = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Pancake"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether the breakfast combo has sausage links
+        /// </value>
+        public bool HoldSausageLink
+        {
+            get
+            {
+                return !sausageLink;
+            }
+
+            set
+            {
+                SausageLink = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldSausageLink"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold eggs on the breakfast combo 
+        /// </value>
+        public bool HoldEgg
+        {
+            get
+            {
+                return !egg;
+            }
+
+            set
+            {
+                Egg = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldEgg"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold hash browns
+        /// </value>
+        public bool HoldHashBrowns
+        {
+            get
+            {
+                return !hashBrowns;
+            }
+
+            set
+            {
+                HashBrowns = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldHashBrowns"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold pancakes
+        /// </value>
+        public bool HoldPancake
+        {
+            get
+            {
+                return !pancake;
+            }
+
+            set
+            {
+                Pancake = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldPancake"));
             }
         }
 

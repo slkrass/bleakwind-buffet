@@ -27,6 +27,41 @@ namespace BleakwindBuffet.Data.Sides
         private uint calories = 151;    // The calories of the Fried Miraak
         private Size size = Size.Small; // The size of Fried Miraak
 
+        /// <summary>
+        /// Gets the name of the miraak
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
         /// <value>
         /// Gets the price of Fried Miraak
         /// </value>
@@ -71,6 +106,8 @@ namespace BleakwindBuffet.Data.Sides
                 OnPropertyChanged(new PropertyChangedEventArgs("Size"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Price"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
             }
         }
 

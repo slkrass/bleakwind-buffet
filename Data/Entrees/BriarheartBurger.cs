@@ -38,6 +38,41 @@ namespace BleakwindBuffet.Data.Entrees
         /// </value>
         public override uint Calories => 743;
 
+        /// <summary>
+        /// Gets the name of the burger
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
         /// <value>
         /// Gets and sets whether there is ketchup on the burger
         /// </value>
@@ -54,6 +89,7 @@ namespace BleakwindBuffet.Data.Entrees
 
                 OnPropertyChanged(new PropertyChangedEventArgs("Ketchup"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -72,6 +108,7 @@ namespace BleakwindBuffet.Data.Entrees
                 bun = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Bun"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -90,6 +127,7 @@ namespace BleakwindBuffet.Data.Entrees
                 mustard = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Mustard"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -108,6 +146,7 @@ namespace BleakwindBuffet.Data.Entrees
                 pickle = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Pickle"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -125,6 +164,92 @@ namespace BleakwindBuffet.Data.Entrees
                 cheese = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Cheese"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether hold ketchup on the burger
+        /// </value>
+        public bool HoldKetchup
+        {
+            get
+            {
+                return !ketchup;
+            }
+
+            set
+            {
+                Ketchup = !value;
+
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldKetchup"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether to hold the bun
+        /// </value>
+        public bool HoldBun
+        {
+            get
+            {
+                return !bun;
+            }
+
+            set
+            {
+                Bun = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldBun"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold mustard on the burger
+        /// </value>
+        public bool HoldMustard
+        {
+            get
+            {
+                return !mustard;
+            }
+
+            set
+            {
+                Mustard = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldMustard"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold pickles on the burger
+        /// </value>
+        public bool HoldPickle
+        {
+            get
+            {
+                return !pickle;
+            }
+
+            set
+            {
+                Pickle = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldPickle"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold cheese on the burger
+        /// </value>
+        public bool HoldCheese
+        {
+            get
+            {
+                return !cheese;
+            }
+            set
+            {
+                Cheese = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldCheese"));
             }
         }
 

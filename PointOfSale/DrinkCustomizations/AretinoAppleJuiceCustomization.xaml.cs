@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -34,10 +35,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the AretinoAppleJuiceCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the AretinoAppleJuiceCustomization.xaml</param>
-        public AretinoAppleJuiceCustomization(MenuContainer container)
+        public AretinoAppleJuiceCustomization(MenuContainer container, AretinoAppleJuice aj)
         {
             InitializeComponent();
-            appleJuice = new AretinoAppleJuice();
+            appleJuice = aj;
             DataContext = appleJuice;
             menuContainer = container;
         }
@@ -50,7 +51,6 @@ namespace BleakwindBuffet.PointOfSale
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
             menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
-
         }
     }
 }

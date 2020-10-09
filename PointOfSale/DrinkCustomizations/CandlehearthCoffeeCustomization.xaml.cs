@@ -26,17 +26,16 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
-
         private CandlehearthCoffee coffee;
 
         /// <summary>
         /// Constructor for the CandleheartCoffeeCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the CandleheartCoffeeCustomization.xaml</param>
-        public CandlehearthCoffeeCustomization(MenuContainer container)
+        public CandlehearthCoffeeCustomization(MenuContainer container, CandlehearthCoffee candle)
         {
             InitializeComponent();
-            coffee = new CandlehearthCoffee();
+            coffee = candle;
             DataContext = coffee;
             menuContainer = container;
         }

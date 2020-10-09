@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the MadOtarGritsCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the MadOtarGritsCustomization.xaml</param>
-        public MadOtarGritsCustomization(MenuContainer container)
+        public MadOtarGritsCustomization(MenuContainer container, MadOtarGrits grits)
         {
             InitializeComponent();
-            madGrits = new MadOtarGrits();
+            madGrits = grits;
             DataContext = madGrits;
             menuContainer = container;
         }

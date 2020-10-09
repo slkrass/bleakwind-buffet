@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -26,6 +27,7 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuSelection menuSelection;
         private OrderList orderList;
+        private Order order;
 
         /// <summary>
         /// Constructor for the MenuContainer
@@ -33,11 +35,20 @@ namespace BleakwindBuffet.PointOfSale
         public MenuContainer()
         {
             InitializeComponent();
-
+            order = new Order();
             menuSelection = new MenuSelection(this);
-            orderList = new OrderList();
+            orderList = new OrderList(this);
             menuBorder.Child = menuSelection;
             currentItemsInOrderBorder.Child = orderList;
+        }
+
+        public Order OrderControl
+        {
+            get { return order; }
+            set
+            {
+                order = value;
+            }
         }
 
     }

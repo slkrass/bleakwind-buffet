@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the SmokehouseSkeletonCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the SmokehouseSkeletonCustomization.xaml</param>
-        public SmokehouseSkeletonCustomization(MenuContainer container)
+        public SmokehouseSkeletonCustomization(MenuContainer container, SmokehouseSkeleton shs)
         {
             InitializeComponent();
-            skeleton = new SmokehouseSkeleton();
+            skeleton = shs;
             DataContext = skeleton;
             menuContainer = container;
         }

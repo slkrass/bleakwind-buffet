@@ -25,6 +25,41 @@ namespace BleakwindBuffet.Data.Entrees
         private bool onion = true;      // Holds whether or not there onion for the Philly Poacher
         private bool roll = true;       // Holds whether or not there is roll on the Philly Poacher
 
+        /// <summary>
+        /// Gets the name of the philly poacher
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
+
+        /// <summary>
+        /// Gets a string representation of the SpecialInstructions
+        /// </summary>
+        public string StringSpecialInstructions
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (String s in SpecialInstructions)
+                {
+                    sb.Append("- " + s + "\n");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
+            }
+        }
+
         /// <value>
         /// Gets the price of the Philly Poacher
         /// </value>
@@ -50,6 +85,7 @@ namespace BleakwindBuffet.Data.Entrees
                 sirloin = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Sirloin"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -68,6 +104,7 @@ namespace BleakwindBuffet.Data.Entrees
                 onion = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Onion"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -86,6 +123,58 @@ namespace BleakwindBuffet.Data.Entrees
                 roll = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Roll"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether to hold sirloin on the Philly Poacher
+        /// </value>
+        public bool HoldSirloin
+        {
+            get
+            {
+                return !sirloin;
+            }
+
+            set
+            {
+                Sirloin = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldSirloin"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold onion on the Philly Poacher
+        /// </value>
+        public bool HoldOnion
+        {
+            get
+            {
+                return !onion;
+            }
+
+            set
+            {
+                Onion = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldOnion"));
+            }
+        }
+
+        /// <value>
+        /// Gets and sets whether or not to hold roll on the Philly Poacher
+        /// </value>
+        public bool HoldRoll
+        {
+            get
+            {
+                return !roll;
+            }
+
+            set
+            {
+                Roll = !value;
+                OnPropertyChanged(new PropertyChangedEventArgs("HoldRoll"));
             }
         }
 

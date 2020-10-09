@@ -34,10 +34,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the ThalmorTripleCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the ThalmorTripleCustomization.xaml</param>
-        public ThalmorTripleCustomization(MenuContainer container)
+        public ThalmorTripleCustomization(MenuContainer container, ThalmorTriple tt)
         {
             InitializeComponent();
-            burger = new ThalmorTriple();
+            burger = tt;
             DataContext = burger;
             menuContainer = container;
         }

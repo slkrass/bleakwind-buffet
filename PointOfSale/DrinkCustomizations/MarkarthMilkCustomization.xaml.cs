@@ -32,10 +32,10 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the MarkarthMilkCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the MarkarthMilkCustomization.xaml</param>
-        public MarkarthMilkCustomization(MenuContainer container)
+        public MarkarthMilkCustomization(MenuContainer container, MarkarthMilk marMilk)
         {
             InitializeComponent();
-            milk = new MarkarthMilk();
+            milk = marMilk;
             DataContext = milk;
             menuContainer = container;
         }

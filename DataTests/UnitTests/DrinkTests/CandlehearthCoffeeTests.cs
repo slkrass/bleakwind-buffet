@@ -100,14 +100,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Theory]
-        [InlineData(Size.Small, 0.75)]
-        [InlineData(Size.Medium, 1.25)]
-        [InlineData(Size.Large, 1.75)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        [InlineData(Size.Small, 0.75, "$0.75")]
+        [InlineData(Size.Medium, 1.25, "$1.25")]
+        [InlineData(Size.Large, 1.75, "$1.75")]
+        public void ShouldHaveCorrectPriceForSize(Size size, double price, string strPrice)
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             coffee.Size = size;
             Assert.Equal(price, coffee.Price);
+            Assert.Equal(strPrice, coffee.StringPrice);
         }
 
         [Theory]
@@ -136,18 +137,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             {
                 Assert.Contains("Add ice", coffee.SpecialInstructions);
                 Assert.Contains("Add cream", coffee.SpecialInstructions);
+                Assert.Contains("Add ice", coffee.StringSpecialInstructions);
+                Assert.Contains("Add cream", coffee.StringSpecialInstructions);
             }
             else if (includeIce)
             {
                 Assert.Contains("Add ice", coffee.SpecialInstructions);
+                Assert.Contains("Add ice", coffee.StringSpecialInstructions);
             }
             else if (includeCream)
             {
                 Assert.Contains("Add cream", coffee.SpecialInstructions);
+                Assert.Contains("Add cream", coffee.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(coffee.SpecialInstructions);
+                Assert.Empty(coffee.StringSpecialInstructions);
             }
         }
 
@@ -164,6 +170,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             coffee.Decaf = decaf;
             coffee.Size = size;
             Assert.Equal(name, coffee.ToString());
+            Assert.Equal(name, coffee.Name);
+            
         }
 
         [Fact]
@@ -183,6 +191,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(coffee, "Size", () => coffee.Size = size);
             Assert.PropertyChanged(coffee, "Calories", () => coffee.Size = size);
             Assert.PropertyChanged(coffee, "Price", () => coffee.Size = size);
+            Assert.PropertyChanged(coffee, "Name", () => coffee.Size = size);
         }
 
         [Theory]
@@ -193,6 +202,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "Ice", () => coffee.Ice = ice);
             Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.Ice = ice);
+            Assert.PropertyChanged(coffee, "StringSpecialInstructions", () => coffee.Ice = ice);
         }
 
         [Theory]
@@ -203,6 +213,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "RoomForCream", () => coffee.RoomForCream = cream);
             Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.RoomForCream = cream);
+            Assert.PropertyChanged(coffee, "StringSpecialInstructions", () => coffee.RoomForCream = cream);
         }
 
         [Theory]

@@ -28,17 +28,16 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
-
         private ThugsTBone tBone;
 
         /// <summary>
         /// Constructor for the ThugsTBoneCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the ThugsTBoneCustomization.xaml</param>
-        public ThugsTBoneCustomization(MenuContainer container)
+        public ThugsTBoneCustomization(MenuContainer container, ThugsTBone bone)
         {
             InitializeComponent();
-            tBone = new ThugsTBone();
+            tBone = bone;
             DataContext = tBone;
             menuContainer = container;
         }
