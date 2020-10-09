@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
@@ -31,6 +32,90 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             Combo combo = new Combo();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(combo);
+        }
+
+        [Fact]
+        public void Price_Should_Be_The_Price_Of_The_Items_Minus_One()
+        {
+            Combo combo = new Combo();
+            WarriorWater ww = new WarriorWater();
+            BriarheartBurger bb = new BriarheartBurger();
+            VokunSalad vs = new VokunSalad();
+            double price = ww.Price + bb.Price + vs.Price - 1;
+            Assert.Equal(price, combo.Price);
+        }
+
+        [Fact]
+        public void Calories_Should_Be_The_Total_Calories_Of_All_The_Items()
+        {
+            Combo combo = new Combo();
+            WarriorWater ww = new WarriorWater();
+            BriarheartBurger bb = new BriarheartBurger();
+            VokunSalad vs = new VokunSalad();
+            uint cal = ww.Calories + bb.Calories + vs.Calories;
+            Assert.Equal(cal, combo.Calories);
+        }
+
+        [Fact]
+        public void Changing_ComboDrink_Should_Notify_Price_Calories_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboDrink = new AretinoAppleJuice());
+            Assert.PropertyChanged(combo, "Price", () => combo.ComboDrink = new AretinoAppleJuice());
+            Assert.PropertyChanged(combo, "Calories", () => combo.ComboDrink = new AretinoAppleJuice());
+
+        }
+
+        [Fact]
+        public void Changing_ComboDrink_Size_Should_Notify_Price_Calories_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboDrink.Size = Size.Medium);
+            Assert.PropertyChanged(combo, "Price", () => combo.ComboDrink.Size = Size.Medium);
+            Assert.PropertyChanged(combo, "Calories", () => combo.ComboDrink.Size = Size.Medium);
+
+        }
+
+        [Fact]
+        public void Changing_ComboSide_Should_Notify_Price_Calories_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboSide = new DragonbornWaffleFries());
+            Assert.PropertyChanged(combo, "Price", () => combo.ComboSide = new DragonbornWaffleFries());
+            Assert.PropertyChanged(combo, "Calories", () => combo.ComboSide = new DragonbornWaffleFries());
+        }
+
+        [Fact]
+        public void Changing_ComboSide_Size_Should_Notify_Price_Calories_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboSide.Size = Size.Medium);
+            Assert.PropertyChanged(combo, "Price", () => combo.ComboSide.Size = Size.Medium);
+            Assert.PropertyChanged(combo, "Calories", () => combo.ComboSide.Size = Size.Medium);
+        }
+
+        [Fact]
+        public void Changing_ComboEntree_Should_Notify_Price_Calories_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboEntree = new BriarheartBurger());
+            Assert.PropertyChanged(combo, "Price", () => combo.ComboEntree = new BriarheartBurger());
+            Assert.PropertyChanged(combo, "Calories", () => combo.ComboEntree = new BriarheartBurger());
+        }
+
+
+        [Fact]
+        public void Changing_Flavor_Should_Notify_SpecialInstructions()
+        {
+            Combo combo = new Combo();
+            SailorSoda soda = new SailorSoda();
+            soda.Flavor = SodaFlavor.Blackberry;
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboDrink = soda);
         }
 
     }

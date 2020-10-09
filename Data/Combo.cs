@@ -97,6 +97,9 @@ namespace BleakwindBuffet.Data
             {
                 drink.PropertyChanged -= ItemChangeListener;
                 drink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 drink.PropertyChanged += ItemChangeListener;
             }
         }
@@ -112,8 +115,10 @@ namespace BleakwindBuffet.Data
 
                 entree.PropertyChanged -= ItemChangeListener;
                 entree = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 entree.PropertyChanged += ItemChangeListener;
-                //Iprop to notify the calories and price and special instructions
             }
         }
 
@@ -127,10 +132,10 @@ namespace BleakwindBuffet.Data
             {
                 side.PropertyChanged -= ItemChangeListener;
                 side = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 side.PropertyChanged += ItemChangeListener;
-
-                //listen for property changed event
-                //side.PropertyChanged += ItemChangeListener;
             }
         }
 
@@ -154,6 +159,14 @@ namespace BleakwindBuffet.Data
             }
             else if(e.PropertyName == "SpecialInstructions")
             {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+            else
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
