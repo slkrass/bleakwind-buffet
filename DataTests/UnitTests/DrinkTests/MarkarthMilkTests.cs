@@ -99,12 +99,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             if (includeIce)
             {
                 Assert.Contains("Add ice", milk.SpecialInstructions);
-                Assert.Contains("Add ice", milk.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(milk.SpecialInstructions);
-                Assert.Empty(milk.StringSpecialInstructions);
             }
         }
 
@@ -149,7 +147,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk milk = new MarkarthMilk();
             Assert.PropertyChanged(milk, "Ice", () => milk.Ice = ice);
             Assert.PropertyChanged(milk, "SpecialInstructions", () => milk.Ice = ice);
-            Assert.PropertyChanged(milk, "StringSpecialInstructions", () => milk.Ice = ice);
         }
     }
 }

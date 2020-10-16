@@ -62,7 +62,9 @@
         
         <Image Source="Images/water2.jpg" Grid.Column="1" Grid.Row="5" Height="75" />
         <Button Name="warriorWaterButton"       Click="AddItemToOrder" Grid.Row="5" Grid.Column="1" Height="22" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Warrior Water</Button>
-        
+
+        <Button Name="comboButton" Grid.Column="1" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Combo Meal</Button>
+
         <!-- Side Buttons -->
         <TextBlock Grid.Row="0" Grid.Column="2" FontSize="16" FontWeight="DemiBold" TextAlignment="Center">Sides</TextBlock>
 
@@ -77,7 +79,7 @@
         
         <Image Source="Images/waffleFries.jpg"  Grid.Column="2" Grid.Row="4" Height="80" />
         <Button Name="dragonbornWaffleFriesButton"  Click="AddItemToOrder" Grid.Row="4" Grid.Column="2" Height="22" Width="145" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="12" FontWeight="SemiBold">Dragonborn Waffle Fries</Button>
-
+        
         <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
         <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
         

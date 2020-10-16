@@ -209,7 +209,6 @@ namespace BleakwindBuffet.Data
                 OnPropertyChanged(new PropertyChangedEventArgs("Total"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Name"));
                 OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
                 OnPropertyChanged(new PropertyChangedEventArgs("StringTax"));
                 OnPropertyChanged(new PropertyChangedEventArgs("StringSubtotal"));
                 OnPropertyChanged(new PropertyChangedEventArgs("StringTotal"));

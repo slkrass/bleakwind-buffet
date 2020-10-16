@@ -25,8 +25,6 @@ namespace BleakwindBuffet.Data
         public event PropertyChangedEventHandler PropertyChanged;
 
         /* Private Variables */
-        //private double price = 0;
-        //private uint calories = 0;
         private Drink drink = new WarriorWater();
         private Entree entree = new BriarheartBurger();
         private Side side = new VokunSalad();

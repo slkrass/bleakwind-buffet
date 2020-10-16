@@ -116,23 +116,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             {
                 Assert.Contains("Hold ice", water.SpecialInstructions);
                 Assert.Contains("Add lemon", water.SpecialInstructions);
-                Assert.Contains("Hold ice", water.StringSpecialInstructions);
-                Assert.Contains("Add lemon", water.StringSpecialInstructions);
             }
             else if (!includeIce)
             {
                 Assert.Contains("Hold ice", water.SpecialInstructions);
-                Assert.Contains("Hold ice", water.StringSpecialInstructions);
             }
             else if (includeLemon)
             {
                 Assert.Contains("Add lemon", water.SpecialInstructions);
-                Assert.Contains("Add lemon", water.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(water.SpecialInstructions);
-                Assert.Empty(water.StringSpecialInstructions);
             }
         }
 
@@ -178,7 +173,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(water, "Ice", () => water.Ice = ice);
             Assert.PropertyChanged(water, "SpecialInstructions", () => water.Ice = ice);
             Assert.PropertyChanged(water, "HoldIce", () => water.HoldIce = !ice);
-            Assert.PropertyChanged(water, "StringSpecialInstructions", () => water.Ice = ice);
         }
 
         [Theory]
@@ -189,7 +183,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater water = new WarriorWater();
             Assert.PropertyChanged(water, "Lemon", () => water.Lemon = lemon);
             Assert.PropertyChanged(water, "SpecialInstructions", () => water.Lemon = lemon);
-            Assert.PropertyChanged(water, "StringSpecialInstructions", () => water.Lemon = lemon);
         }
     }
 }

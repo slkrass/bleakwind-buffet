@@ -107,15 +107,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             if (includeIce)
             {
                 Assert.Contains("Add ice", aj.SpecialInstructions);
-                Assert.Contains("Add ice", aj.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(aj.SpecialInstructions);
-                Assert.Empty(aj.StringSpecialInstructions);
             }
-            
-
         }
 
         [Theory]
@@ -151,7 +147,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.PropertyChanged(aj, "Ice", () => aj.Ice = ice);
             Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = ice);
-            Assert.PropertyChanged(aj, "StringSpecialInstructions", () => aj.Ice = ice);
         }
     }
 }

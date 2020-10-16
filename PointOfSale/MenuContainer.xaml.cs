@@ -29,6 +29,7 @@ namespace BleakwindBuffet.PointOfSale
         private OrderList orderList;
         private Order order;
 
+
         /// <summary>
         /// Constructor for the MenuContainer
         /// </summary>
@@ -42,6 +43,9 @@ namespace BleakwindBuffet.PointOfSale
             currentItemsInOrderBorder.Child = orderList;
         }
 
+        /// <summary>
+        /// Gets and sets the current order object
+        /// </summary>
         public Order OrderControl
         {
             get { return order; }

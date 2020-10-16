@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="BleakwindBuffet.PointOfSale.ComboPhillyPoacherCustomization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Philly Poacher Customization:</TextBlock>
+        <Image Source="../Images/sirloin.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Height="50"/>
+        <CheckBox IsChecked="{Binding Path= HoldSirloin}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold sirloin</CheckBox>
+
+        <Image Source="../Images/onion.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2" Height="55"/>
+        <CheckBox IsChecked="{Binding Path= HoldOnion}" Grid.Column="0" Grid.Row="2" FontSize="16">Hold onions</CheckBox>
+
+        <Image Source="../Images/roll.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="3" Height="55"/>
+        <CheckBox IsChecked="{Binding Path= HoldRoll}" Grid.Column="0" Grid.Row="3" FontSize="16">Hold roll</CheckBox>
+
+
+        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+
+
+    </Grid>
+</UserControl>

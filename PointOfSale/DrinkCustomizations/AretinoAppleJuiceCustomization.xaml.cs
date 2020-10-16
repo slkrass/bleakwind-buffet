@@ -35,12 +35,12 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the AretinoAppleJuiceCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the AretinoAppleJuiceCustomization.xaml</param>
-        public AretinoAppleJuiceCustomization(MenuContainer container, AretinoAppleJuice aj)
+        public AretinoAppleJuiceCustomization()
         {
             InitializeComponent();
-            appleJuice = aj;
+            //appleJuice = aj;
             DataContext = appleJuice;
-            menuContainer = container;
+            //menuContainer = container;
         }
 
         /// <summary>
@@ -51,6 +51,33 @@ namespace BleakwindBuffet.PointOfSale
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
             menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public AretinoAppleJuice AppleJuice
+        {
+            get
+            {
+                return appleJuice;
+            }
+            set => appleJuice = value;
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

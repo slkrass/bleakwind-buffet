@@ -46,18 +46,6 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
-        /// Gets a string representation of the SpecialInstructions
-        /// </summary>
-        public string StringSpecialInstructions
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder(); 
-                return sb.ToString();
-            }
-        }
-
         /// <value>
         /// Gets the price of Vokun Salad
         /// </value>

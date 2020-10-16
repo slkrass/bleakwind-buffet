@@ -187,4 +187,106 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ComboSelection\ComboDrinks\ComboAretinoAppleJuiceCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboDrinks\ComboCandlehearthCoffeeCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboDrinks\ComboMarkarthMilkCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboDrinks\ComboSailorSodaCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboSides\ComboDragonbornWaffleFriesCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboSides\ComboFriedMiraakCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboSides\ComboMadOtarGritsCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboSides\ComboVokunSaladCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ComboSelection\ComboDrinks\ComboWarriorWaterCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\BriarheartBurgerCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\DoubleDraugrCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\GardenOrcOmeletteCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\PhillyPoacherCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\SmokehouseSkeletonCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\ThalmorTripleCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\ThugsTBoneCustomization.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="ComboSelection\ComboDrinks\ComboAretinoAppleJuiceCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboDrinks\ComboCandlehearthCoffeeCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboDrinks\ComboMarkarthMilkCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboDrinks\ComboSailorSodaCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboSides\ComboDragonbornWaffleFriesCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboSides\ComboFriedMiraakCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboSides\ComboMadOtarGritsCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboSides\ComboVokunSaladCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ComboSelection\ComboDrinks\ComboWarriorWaterCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\BriarheartBurgerCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\DoubleDraugrCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\GardenOrcOmeletteCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\PhillyPoacherCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\SmokehouseSkeletonCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\ThalmorTripleCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\ThugsTBoneCustomization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

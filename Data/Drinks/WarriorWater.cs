@@ -37,22 +37,6 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Gets a string representation of the SpecialInstructions
-        /// </summary>
-        public string StringSpecialInstructions
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (String s in SpecialInstructions)
-                {
-                    sb.Append("- " + s + "\n");
-                }
-                return sb.ToString();
-            }
-        }
-
-        /// <summary>
         /// Gets the string representation of Price
         /// </summary>
         public string StringPrice

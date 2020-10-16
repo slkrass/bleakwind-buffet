@@ -115,15 +115,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.Contains("Hold sirloin", philly.SpecialInstructions);
                 Assert.Contains("Hold onions", philly.SpecialInstructions);
                 Assert.Contains("Hold roll", philly.SpecialInstructions);
-
-                Assert.Contains("Hold sirloin", philly.StringSpecialInstructions);
-                Assert.Contains("Hold onions", philly.StringSpecialInstructions);
-                Assert.Contains("Hold roll", philly.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(philly.SpecialInstructions);
-                Assert.Empty(philly.StringSpecialInstructions);
             }
         }
 
@@ -151,7 +146,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(philly, "Sirloin", () => philly.Sirloin = sir);
             Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Sirloin = sir);
             Assert.PropertyChanged(philly, "HoldSirloin", () => philly.HoldSirloin = !sir);
-            Assert.PropertyChanged(philly, "StringSpecialInstructions", () => philly.Sirloin = sir);
         }
 
         [Theory]
@@ -163,7 +157,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(philly, "Onion", () => philly.Onion = onion);
             Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Onion = onion);
             Assert.PropertyChanged(philly, "HoldOnion", () => philly.HoldOnion = !onion);
-            Assert.PropertyChanged(philly, "StringSpecialInstructions", () => philly.Onion = onion);
         }
 
         [Theory]
@@ -175,7 +168,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(philly, "Roll", () => philly.Roll = roll);
             Assert.PropertyChanged(philly, "SpecialInstructions", () => philly.Roll = roll);
             Assert.PropertyChanged(philly, "HoldRoll", () => philly.HoldRoll = !roll);
-            Assert.PropertyChanged(philly, "StringSpecialInstructions", () => philly.Roll = roll);
         }
     }
 }

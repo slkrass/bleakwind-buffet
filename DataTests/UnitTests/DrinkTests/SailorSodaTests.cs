@@ -131,12 +131,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             if (!includeIce)
             {
                 Assert.Contains("Hold ice", soda.SpecialInstructions);
-                Assert.Contains("Hold ice", soda.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(soda.SpecialInstructions);
-                Assert.Empty(soda.StringSpecialInstructions);
             }
         }
         
@@ -202,7 +200,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(soda, "Ice", () => soda.Ice = ice);
             Assert.PropertyChanged(soda, "HoldIce", () => soda.HoldIce = !ice);
             Assert.PropertyChanged(soda, "SpecialInstructions", () => soda.Ice = ice);
-            Assert.PropertyChanged(soda, "StringSpecialInstructions", () => soda.Ice = ice);
         }
 
         [Theory]

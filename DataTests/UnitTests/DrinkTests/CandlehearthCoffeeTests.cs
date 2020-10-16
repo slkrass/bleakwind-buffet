@@ -137,23 +137,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             {
                 Assert.Contains("Add ice", coffee.SpecialInstructions);
                 Assert.Contains("Add cream", coffee.SpecialInstructions);
-                Assert.Contains("Add ice", coffee.StringSpecialInstructions);
-                Assert.Contains("Add cream", coffee.StringSpecialInstructions);
             }
             else if (includeIce)
             {
                 Assert.Contains("Add ice", coffee.SpecialInstructions);
-                Assert.Contains("Add ice", coffee.StringSpecialInstructions);
             }
             else if (includeCream)
             {
                 Assert.Contains("Add cream", coffee.SpecialInstructions);
-                Assert.Contains("Add cream", coffee.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(coffee.SpecialInstructions);
-                Assert.Empty(coffee.StringSpecialInstructions);
             }
         }
 
@@ -202,7 +197,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "Ice", () => coffee.Ice = ice);
             Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.Ice = ice);
-            Assert.PropertyChanged(coffee, "StringSpecialInstructions", () => coffee.Ice = ice);
         }
 
         [Theory]
@@ -213,7 +207,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "RoomForCream", () => coffee.RoomForCream = cream);
             Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.RoomForCream = cream);
-            Assert.PropertyChanged(coffee, "StringSpecialInstructions", () => coffee.RoomForCream = cream);
         }
 
         [Theory]
@@ -223,6 +216,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.PropertyChanged(coffee, "Decaf", () => coffee.Decaf = decaf);
+            Assert.PropertyChanged(coffee, "SpecialInstructions", () => coffee.Decaf = decaf);
         }
     }
 }

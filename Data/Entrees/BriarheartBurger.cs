@@ -57,22 +57,6 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <summary>
-        /// Gets a string representation of the SpecialInstructions
-        /// </summary>
-        public string StringSpecialInstructions
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (String s in SpecialInstructions)
-                {
-                    sb.Append("- " + s + "\n");
-                }
-                return sb.ToString();
-            }
-        }
-
         /// <value>
         /// Gets and sets whether there is ketchup on the burger
         /// </value>

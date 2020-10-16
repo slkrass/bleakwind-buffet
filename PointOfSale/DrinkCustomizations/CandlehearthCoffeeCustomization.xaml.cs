@@ -32,12 +32,12 @@ namespace BleakwindBuffet.PointOfSale
         /// Constructor for the CandleheartCoffeeCustomization Class
         /// </summary>
         /// <param name="container">The MenuContainer instance that contains the CandleheartCoffeeCustomization.xaml</param>
-        public CandlehearthCoffeeCustomization(MenuContainer container, CandlehearthCoffee candle)
+        public CandlehearthCoffeeCustomization()
         {
             InitializeComponent();
-            coffee = candle;
+            //coffee = candle;
             DataContext = coffee;
-            menuContainer = container;
+            //menuContainer = container;
         }
 
         /// <summary>
@@ -49,6 +49,36 @@ namespace BleakwindBuffet.PointOfSale
         {
             menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
 
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public CandlehearthCoffee Coffee
+        {
+            get
+            {
+                return coffee;
+            }
+            set
+            {
+                coffee = value;
+            }
         }
     }
 }

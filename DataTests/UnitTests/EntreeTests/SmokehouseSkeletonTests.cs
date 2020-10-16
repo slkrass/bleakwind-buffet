@@ -135,16 +135,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.Contains("Hold eggs", skeleton.SpecialInstructions);
                 Assert.Contains("Hold hash browns", skeleton.SpecialInstructions);
                 Assert.Contains("Hold pancakes", skeleton.SpecialInstructions);
-
-                Assert.Contains("Hold sausage", skeleton.StringSpecialInstructions);
-                Assert.Contains("Hold eggs", skeleton.StringSpecialInstructions);
-                Assert.Contains("Hold hash browns", skeleton.StringSpecialInstructions);
-                Assert.Contains("Hold pancakes", skeleton.StringSpecialInstructions);
             }
             else
             {
                 Assert.Empty(skeleton.SpecialInstructions);
-                Assert.Empty(skeleton.StringSpecialInstructions);
             }
         }
 
@@ -172,7 +166,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(skeleton, "SausageLink", () => skeleton.SausageLink = sausage);
             Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.SausageLink = sausage);
             Assert.PropertyChanged(skeleton, "HoldSausageLink", () => skeleton.HoldSausageLink = !sausage);
-            Assert.PropertyChanged(skeleton, "StringSpecialInstructions", () => skeleton.SausageLink = sausage);
         }
 
         [Theory]
@@ -184,7 +177,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(skeleton, "Egg", () => skeleton.Egg = egg);
             Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.Egg = egg);
             Assert.PropertyChanged(skeleton, "HoldEgg", () => skeleton.HoldEgg = !egg);
-            Assert.PropertyChanged(skeleton, "StringSpecialInstructions", () => skeleton.Egg = egg);
         }
 
         [Theory]
@@ -196,7 +188,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(skeleton, "HashBrowns", () => skeleton.HashBrowns = hash);
             Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.HashBrowns = hash);
             Assert.PropertyChanged(skeleton, "HoldHashBrowns", () => skeleton.HoldHashBrowns = !hash);
-            Assert.PropertyChanged(skeleton, "StringSpecialInstructions", () => skeleton.HashBrowns = hash);
         }
 
         [Theory]
@@ -208,7 +199,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(skeleton, "Pancake", () => skeleton.Pancake = pancake);
             Assert.PropertyChanged(skeleton, "SpecialInstructions", () => skeleton.Pancake = pancake);
             Assert.PropertyChanged(skeleton, "HoldPancake", () => skeleton.HoldPancake = !pancake);
-            Assert.PropertyChanged(skeleton, "StringSpecialInstructions", () => skeleton.Pancake = pancake);
         }
 
     }
