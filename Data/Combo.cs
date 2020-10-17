@@ -39,6 +39,13 @@ namespace BleakwindBuffet.Data
             side.PropertyChanged += ItemChangeListener;
         }
 
+        /// <summary>
+        /// Gets the name of the Combo
+        /// </summary>
+        public string Name
+        {
+           get=>  "Combo";
+        }
         /// <value>
         /// Gets the total price of the combo
         /// </value>
@@ -47,6 +54,17 @@ namespace BleakwindBuffet.Data
             get 
             { 
                 return drink.Price + entree.Price + side.Price - 1;
+            }
+        }
+
+        /// <summary>
+        /// Gets the string representation of Price
+        /// </summary>
+        public string StringPrice
+        {
+            get
+            {
+                return "$" + string.Format("{0:0.00}", Price);
             }
         }
 
@@ -95,7 +113,9 @@ namespace BleakwindBuffet.Data
             {
                 drink.PropertyChanged -= ItemChangeListener;
                 drink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ComboDrink"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringPrice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 drink.PropertyChanged += ItemChangeListener;
@@ -113,7 +133,9 @@ namespace BleakwindBuffet.Data
 
                 entree.PropertyChanged -= ItemChangeListener;
                 entree = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ComboEntree"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringPrice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 entree.PropertyChanged += ItemChangeListener;
@@ -130,7 +152,9 @@ namespace BleakwindBuffet.Data
             {
                 side.PropertyChanged -= ItemChangeListener;
                 side = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ComboSide"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringPrice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 side.PropertyChanged += ItemChangeListener;
@@ -148,6 +172,7 @@ namespace BleakwindBuffet.Data
             if(e.PropertyName == "Size" )
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringPrice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
@@ -159,11 +184,13 @@ namespace BleakwindBuffet.Data
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringPrice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
             else
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringPrice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }

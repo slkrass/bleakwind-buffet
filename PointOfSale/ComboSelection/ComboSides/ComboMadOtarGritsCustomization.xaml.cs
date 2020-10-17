@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -28,18 +29,14 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
-        private MadOtarGrits madGrits;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboMadOtarGritsCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboMadOtarGritsCustomization.xaml</param>
-        public ComboMadOtarGritsCustomization(MenuContainer container, MadOtarGrits grits)
+        public ComboMadOtarGritsCustomization()
         {
             InitializeComponent();
-            madGrits = grits;
-            DataContext = madGrits;
-            menuContainer = container;
         }
 
 
@@ -50,8 +47,38 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo };
+        }
 
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (MadOtarGrits)combo.ComboSide;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

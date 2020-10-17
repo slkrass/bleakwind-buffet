@@ -54,7 +54,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             VokunSalad salad = new VokunSalad();
             Assert.Empty(salad.SpecialInstructions);
-            Assert.Empty(salad.StringSpecialInstructions);
         }
 
         [Theory]

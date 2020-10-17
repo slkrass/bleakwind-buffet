@@ -214,6 +214,20 @@ namespace BleakwindBuffet.Data
                 OnPropertyChanged(new PropertyChangedEventArgs("StringTotal"));
 
             }
+            else
+            {
+                OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                OnPropertyChanged(new PropertyChangedEventArgs("SalesTaxRate"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringTax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringSubtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("StringTotal"));
+            }
         }
     }
 }

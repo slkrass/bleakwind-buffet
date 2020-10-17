@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -27,17 +28,15 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
         private CandlehearthCoffee coffee;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboCandleheartCoffeeCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboCandleheartCoffeeCustomization.xaml</param>
-        public ComboCandlehearthCoffeeCustomization(MenuContainer container, CandlehearthCoffee candle)
+        public ComboCandlehearthCoffeeCustomization()
         {
             InitializeComponent();
-            coffee = candle;
-            DataContext = coffee;
-            menuContainer = container;
+            //DataContext = coffee;
         }
 
         /// <summary>
@@ -47,8 +46,54 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen { Container = menuContainer, ComboItem = combo };
 
+        }
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (CandlehearthCoffee)combo.ComboDrink;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+        /// <summary>
+        /// gets and sets the value of coffee
+        /// </summary>
+        public CandlehearthCoffee Coffee
+        {
+            get
+            {
+                return coffee;
+            }
+            set
+            {
+                coffee = value;
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="600">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="sizes" ObjectType="system:Enum" MethodName="GetValues">
             <ObjectDataProvider.MethodParameters>
@@ -41,7 +41,8 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="58.5"/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!-- Heading -->
@@ -65,10 +66,20 @@
 
 
         <!-- Image for Decaf(?) -->
-        <RadioButton  Grid.Column="2" Grid.Row="1" FontSize="16">Decaf</RadioButton>
+        <CheckBox  IsChecked="{Binding Path= Decaf}" Grid.Column="2" Grid.Row="1" FontSize="16">Decaf</CheckBox>
 
 
-        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="1" Grid.Row="8" 
+                Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                FontSize="16" FontWeight="SemiBold">Done</Button>
+        
+        <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" 
+                Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
+        
+        <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" 
+                Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                FontSize="14" FontWeight="SemiBold">Complete Order</Button>
 
 
     </Grid>

@@ -34,13 +34,27 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the MenuSelection.xaml Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance where MenuSelection will be placed</param>
-        public MenuSelection(MenuContainer container)
+        public MenuSelection()
         {
             InitializeComponent();
-            menuContainer = container;
-            order = container.OrderControl;
-            DataContext = order;
+            
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+                order = menuContainer.OrderControl;
+                DataContext = order;
+            }
         }
 
         /// <summary>
@@ -56,43 +70,43 @@ namespace BleakwindBuffet.PointOfSale
                 {
                         BriarheartBurger burger = new BriarheartBurger();
                         order.Add(burger);
-                        menuContainer.menuBorder.Child = new BriarheartBurgerCustomization(menuContainer, burger) { Container = menuContainer, AppleJuice = aj };                    
+                        menuContainer.menuBorder.Child = new BriarheartBurgerCustomization() { Container = menuContainer, Burger = burger };                    
                 }
                 else if (pressedButton.Name == "doubleDraugrButton")
                 {                                            
                         DoubleDraugr burger = new DoubleDraugr();
                         order.Add(burger);
-                        menuContainer.menuBorder.Child = new DoubleDraugrCustomization(menuContainer, burger) { Container = menuContainer, AppleJuice = aj };                    
+                        menuContainer.menuBorder.Child = new DoubleDraugrCustomization() { Container = menuContainer, Burger = burger };                    
                 }
                 else if (pressedButton.Name == "thalmorTripleButton")
                 {                    
                         ThalmorTriple tt = new ThalmorTriple();
                         order.Add(tt);
-                        menuContainer.menuBorder.Child = new ThalmorTripleCustomization(menuContainer,tt) { Container = menuContainer, AppleJuice = aj };                    
+                        menuContainer.menuBorder.Child = new ThalmorTripleCustomization() { Container = menuContainer, Burger = tt };                    
                 }                
                 else if (pressedButton.Name == "smokehouseSkeletonButton")
                 {                    
                         SmokehouseSkeleton ss = new SmokehouseSkeleton();
                         order.Add(ss);
-                        menuContainer.menuBorder.Child = new SmokehouseSkeletonCustomization(menuContainer, ss) { Container = menuContainer, AppleJuice = aj };                    
+                        menuContainer.menuBorder.Child = new SmokehouseSkeletonCustomization() { Container = menuContainer, Skeleton = ss };                    
                 }               
                 else if (pressedButton.Name == "gardenOrcOmeletteButton")
                 {                    
                         GardenOrcOmelette goo = new GardenOrcOmelette();
                         order.Add(goo);
-                        menuContainer.menuBorder.Child = new GardenOrcOmeletteCustomization(menuContainer, goo) { Container = menuContainer, AppleJuice = aj };                    
+                        menuContainer.menuBorder.Child = new GardenOrcOmeletteCustomization() { Container = menuContainer, Omelette = goo };                    
                 }
                 else if (pressedButton.Name == "phillyPoacherButton")
                 {                   
                         PhillyPoacher pp = new PhillyPoacher();
                         order.Add(pp);
-                        menuContainer.menuBorder.Child = new PhillyPoacherCustomization(menuContainer,pp) { Container = menuContainer, AppleJuice = aj };                  
+                        menuContainer.menuBorder.Child = new PhillyPoacherCustomization() { Container = menuContainer, Philly = pp };                  
                 }
                 else if (pressedButton.Name == "thugsTBoneButton")
                 {                    
                         ThugsTBone ttb = new ThugsTBone();
                         order.Add(ttb);
-                        menuContainer.menuBorder.Child = new ThugsTBoneCustomization(menuContainer, ttb) { Container = menuContainer, AppleJuice = aj };                    
+                        menuContainer.menuBorder.Child = new ThugsTBoneCustomization() { Container = menuContainer, TBone = ttb };                    
                 }
                 else if (pressedButton.Name == "sailorSodaButton")
                 {                    
@@ -148,6 +162,12 @@ namespace BleakwindBuffet.PointOfSale
                         order.Add(dwf);
                         menuContainer.menuBorder.Child = new DragonbornWaffleFriesCustomization() { Container = menuContainer, Fries = dwf };                    
                 }
+                else if (pressedButton.Name == "comboButton")
+                {
+                    Combo combo = new Combo();
+                    order.Add(combo);
+                    menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo};
+                }
             }
         }
 
@@ -161,7 +181,7 @@ namespace BleakwindBuffet.PointOfSale
             if(sender is Button button)
             {
                 menuContainer.OrderControl = new Order();
-                menuContainer.currentItemsInOrderBorder.Child = new OrderList(menuContainer);
+                menuContainer.currentItemsInOrderBorder.Child = new OrderList() { Container = menuContainer};
             }
         }
 

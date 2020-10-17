@@ -29,17 +29,15 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
         private AretinoAppleJuice appleJuice;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboAretinoAppleJuiceCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboAretinoAppleJuiceCustomization.xaml</param>
-        public ComboAretinoAppleJuiceCustomization(MenuContainer container, AretinoAppleJuice aj)
+        public ComboAretinoAppleJuiceCustomization()
         {
             InitializeComponent();
-            appleJuice = aj;
-            DataContext = appleJuice;
-            menuContainer = container;
+            //DataContext = appleJuice;
         }
 
         /// <summary>
@@ -49,7 +47,49 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen { Container = menuContainer, ComboItem = combo };
+        }
+
+        /// <summary>
+        /// Gets and sets the value of AppleJuice
+        /// </summary>
+        public AretinoAppleJuice AppleJuice
+        {
+            get
+            {
+                return appleJuice;
+            }
+            set => appleJuice = value;
+        }
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (AretinoAppleJuice)combo.ComboDrink;
+            }
+        }
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

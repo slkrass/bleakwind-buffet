@@ -55,7 +55,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries fries = new DragonbornWaffleFries();
             Assert.Empty(fries.SpecialInstructions);
-            Assert.Empty(fries.StringSpecialInstructions);
         }
 
         [Theory]

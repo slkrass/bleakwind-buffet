@@ -32,13 +32,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the FriedMiraakCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the FriedMiraakCustomization.xaml</param>
-        public FriedMiraakCustomization(MenuContainer container, FriedMiraak fried)
+        public FriedMiraakCustomization()
         {
             InitializeComponent();
-            miraak = fried;
-            DataContext = miraak;
-            menuContainer = container;
+
         }
 
 
@@ -49,8 +46,40 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+
+        /// <summary>
+        /// The instance of Fried Miraak to be modified
+        /// </summary>
+        public FriedMiraak Miraak
+        {
+            get
+            {
+                return miraak;
+            }
+            set
+            {
+                miraak = value;
+                DataContext = miraak;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

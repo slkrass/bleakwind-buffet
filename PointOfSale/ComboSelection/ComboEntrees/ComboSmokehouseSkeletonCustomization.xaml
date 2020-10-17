@@ -7,7 +7,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="600">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,23 +25,26 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Smokehouse Skeleton Customization:</TextBlock>
 
-        <Image Source="../Images/sausage.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Height="55"/>
+        <Image Source="../../Images/sausage.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Height="55"/>
         <CheckBox IsChecked="{Binding Path= HoldSausageLink}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold sausage</CheckBox>
 
-        <Image Source="../Images/eggs.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2" Height="55"/>
+        <Image Source="../../Images/eggs.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2" Height="55"/>
         <CheckBox IsChecked="{Binding Path= HoldEgg}" Grid.Column="0" Grid.Row="2" FontSize="16">Hold eggs</CheckBox>
 
-        <Image Source="../Images/hashBrowns.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="3" Height="55"/>
+        <Image Source="../../Images/hashBrowns.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="3" Height="55"/>
         <CheckBox IsChecked="{Binding Path= HoldHashBrowns}" Grid.Column="0" Grid.Row="3" FontSize="16">Hold hash browns</CheckBox>
 
-        <Image Source="../Images/pancakes.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="4" Height="55"/>
+        <Image Source="../../Images/pancakes.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="4" Height="55"/>
         <CheckBox IsChecked="{Binding Path= HoldPancake}" Grid.Column="0" Grid.Row="4" FontSize="16">Hold pancakes</CheckBox>
 
-        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="1" Grid.Row="8" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+        <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
+        <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
 
 
     </Grid>

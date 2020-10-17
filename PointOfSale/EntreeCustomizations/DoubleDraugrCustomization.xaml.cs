@@ -33,13 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the DoubleDraugrCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the DoubleDraugrCustomization.xaml</param>
-        public DoubleDraugrCustomization(MenuContainer container, DoubleDraugr draugr)
+        public DoubleDraugrCustomization()
         {
             InitializeComponent();
-            burger = draugr;
-            DataContext = burger;
-            menuContainer = container;
+
         }
 
         /// <summary>
@@ -49,8 +46,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection(){ Container = menuContainer};
 
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public DoubleDraugr Burger
+        {
+            get
+            {
+                return burger;
+            }
+            set
+            {
+                burger = value;
+                DataContext = burger;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

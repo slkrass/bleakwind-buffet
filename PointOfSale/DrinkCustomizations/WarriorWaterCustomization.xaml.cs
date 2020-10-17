@@ -31,13 +31,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the WarriorWaterCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the WarriorWaterCustomization.xaml</param>
-        public WarriorWaterCustomization(MenuContainer container, WarriorWater warrior)
+        public WarriorWaterCustomization()
         {
             InitializeComponent();
-            water = warrior;
-            DataContext = water;
-            menuContainer = container;
+            
         }
 
         /// <summary>
@@ -47,8 +44,40 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+
+        /// <summary>
+        /// Gets and sets the value of the warrior water instance
+        /// </summary>
+        public WarriorWater Water
+        {
+            get
+            {
+                return water;
+            }
+            set
+            {
+                water = value;
+                DataContext = water;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

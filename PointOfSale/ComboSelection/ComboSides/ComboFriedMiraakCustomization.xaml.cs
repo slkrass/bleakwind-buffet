@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -27,18 +28,14 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
-        private FriedMiraak miraak;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboFriedMiraakCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboFriedMiraakCustomization.xaml</param>
-        public ComboFriedMiraakCustomization(MenuContainer container, FriedMiraak fried)
+        public ComboFriedMiraakCustomization()
         {
             InitializeComponent();
-            miraak = fried;
-            DataContext = miraak;
-            menuContainer = container;
         }
 
 
@@ -49,8 +46,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo };
 
+        }
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (FriedMiraak)combo.ComboSide;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

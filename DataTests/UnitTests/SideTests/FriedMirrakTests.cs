@@ -54,7 +54,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             FriedMiraak fm = new FriedMiraak();
             Assert.Empty(fm.SpecialInstructions);
-            Assert.Empty(fm.StringSpecialInstructions);
         }
 
         [Theory]

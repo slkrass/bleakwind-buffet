@@ -33,13 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the SmokehouseSkeletonCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the SmokehouseSkeletonCustomization.xaml</param>
-        public SmokehouseSkeletonCustomization(MenuContainer container, SmokehouseSkeleton shs)
+        public SmokehouseSkeletonCustomization()
         {
             InitializeComponent();
-            skeleton = shs;
-            DataContext = skeleton;
-            menuContainer = container;
+            
         }
 
         /// <summary>
@@ -49,8 +46,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public SmokehouseSkeleton Skeleton
+        {
+            get
+            {
+                return skeleton;
+            }
+            set
+            {
+                skeleton = value;
+                DataContext = skeleton;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

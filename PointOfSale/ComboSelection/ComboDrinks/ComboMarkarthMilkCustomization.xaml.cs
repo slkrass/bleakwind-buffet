@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -27,17 +28,15 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
         private MarkarthMilk milk;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboMarkarthMilkCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboMarkarthMilkCustomization.xaml</param>
-        public ComboMarkarthMilkCustomization(MenuContainer container, MarkarthMilk marMilk)
+        public ComboMarkarthMilkCustomization()
         {
             InitializeComponent();
-            milk = marMilk;
-            DataContext = milk;
-            menuContainer = container;
+            //DataContext = milk;
         }
 
         /// <summary>
@@ -47,8 +46,53 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen { Container = menuContainer, ComboItem = combo };
 
+        }
+
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (MarkarthMilk)combo.ComboDrink;
+            }
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public MarkarthMilk Milk
+        {
+            get
+            {
+                return milk;
+            }
+            set => milk = value;
+        }
+
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

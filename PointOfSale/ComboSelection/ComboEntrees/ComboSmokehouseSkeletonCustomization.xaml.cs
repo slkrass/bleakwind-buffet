@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 
@@ -29,17 +30,15 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
         private SmokehouseSkeleton skeleton;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboSmokehouseSkeletonCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboSmokehouseSkeletonCustomization.xaml</param>
-        public ComboSmokehouseSkeletonCustomization(MenuContainer container, SmokehouseSkeleton shs)
+        public ComboSmokehouseSkeletonCustomization()
         {
             InitializeComponent();
-            skeleton = shs;
-            DataContext = skeleton;
-            menuContainer = container;
+            //DataContext = skeleton;
         }
 
         /// <summary>
@@ -49,8 +48,55 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo };
 
+        }
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (SmokehouseSkeleton)combo.ComboEntree;
+            }
+        }
+
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public SmokehouseSkeleton Skeleton
+        {
+            get
+            {
+                return skeleton;
+            }
+            set
+            {
+                skeleton = value;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

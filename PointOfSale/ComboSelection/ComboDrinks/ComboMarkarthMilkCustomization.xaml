@@ -7,7 +7,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="600">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="sizes" ObjectType="system:Enum" MethodName="GetValues">
             <ObjectDataProvider.MethodParameters>
@@ -41,27 +41,30 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="58.5"/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <!-- Heading -->
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Markarth Milk Customization:</TextBlock>
 
         <!-- Images For Sizes -->
-        <Image Source="../Images/milk.jpg" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Height="45"/>
-        <Image Source="../Images/milk.jpg" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Height="55"/>
-        <Image Source="../Images/milk.jpg" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Height="65"/>
+        <Image Source="../../Images/milk.jpg" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Height="45"/>
+        <Image Source="../../Images/milk.jpg" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Height="55"/>
+        <Image Source="../../Images/milk.jpg" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Height="65"/>
 
         <!-- Size Controls -->
         <ListBox BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Source={StaticResource sizes}}" SelectedItem="{Binding Path=Size}" Grid.Row="1"  Grid.RowSpan="4" Grid.Column="1" FontSize="16"/>
 
         <!-- Images For SpecialInstructions -->
-        <Image Source="../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Width="75"/>
+        <Image Source="../../Images/ice_cubes-.jpg" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Width="75"/>
         
         <!-- Special Instruction Controls -->
         <CheckBox  IsChecked="{Binding Path= Ice}" Grid.Column="0" Grid.Row="1" FontSize="16">Add Ice</CheckBox>
 
 
-        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="1" Grid.Row="8" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+        <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
+        <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
 
 
     </Grid>

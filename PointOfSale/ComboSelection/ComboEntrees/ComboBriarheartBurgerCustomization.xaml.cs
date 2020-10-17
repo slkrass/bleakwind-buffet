@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 
@@ -29,28 +30,73 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
         private BriarheartBurger burger;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboBriarheartBurgerCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboBriarheartBurgerCustomization.xaml</param>
-        public ComboBriarheartBurgerCustomization(MenuContainer container, BriarheartBurger briar)
+        public ComboBriarheartBurgerCustomization()
         {
             InitializeComponent();
-            burger = briar;
-            DataContext = burger;
-            menuContainer = container;
+            //ataContext = burger;
         }
 
         /// <summary>
-        /// Allows the special instructions to be recorded 
+        /// Allows the special instructions and size to be recorded 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-             menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
-            
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo };
+
+        }
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (BriarheartBurger)combo.ComboEntree;
+            }
+        }
+
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public BriarheartBurger Burger
+        {
+            get
+            {
+                return burger;
+            }
+            set
+            {
+                burger = value;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

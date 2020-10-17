@@ -33,13 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the GardenOrcOmeletteCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the GardenOrcOmeletteCustomization.xaml</param>
-        public GardenOrcOmeletteCustomization(MenuContainer container, GardenOrcOmelette goo)
+        public GardenOrcOmeletteCustomization()
         {
             InitializeComponent();
-            omelette = goo;
-            DataContext = omelette;
-            menuContainer = container;
+
         }
 
         /// <summary>
@@ -49,8 +46,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public GardenOrcOmelette Omelette
+        {
+            get
+            {
+                return omelette;
+            }
+            set
+            {
+                omelette = value;
+                DataContext = omelette;
+            }
         }
     }
 }

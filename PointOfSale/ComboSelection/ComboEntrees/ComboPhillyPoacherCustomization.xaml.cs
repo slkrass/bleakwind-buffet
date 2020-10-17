@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 
@@ -29,17 +30,15 @@ namespace BleakwindBuffet.PointOfSale
         /* Private variable declaration */
         private MenuContainer menuContainer;
         private PhillyPoacher philly;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboPhillyPoacherCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboPhillyPoacherCustomization.xaml</param>
-        public ComboPhillyPoacherCustomization(MenuContainer container, PhillyPoacher pp)
+        public ComboPhillyPoacherCustomization()
         {
             InitializeComponent();
-            philly = pp;
-            DataContext = philly;
-            menuContainer = container;
+            //DataContext = philly;
         }
 
         /// <summary>
@@ -49,8 +48,55 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo };
 
+        }
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (PhillyPoacher)combo.ComboEntree;
+            }
+        }
+
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public PhillyPoacher Philly
+        {
+            get
+            {
+                return philly;
+            }
+            set
+            {
+                philly = value;
+            }
         }
     }
 }

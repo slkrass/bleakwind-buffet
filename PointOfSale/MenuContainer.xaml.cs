@@ -37,8 +37,8 @@ namespace BleakwindBuffet.PointOfSale
         {
             InitializeComponent();
             order = new Order();
-            menuSelection = new MenuSelection(this);
-            orderList = new OrderList(this);
+            menuSelection = new MenuSelection() { Container = this };
+            orderList = new OrderList() { Container = this };
             menuBorder.Child = menuSelection;
             currentItemsInOrderBorder.Child = orderList;
         }

@@ -33,13 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the PhillyPoacherCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the PhillyPoacherCustomization.xaml</param>
-        public PhillyPoacherCustomization(MenuContainer container, PhillyPoacher pp)
+        public PhillyPoacherCustomization()
         {
             InitializeComponent();
-            philly = pp;
-            DataContext = philly;
-            menuContainer = container;
+            
         }
 
         /// <summary>
@@ -49,8 +46,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public PhillyPoacher Philly
+        {
+            get
+            {
+                return philly;
+            }
+            set
+            {
+                philly = value;
+                DataContext = philly;
+            }
         }
     }
 }

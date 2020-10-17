@@ -33,13 +33,10 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the ThugsTBoneCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ThugsTBoneCustomization.xaml</param>
-        public ThugsTBoneCustomization(MenuContainer container, ThugsTBone bone)
+        public ThugsTBoneCustomization()
         {
             InitializeComponent();
-            tBone = bone;
-            DataContext = tBone;
-            menuContainer = container;
+            
         }
 
         /// <summary>
@@ -49,8 +46,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+        /// <summary>
+        /// The instance to be modified
+        /// </summary>
+        public ThugsTBone TBone
+        {
+            get
+            {
+                return tBone;
+            }
+            set
+            {
+                tBone = value;
+                DataContext = tBone;
+            }
         }
     }
 }

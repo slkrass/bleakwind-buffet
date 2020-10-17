@@ -54,7 +54,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             MadOtarGrits grits = new MadOtarGrits();
             Assert.Empty(grits.SpecialInstructions);
-            Assert.Empty(grits.StringSpecialInstructions);
         }
 
         [Theory]

@@ -32,13 +32,9 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the DragonbornWaffleFriesCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the DragonbornWaffleFriesCustomization.xaml</param>
-        public DragonbornWaffleFriesCustomization(MenuContainer container, DragonbornWaffleFries dragonborn)
+        public DragonbornWaffleFriesCustomization()
         {
             InitializeComponent();
-            fries = dragonborn;
-            DataContext = fries;
-            menuContainer = container;
         }
 
         /// <summary>
@@ -48,8 +44,41 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
+        }
+
+
+        /// <summary>
+        /// The instance of DragonBornWaffleFries to be modified
+        /// </summary>
+        public DragonbornWaffleFries Fries
+        {
+            get
+            {
+                return fries;
+            }
+            set
+            {
+                fries = value;
+                DataContext = fries;
+            }
         }
     }
 }

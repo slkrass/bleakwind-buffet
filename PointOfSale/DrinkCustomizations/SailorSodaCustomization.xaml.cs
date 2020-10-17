@@ -31,17 +31,11 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Constructor for the SailorSodaCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the SailorSodaCustomization.xaml</param>
-        public SailorSodaCustomization(MenuContainer container, SailorSoda sailor)
+        public SailorSodaCustomization()
         {
             InitializeComponent();
-            soda = sailor;
-            DataContext = soda;
-            menuContainer = container;
+
         }
-
-
-
 
         /// <summary>
         /// Allows the special instructions and size to be recorded 
@@ -50,8 +44,40 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+        /// <summary>
+        /// Holds the value for the sailor soda instance being changed
+        /// </summary>
+        public SailorSoda Soda
+        {
+            get
+            {
+                return soda;
+            }
+
+            set
+            {
+                soda = value;
+                DataContext = soda;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

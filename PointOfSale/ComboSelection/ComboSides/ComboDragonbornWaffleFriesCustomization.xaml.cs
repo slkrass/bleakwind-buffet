@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -27,18 +28,15 @@ namespace BleakwindBuffet.PointOfSale
     {
         /* Private variable declaration */
         private MenuContainer menuContainer;
-        private DragonbornWaffleFries fries;
+        private Combo combo;
 
         /// <summary>
         /// Constructor for the ComboDragonbornWaffleFriesCustomization Class
         /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the ComboDragonbornWaffleFriesCustomization.xaml</param>
-        public ComboDragonbornWaffleFriesCustomization(MenuContainer container, DragonbornWaffleFries dragonborn)
+        public ComboDragonbornWaffleFriesCustomization()
         {
             InitializeComponent();
-            fries = dragonborn;
-            DataContext = fries;
-            menuContainer = container;
+            
         }
 
         /// <summary>
@@ -48,8 +46,41 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = combo };
 
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+
+            }
+        }
+
+
+        /// <summary>
+        /// The combo that will be modified
+        /// </summary>
+        public Combo ComboItem
+        {
+            get
+            {
+                return combo;
+            }
+            set
+            {
+                combo = value;
+                DataContext = (DragonbornWaffleFries)combo.ComboSide;
+            }
         }
     }
 }

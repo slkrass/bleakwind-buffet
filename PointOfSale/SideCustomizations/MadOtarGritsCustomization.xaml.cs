@@ -32,14 +32,11 @@ namespace BleakwindBuffet.PointOfSale
 
         /// <summary>
         /// Constructor for the MadOtarGritsCustomization Class
-        /// </summary>
-        /// <param name="container">The MenuContainer instance that contains the MadOtarGritsCustomization.xaml</param>
-        public MadOtarGritsCustomization(MenuContainer container, MadOtarGrits grits)
+        /// </summary>>
+        public MadOtarGritsCustomization()
         {
             InitializeComponent();
-            madGrits = grits;
-            DataContext = madGrits;
-            menuContainer = container;
+            
         }
 
 
@@ -50,8 +47,39 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void AddSpecialInstructions(object sender, RoutedEventArgs e)
         {
-            menuContainer.menuBorder.Child = new MenuSelection(menuContainer);
+            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
 
+        }
+
+        /// <summary>
+        /// The instance of MadOtarGrits to be modified
+        /// </summary>
+        public MadOtarGrits Grits
+        {
+            get
+            {
+                return madGrits;
+            }
+            set
+            {
+                madGrits = value;
+                DataContext = madGrits;
+            }
+        }
+
+        /// <summary>
+        /// The menu container for the xaml
+        /// </summary>
+        public MenuContainer Container
+        {
+            get
+            {
+                return menuContainer;
+            }
+            set
+            {
+                menuContainer = value;
+            }
         }
     }
 }

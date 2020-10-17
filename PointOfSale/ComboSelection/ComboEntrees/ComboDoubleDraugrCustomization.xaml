@@ -7,7 +7,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -24,34 +24,37 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.ColumnSpan="3" Grid.Row="0" FontSize="18">Double Draugr Customization:</TextBlock>
-        <Image Source="../Images/ketchup.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Height="50"/>
+        <Image Source="../../Images/ketchup.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldKetchup}" Grid.Column="0" Grid.Row="1" FontSize="16">Hold ketchup</CheckBox>
 
-        <Image Source="../Images/mustard.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2" Height="50"/>
+        <Image Source="../../Images/mustard.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="2" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldMustard}" Grid.Column="0" Grid.Row="2" FontSize="16">Hold mustard</CheckBox>
 
-        <Image Source="../Images/pickles.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="3" Height="50"/>
+        <Image Source="../../Images/pickles.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="3" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldPickle}" Grid.Column="0" Grid.Row="3" FontSize="16">Hold pickle</CheckBox>
 
-        <Image Source="../Images/cheese.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="4" Height="50"/>
+        <Image Source="../../Images/cheese.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="4" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldCheese}" Grid.Column="0" Grid.Row="4" FontSize="16">Hold cheese</CheckBox>
 
-        <Image Source="../Images/bun.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="5" Height="50"/>
+        <Image Source="../../Images/bun.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="5" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldBun}" Grid.Column="0" Grid.Row="5" FontSize="16">Hold bun</CheckBox>
 
-        <Image Source="../Images/mayo.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="6" Height="50"/>
+        <Image Source="../../Images/mayo.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="6" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldMayo}" Grid.Column="0" Grid.Row="6" FontSize="16">Hold mayo</CheckBox>
 
-        <Image Source="../Images/tomatoes.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="7" Height="50"/>
+        <Image Source="../../Images/tomatoes.jpg" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="7" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldTomato}" Grid.Column="0" Grid.Row="7" FontSize="16">Hold tomato</CheckBox>
 
-        <Image Source="../Images/lettuce2.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Height="50"/>
+        <Image Source="../../Images/lettuce2.jpg" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Height="50"/>
         <CheckBox IsChecked="{Binding Path= HoldLettuce}" Grid.Column="1" Grid.Row="1" FontSize="16">Hold lettuce</CheckBox>
-        
-        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="2" Grid.Row="7" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+
+        <Button Name="doneWithSpecialInstructionsButton" Click="AddSpecialInstructions" Grid.Column="1" Grid.Row="8" Height="25" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontWeight="SemiBold">Done</Button>
+        <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
+        <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
 
 
     </Grid>
