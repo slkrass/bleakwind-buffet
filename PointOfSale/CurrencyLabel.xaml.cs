@@ -11,13 +11,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale
+namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
     /// Interaction logic for CurrencyLabel.xaml
     /// </summary>
     public partial class CurrencyLabel : UserControl
     {
+        /// <summary>
+        /// A dependency property representing the number this control represents
+        /// </summary>
+        public static DependencyProperty NumberProperty = DependencyProperty.Register("Number", typeof(string), typeof(CurrencyLabel), new FrameworkPropertyMetadata("$0.00", FrameworkPropertyMetadataOptions.AffectsRender));
+
+        /// <summary>
+        /// The Number this control represents
+        /// </summary>
+        public string Number
+        {
+            get
+            {
+                return (string)GetValue(NumberProperty);
+            }
+            set
+            {
+                SetValue(NumberProperty, value);
+            }
+        }
         public CurrencyLabel()
         {
             InitializeComponent();

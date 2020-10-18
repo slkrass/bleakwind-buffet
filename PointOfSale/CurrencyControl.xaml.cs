@@ -11,13 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale
+namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
     /// Interaction logic for CurrencyControl.xaml
     /// </summary>
     public partial class CurrencyControl : UserControl
     {
+
         public CurrencyControl()
         {
             InitializeComponent();

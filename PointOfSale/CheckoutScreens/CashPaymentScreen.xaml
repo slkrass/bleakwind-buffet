@@ -5,17 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600">
+             d:DesignHeight="600" d:DesignWidth="900">
     <UserControl.Resources>
         <Style TargetType="Button">
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight"  Value="DemiBold"/>
-            <Setter Property="Margin" Value="50 40 50 40"/>
+            <Setter Property="Margin" Value="5 10 5 10"/>
         </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -28,16 +32,111 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="0" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center">
+            From Customer
+        </TextBlock>
 
-        <!--
-        <Button x:Name="cancelOrderButton" Click="CancelOrder"  Grid.Column="1" Grid.Row="4">
-            Cancel Order
+        <TextBlock FontSize="15" FontWeight="DemiBold" Grid.Row="0" Grid.Column="2" TextAlignment="Center" VerticalAlignment="Center">
+            Give as Change
+        </TextBlock>
+        <local:CurrencyLabel Grid.Row="1" Grid.Column="0" Number="$100"/>
+        <local:CustomerQuantity Grid.Row="1" Grid.Column="1" Value="{Binding Path=PaidHundreds}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="1" Grid.Column="2" Number="{Binding Path=ChangeHundreds}"/>
+
+        <local:CurrencyLabel Grid.Row="2" Grid.Column="0" Number="$50"/>
+        <local:CustomerQuantity Grid.Row="2" Grid.Column="1" Value="{Binding Path=PaidFifties}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="2" Grid.Column="2" Number="{Binding Path=ChangeFifties}"/>
+
+        <local:CurrencyLabel Grid.Row="3" Grid.Column="0" Number="$20"/>
+        <local:CustomerQuantity Grid.Row="3" Grid.Column="1" Value="{Binding Path=PaidTwenties}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="3" Grid.Column="2" Number="{Binding Path=ChangeTwenties}"/>
+
+        <local:CurrencyLabel Grid.Row="4" Grid.Column="0" Number="$10"/>
+        <local:CustomerQuantity Grid.Row="4" Grid.Column="1" Value="{Binding Path=PaidTens}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="4" Grid.Column="2" Number="{Binding Path=ChangeTens}"/>
+
+        <local:CurrencyLabel Grid.Row="5" Grid.Column="0" Number="$5"/>
+        <local:CustomerQuantity Grid.Row="5" Grid.Column="1" Value="{Binding Path=PaidFives}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="5" Grid.Column="2" Number="{Binding Path=ChangeFives}"/>
+
+        <local:CurrencyLabel Grid.Row="6" Grid.Column="0" Number="$2"/>
+        <local:CustomerQuantity Grid.Row="6" Grid.Column="1" Value="{Binding Path=PaidTwos}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="6" Grid.Column="2" Number="{Binding Path=ChangeTwos}"/>
+
+        <local:CurrencyLabel Grid.Row="7" Grid.Column="0" Number="$1"/>
+        <local:CustomerQuantity Grid.Row="7" Grid.Column="1" Value="{Binding Path=PaidOnes}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="7" Grid.Column="2" Number="{Binding Path=ChangeHundreds}"/>
+        
+        <!-- Coins -->
+        <local:CurrencyLabel Grid.Row="2" Grid.Column="3" Number="$1"/>
+        <local:CustomerQuantity Grid.Row="2" Grid.Column="4" Value="{Binding Path=PaidDollars}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="2" Grid.Column="5" Number="{Binding Path=ChangeDollars}"/>
+
+        <local:CurrencyLabel Grid.Row="3" Grid.Column="3" Number="$0.50"/>
+        <local:CustomerQuantity Grid.Row="3" Grid.Column="4" Value="{Binding Path=PaidHalfDollars}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="3" Grid.Column="5" Number="{Binding Path=ChangeHalfDollars}"/>
+
+        <local:CurrencyLabel Grid.Row="4" Grid.Column="3" Number="$0.25"/>
+        <local:CustomerQuantity Grid.Row="4" Grid.Column="4" Value="{Binding Path=PaidQuarters}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="4" Grid.Column="5" Number="{Binding Path=ChangeQuarters}"/>
+
+        <local:CurrencyLabel Grid.Row="5" Grid.Column="3" Number="$0.10"/>
+        <local:CustomerQuantity Grid.Row="5" Grid.Column="4" Value="{Binding Path=PaidDimes}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="5" Grid.Column="5" Number="{Binding Path=ChangeDimes}"/>
+
+        <local:CurrencyLabel Grid.Row="6" Grid.Column="3" Number="$0.05"/>
+        <local:CustomerQuantity Grid.Row="6" Grid.Column="4" Value="{Binding Path=PaidNickels}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="6" Grid.Column="5" Number="{Binding Path=ChangeNickels}"/>
+
+        <local:CurrencyLabel Grid.Row="7" Grid.Column="3" Number="$0.01"/>
+        <local:CustomerQuantity Grid.Row="7" Grid.Column="4" Value="{Binding Path=PaidPennies}" MinValue="0" />
+        <local:ChangeQuantity Grid.Row="7" Grid.Column="5" Number="{Binding Path=ChangePennies}"/>
+
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center">
+            Bills
+        </TextBlock>
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" TextAlignment="Center" VerticalAlignment="Center">
+            Coins
+        </TextBlock>
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="1" Grid.Column="4" TextAlignment="Center" VerticalAlignment="Center">
+            From Customer
+        </TextBlock>
+        <TextBlock FontSize="15" FontWeight="DemiBold" Grid.Row="1" Grid.Column="5" TextAlignment="Center" VerticalAlignment="Center">
+            Give as Change
+        </TextBlock>
+
+        <TextBlock FontSize="18" FontWeight="DemiBold" TextWrapping="Wrap" Grid.Row="8"  Grid.Column="0"
+                   TextAlignment="Center" VerticalAlignment="Center">
+            Total Sale
+        </TextBlock>
+        <TextBlock FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Grid.Row="9" Grid.Column="0"  
+                   TextAlignment="Center" VerticalAlignment="Center">
+            Amount Due
+        </TextBlock>
+        <TextBlock FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Grid.Row="8" Grid.Column="3" 
+                   TextAlignment="Center" VerticalAlignment="Center">
+            Change Owed
+        </TextBlock>
+
+        <TextBlock FontSize="18" FontWeight="DemiBold" TextWrapping="Wrap" Grid.Row="8"  Grid.Column="1"
+                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=OrderCost}">
+        </TextBlock>
+        <TextBlock FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Grid.Row="9" Grid.Column="1"  
+                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=AmountDue}">
+        </TextBlock>
+        <TextBlock FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Grid.Row="8" Grid.Column="4" 
+                   TextAlignment="Center" VerticalAlignment="Center">
+        </TextBlock>
+
+        <Button x:Name="finalizeOrderButton"  Grid.Column="5" Grid.Row="9">
+            Finalize Order
         </Button>
 
-        <Button x:Name="returnToOrderButton" Click="ReturnToOrder" Grid.Column="0" Grid.Row="4">
+        <Button x:Name="returnToOrderButton"  Grid.Column="5" Grid.Row="0">
             Return to Order
         </Button>
-        -->
+        
     </Grid>
 </UserControl>

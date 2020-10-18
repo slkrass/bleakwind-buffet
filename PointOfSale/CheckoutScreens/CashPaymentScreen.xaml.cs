@@ -27,6 +27,8 @@ namespace BleakwindBuffet.PointOfSale
         public CashPaymentScreen()
         {
             InitializeComponent();
+            
+            
         }
 
         /// <summary>
@@ -77,6 +79,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 menuContainer = value;
+                var reg = new CashDrawerViewModel();
+                reg.OrderCost = Math.Round(menuContainer.OrderControl.Total, 2);
+                DataContext = reg;
             }
         }
     }
