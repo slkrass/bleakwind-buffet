@@ -13,6 +13,8 @@
     <None Remove="Images\breakfast.jpg" />
     <None Remove="Images\broccoli.jpg" />
     <None Remove="Images\bun.jpg" />
+    <None Remove="Images\cards.jpg" />
+    <None Remove="Images\cash.jpg" />
     <None Remove="Images\cheese.jpg" />
     <None Remove="Images\cherry.jpg" />
     <None Remove="Images\coffee.jpg" />
@@ -75,6 +77,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bun.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cards.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cash.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\cheese.jpg">
@@ -185,6 +193,12 @@
     <Content Include="Images\watermelon.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\RoundRegister.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

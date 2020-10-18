@@ -20,6 +20,7 @@ using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 
+
 namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
@@ -178,7 +179,7 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void CancelOrder(object sender, RoutedEventArgs e)
         {
-            if(sender is Button button)
+            if(sender is Button)
             {
                 menuContainer.OrderControl = new Order();
                 menuContainer.currentItemsInOrderBorder.Child = new OrderList() { Container = menuContainer};
@@ -192,7 +193,8 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         void CompleteOrder(object sender, RoutedEventArgs e)
         {
-
+            menuContainer.menuBorder.Child = new PaymentTypeSelection() { Container = menuContainer };
+            menuContainer.currentItemsInOrderBorder.Child = new CompletedOrderList() { Container = menuContainer };
         }
     }
 }

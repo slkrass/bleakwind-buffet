@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="BleakwindBuffet.PointOfSale.ComboSideScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="16" 
+                   FontWeight="DemiBold" TextAlignment="Center">Select the side for the combo</TextBlock>
+
+        <!-- Side Buttons -->
+
+        <Button Name="doneButton" Click="AddItemToOrder" Grid.Column="1" Grid.Row="8" Height="22" Width="110" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14"
+                FontWeight="SemiBold">Done</Button>
+
+        <Image Source="../../Images/fruitSalad.jpg" Grid.Column="2" Grid.Row="1" Width="90"/>
+        <Button Name="vokunSaladButton"         Click="AddItemToOrder" Grid.Row="1" Grid.Column="2" Height="22" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Vokun Salad</Button>
+
+        <Image Source="../../Images/miraak.jpg" Grid.Column="2" Grid.Row="2" Height="70" />
+        <Button Name="friedMiraakButton"        Click="AddItemToOrder" Grid.Row="2" Grid.Column="2" Height="22" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Fried Miraak</Button>
+
+        <Image Source="../../Images/grits.jpg" Grid.Column="2" Grid.Row="3" Height="70" />
+        <Button Name="madOtarGritsButton"       Click="AddItemToOrder" Grid.Row="3" Grid.Column="2" Height="22" Width="105" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Mad Otar Grits</Button>
+
+        <Image Source="../../Images/waffleFries.jpg"  Grid.Column="2" Grid.Row="4" Height="80" />
+        <Button Name="dragonbornWaffleFriesButton"  Click="AddItemToOrder" Grid.Row="4" Grid.Column="2" Height="22" Width="145" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="12" FontWeight="SemiBold">Dragonborn Waffle Fries</Button>
+
+        <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
+        <Button Name="completeOrderButton" Click="CompleteOrder" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
+
+    </Grid>
+</UserControl>

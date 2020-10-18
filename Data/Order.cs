@@ -172,6 +172,7 @@ namespace BleakwindBuffet.Data
                         else if (item is FriedMiraak fm) { fm.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is MadOtarGrits mog) { mog.PropertyChanged += CollectionItemChangedListener; }
                         else if (item is VokunSalad vs) { vs.PropertyChanged += CollectionItemChangedListener; }
+                        else if (item is Combo combo) { combo.PropertyChanged += CollectionItemChangedListener; }
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
@@ -185,7 +186,8 @@ namespace BleakwindBuffet.Data
                         else if (item is DragonbornWaffleFries dwf) { dwf.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is FriedMiraak fm) { fm.PropertyChanged -= CollectionItemChangedListener; }
                         else if (item is MadOtarGrits mog) { mog.PropertyChanged -= CollectionItemChangedListener; }
-                        else if (item is VokunSalad vs) { vs.PropertyChanged -= CollectionItemChangedListener; } 
+                        else if (item is VokunSalad vs) { vs.PropertyChanged -= CollectionItemChangedListener; }
+                        else if (item is Combo combo) { combo.PropertyChanged -= CollectionItemChangedListener; }
                     }
                     break;
                 case NotifyCollectionChangedAction.Reset:

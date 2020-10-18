@@ -81,7 +81,7 @@
         <Button Name="dragonbornWaffleFriesButton"  Click="AddItemToOrder" Grid.Row="4" Grid.Column="2" Height="22" Width="145" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="12" FontWeight="SemiBold">Dragonborn Waffle Fries</Button>
         
         <Button Click="CancelOrder" Name="cancelOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="105" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Cancel Order</Button>
-        <Button Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
+        <Button Click="CompleteOrder" Name="completeOrderButton" Grid.Column="2" Grid.Row="8" Height="22" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="14" FontWeight="SemiBold">Complete Order</Button>
         
     </Grid>
 </UserControl>

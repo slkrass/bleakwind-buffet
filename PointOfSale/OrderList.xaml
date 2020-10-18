@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="325">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Margin="10, 0, 0, 0" TextAlignment="Center" FontSize="18">Order #</TextBlock>
@@ -39,8 +39,7 @@
                             <TextBlock FontSize="14" Margin="20 0 0 0"  Text="{Binding Path=StringPrice}" TextAlignment="Right"/>
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Top">
-                            <!--<TextBlock Text="{Binding Path=StringSpecialInstructions}" TextAlignment="Left"/>-->
-                            <ListView BorderThickness="0" BorderBrush="Transparent" Name="SpecialInstructionsText" ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            <ListView BorderThickness="0" BorderBrush="Transparent" Name="SpecialInstructionsText" ItemsSource="{Binding Path=SpecialInstructions}" IsSynchronizedWithCurrentItem="True" SelectionChanged="UpdateComboItem"/>
 
                         </StackPanel>
                         <Button DockPanel.Dock="Bottom"  HorizontalAlignment="Left" FontSize="14" Height="22" Width="140" Click="RemoveFromOrder">Remove From Order</Button>

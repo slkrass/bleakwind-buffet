@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="BleakwindBuffet.PointOfSale.PaymentTypeSelection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight"  Value="DemiBold"/>
+            <Setter Property="Margin" Value="50 40 50 40"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        
+        <Image Source="../Images/cash.jpg"  Grid.Column="0" Grid.RowSpan="3" 
+               Height="200"/>
+        <Image Source="../Images/cards.jpg"  Grid.Column="1" Grid.RowSpan="3"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="18" FontWeight="DemiBold"
+                   TextAlignment="Center" Padding="20" >Select Payment Type</TextBlock>
+        
+        <Button x:Name="cashPaymentButton" Click="CashPayment" Grid.Column="0" Grid.Row="2" >
+            Cash
+        </Button>
+        
+        <Button x:Name="cardPaymentButton" Click="CardPayment"  Grid.Column="1" Grid.Row="2">
+            Credit/Debit
+        </Button>
+        
+        <Button x:Name="cancelOrderButton" Click="CancelOrder"  Grid.Column="1" Grid.Row="4">
+            Cancel Order
+        </Button>
+        
+        <Button x:Name="returnToOrderButton" Click="ReturnToOrder" Grid.Column="0" Grid.Row="4">
+            Return to Order
+        </Button>
+    </Grid>
+</UserControl>

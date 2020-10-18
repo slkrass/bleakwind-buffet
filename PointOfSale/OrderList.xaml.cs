@@ -98,8 +98,24 @@ namespace BleakwindBuffet.PointOfSale
                     else if (list.SelectedItem is FriedMiraak fm) { menuContainer.menuBorder.Child = new FriedMiraakCustomization() { Container = menuContainer, Miraak = fm }; }
                     else if (list.SelectedItem is MadOtarGrits mog) { menuContainer.menuBorder.Child = new MadOtarGritsCustomization() { Container = menuContainer, Grits = mog }; }
                     else if (list.SelectedItem is VokunSalad vs) { menuContainer.menuBorder.Child = new VokunSaladCustomization() { Container = menuContainer, Salad = vs }; }
+                    else if (list.SelectedItem is Combo com) { menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = com }; }
             }
             
+        }
+
+        /// <summary>
+        /// Updates an item in the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateComboItem(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (sender is ListView list)
+            {
+                if (list.SelectedItem is Combo com) { menuContainer.menuBorder.Child = new ComboSelectionStartScreen() { Container = menuContainer, ComboItem = com }; }
+            }
+
         }
 
     }

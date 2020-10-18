@@ -99,5 +99,31 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
+        /// <summary>
+        /// Controls the button click events cancel order button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CancelOrder(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                menuContainer.OrderControl = new Order();
+                menuContainer.currentItemsInOrderBorder.Child = new OrderList() { Container = menuContainer };
+                menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
+            }
+        }
+
+        /// <summary>
+        /// Controls the button click events for complete order menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CompleteOrder(object sender, RoutedEventArgs e)
+        {
+            menuContainer.menuBorder.Child = new PaymentTypeSelection() { Container = menuContainer };
+            menuContainer.currentItemsInOrderBorder.Child = new CompletedOrderList() { Container = menuContainer };
+        }
+
     }
 }
