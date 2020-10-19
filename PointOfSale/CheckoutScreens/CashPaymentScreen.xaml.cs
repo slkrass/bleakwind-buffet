@@ -47,6 +47,21 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        void FinalizeOrder(object sender, RoutedEventArgs e)
+        {
+            if(register.SufficientPayment)
+            {
+                register.OpenDrawer();
+                register.FinializeSale();
+                register.PrintCashReciept();
+            }
+        }
+
+        /// <summary>
+        /// Controls the button click events for returning to the ordering screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ReturnToPaymentSelection(object sender, RoutedEventArgs e)
         {
             menuContainer.menuBorder.Child = new PaymentTypeSelection() { Container = menuContainer };
@@ -67,6 +82,7 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
+        private CashDrawerViewModel register;
         /// <summary>
         /// The menu container for the xaml
         /// </summary>
@@ -79,9 +95,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 menuContainer = value;
-                var reg = new CashDrawerViewModel();
-                reg.OrderCost = Math.Round(menuContainer.OrderControl.Total, 2);
-                DataContext = reg;
+                register = new CashDrawerViewModel() { Container= menuContainer, 
+                                                        OrderCost = Math.Round(menuContainer.OrderControl.Total, 2)};
+                DataContext = register;
             }
         }
     }

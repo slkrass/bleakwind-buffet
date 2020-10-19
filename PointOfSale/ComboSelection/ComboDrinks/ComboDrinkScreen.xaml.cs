@@ -97,7 +97,12 @@ namespace BleakwindBuffet.PointOfSale
                     combo.ComboDrink = new WarriorWater();
                     menuContainer.menuBorder.Child = new ComboWarriorWaterCustomization() { Container = menuContainer, ComboItem = combo };
                 }
+                else if (pressedButton.Name == "doneButton")
+                {
+                    menuContainer.menuBorder.Child = new ComboSelectionStartScreen { Container = menuContainer, ComboItem = combo };
+                }
             }
+        
         }
 
         /// <summary>

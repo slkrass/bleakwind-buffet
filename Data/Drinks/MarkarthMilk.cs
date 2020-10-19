@@ -92,7 +92,6 @@ namespace BleakwindBuffet.Data.Drinks
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
                 OnPropertyChanged(new PropertyChangedEventArgs("StringPrice"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Name"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -111,7 +110,6 @@ namespace BleakwindBuffet.Data.Drinks
                 ice = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 

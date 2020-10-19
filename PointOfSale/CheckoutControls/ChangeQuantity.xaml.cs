@@ -21,7 +21,8 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// A dependency property representing the number this control represents
         /// </summary>
-        public static DependencyProperty NumberProperty = DependencyProperty.Register("Number", typeof(int), typeof(ChangeQuantity), new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsRender));
+        public static DependencyProperty NumberProperty = DependencyProperty.Register("Number", typeof(int), typeof(ChangeQuantity), 
+            new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsRender));
 
         /// <summary>
         /// The Number this control represents

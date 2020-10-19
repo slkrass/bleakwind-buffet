@@ -69,7 +69,6 @@ namespace BleakwindBuffet.Data.Entrees
                 sirloin = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Sirloin"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -88,7 +87,6 @@ namespace BleakwindBuffet.Data.Entrees
                 onion = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Onion"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -107,7 +105,6 @@ namespace BleakwindBuffet.Data.Entrees
                 roll = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Roll"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 

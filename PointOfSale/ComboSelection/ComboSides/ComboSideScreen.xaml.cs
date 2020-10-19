@@ -92,6 +92,10 @@ namespace BleakwindBuffet.PointOfSale
                     combo.ComboSide = new DragonbornWaffleFries();
                     menuContainer.menuBorder.Child = new ComboDragonbornWaffleFriesCustomization() { Container = menuContainer, ComboItem = combo};
                 }
+                else if (pressedButton.Name == "doneButton")
+                {
+                    menuContainer.menuBorder.Child = new ComboSelectionStartScreen { Container = menuContainer, ComboItem = combo };
+                }
             }
         }
         /// <summary>

@@ -34,11 +34,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="0" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="0" Grid.Column="1" 
+                   TextAlignment="Center" VerticalAlignment="Center">
             From Customer
         </TextBlock>
 
-        <TextBlock FontSize="15" FontWeight="DemiBold" Grid.Row="0" Grid.Column="2" TextAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="15" FontWeight="DemiBold" Grid.Row="0" Grid.Column="2" 
+                   TextAlignment="Center" VerticalAlignment="Center">
             Give as Change
         </TextBlock>
         <local:CurrencyLabel Grid.Row="1" Grid.Column="0" Number="$100"/>
@@ -67,7 +69,7 @@
 
         <local:CurrencyLabel Grid.Row="7" Grid.Column="0" Number="$1"/>
         <local:CustomerQuantity Grid.Row="7" Grid.Column="1" Value="{Binding Path=PaidOnes}" MinValue="0" />
-        <local:ChangeQuantity Grid.Row="7" Grid.Column="2" Number="{Binding Path=ChangeHundreds}"/>
+        <local:ChangeQuantity Grid.Row="7" Grid.Column="2" Number="{Binding Path=ChangeOnes}"/>
         
         <!-- Coins -->
         <local:CurrencyLabel Grid.Row="2" Grid.Column="3" Number="$1"/>
@@ -94,16 +96,20 @@
         <local:CustomerQuantity Grid.Row="7" Grid.Column="4" Value="{Binding Path=PaidPennies}" MinValue="0" />
         <local:ChangeQuantity Grid.Row="7" Grid.Column="5" Number="{Binding Path=ChangePennies}"/>
 
-        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="0" Grid.Column="0" 
+                   TextAlignment="Center" VerticalAlignment="Center">
             Bills
         </TextBlock>
-        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" TextAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" 
+                   TextAlignment="Center" VerticalAlignment="Center">
             Coins
         </TextBlock>
-        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="1" Grid.Column="4" TextAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="18" FontWeight="DemiBold" Grid.Row="1" Grid.Column="4" 
+                   TextAlignment="Center" VerticalAlignment="Center">
             From Customer
         </TextBlock>
-        <TextBlock FontSize="15" FontWeight="DemiBold" Grid.Row="1" Grid.Column="5" TextAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="15" FontWeight="DemiBold" Grid.Row="1" Grid.Column="5" 
+                   TextAlignment="Center" VerticalAlignment="Center">
             Give as Change
         </TextBlock>
 
@@ -121,20 +127,20 @@
         </TextBlock>
 
         <TextBlock FontSize="18" FontWeight="DemiBold" TextWrapping="Wrap" Grid.Row="8"  Grid.Column="1"
-                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=OrderCost}">
+                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=OrderCost, StringFormat=c}">
         </TextBlock>
         <TextBlock FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Grid.Row="9" Grid.Column="1"  
-                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=AmountDue}">
+                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=AmountDue, StringFormat=c}">
         </TextBlock>
         <TextBlock FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Grid.Row="8" Grid.Column="4" 
-                   TextAlignment="Center" VerticalAlignment="Center">
+                   TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CurrentChangeDue, StringFormat=c}">
         </TextBlock>
 
-        <Button x:Name="finalizeOrderButton"  Grid.Column="5" Grid.Row="9">
+        <Button x:Name="FinalizeOrderButton" Click="FinalizeOrder" Grid.Column="5" Grid.Row="9">
             Finalize Order
         </Button>
 
-        <Button x:Name="returnToOrderButton"  Grid.Column="5" Grid.Row="0">
+        <Button x:Name="returnToOrderButton"  Click="ReturnToOrder"  Grid.Column="5" Grid.Row="0">
             Return to Order
         </Button>
         

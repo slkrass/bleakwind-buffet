@@ -18,7 +18,7 @@ namespace BleakwindBuffet.PointOfSale
     /// </summary>
     public partial class CustomerQuantity : UserControl
     {
-
+        #region Depened
         /// <summary>
         /// Identifies the CustomerQuantity.Step XAML attached property
         /// </summary>
@@ -74,7 +74,7 @@ namespace BleakwindBuffet.PointOfSale
             get { return (int)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
-
+        #endregion
 
         /// <summary>
         /// Identifies theCustomerQuantity.ValueClamped event

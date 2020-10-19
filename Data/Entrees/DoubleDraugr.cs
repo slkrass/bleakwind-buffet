@@ -77,7 +77,6 @@ namespace BleakwindBuffet.Data.Entrees
 
                 OnPropertyChanged(new PropertyChangedEventArgs("Ketchup"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -96,7 +95,6 @@ namespace BleakwindBuffet.Data.Entrees
                 bun = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Bun"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -115,7 +113,6 @@ namespace BleakwindBuffet.Data.Entrees
                 mustard = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Mustard"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -134,7 +131,6 @@ namespace BleakwindBuffet.Data.Entrees
                 pickle = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Pickle"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -152,7 +148,6 @@ namespace BleakwindBuffet.Data.Entrees
                 cheese = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Cheese"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -170,7 +165,6 @@ namespace BleakwindBuffet.Data.Entrees
                 tomato = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Tomato"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -188,7 +182,6 @@ namespace BleakwindBuffet.Data.Entrees
                 lettuce = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Lettuce"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -206,7 +199,6 @@ namespace BleakwindBuffet.Data.Entrees
                 mayo = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Mayo"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 

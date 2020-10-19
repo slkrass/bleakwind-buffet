@@ -30,6 +30,7 @@ namespace BleakwindBuffet.PointOfSale
     /// </remarks>
     public class CashDrawerViewModel : INotifyPropertyChanged
     {
+        #region Private Variables
         /*Private Variable*/
         private double orderCost;
         private bool sufficientPayment = false;
@@ -66,7 +67,7 @@ namespace BleakwindBuffet.PointOfSale
         private int chgTwenties = 0;
         private int chgFifties = 0;
         private int chgHundreds = 0;
-
+        #endregion
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -89,14 +90,8 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         public double OrderCost
         {
-            get
-            {
-                return orderCost;
-            }
-            set
-            {
-                orderCost = value;
-            }
+            get{return orderCost;}
+            set{orderCost = value;}
         }
 
         /// <summary>
@@ -104,18 +99,12 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         public bool SufficientPayment
         {
-            get => sufficientPayment;
-            set
+            get
             {
-                if (currentPayment >= orderCost)
-                {
-                    sufficientPayment = true;
-                }
-                else
-                {
-                    sufficientPayment = false;
-                }
-                  
+                if (CurrentPayment >= OrderCost) sufficientPayment = true;
+                else sufficientPayment = false;
+                    
+                return sufficientPayment;
             }
         }
 
@@ -126,17 +115,25 @@ namespace BleakwindBuffet.PointOfSale
         {
             get
             {
+                currentPayment =  PaidPennies * 0.01 + PaidNickels * 0.05 + PaidDimes * 0.10 + PaidQuarters * 0.25 + 
+                                 PaidHalfDollars * 0.50 + PaidDollars * 1.0 +
+                                 PaidOnes * 1.00 + PaidTwos * 2.00 + PaidFives * 5.00 + PaidTens * 10.00 + 
+                                 PaidTwenties * 20.0 + PaidFifties * 50.0 + PaidHundreds * 100.0;
                 return currentPayment;
-            }
-            set
-            {
-                currentPayment = paidPennies * 0.01 + paidNickels * 0.05 + paidDimes * 0.10 + paidQuarters * 0.25 + 
-                                 paidHalfDollars * 0.50 + paidDollars * 1.0 +
-                                 paidOnes * 1.00 + paidTwos * 2.00 + paidFives * 5.00 + paidTens * 10.00 + 
-                                 paidTwenties * 20.0 + paidFifties * 50.0 + paidHundreds * 100.0;
             }
         }
 
+        private double changeDue = 0;
+        /// <summary>
+        /// The current payment amount 
+        /// </summary>
+        public double CurrentChangeDue
+        {
+            get{ return changeDue;}
+            set {changeDue = value;}
+        }
+
+        private double amountDue;
         /// <summary>
         /// Amount still needed
         /// </summary>
@@ -144,14 +141,13 @@ namespace BleakwindBuffet.PointOfSale
         {
             get 
             {
-                if(orderCost - currentPayment > 0)
+                if (CurrentPayment > 0)
                 {
-                    return orderCost - currentPayment;
+                    amountDue = OrderCost - CurrentPayment;
                 }
-                else
-                {
-                    return 0.00;
-                }
+                else amountDue = OrderCost;
+                
+                return amountDue;
             }
         }
 
@@ -160,10 +156,12 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         private void CalculateChange()
         {
-            if(sufficientPayment && (orderCost - currentPayment != 0))
+            if(SufficientPayment && (CurrentPayment > OrderCost))
             {
-                int payment = (int)currentPayment;
-                double paymentChange = currentPayment - payment;
+                changeDue = Math.Round(CurrentPayment - OrderCost, 2);
+
+                int payment = (int)changeDue;
+                double paymentChange = Math.Round(changeDue - payment, 2);
 
                 ChangeHundreds = payment / 100;
                 payment %= 100;
@@ -198,10 +196,10 @@ namespace BleakwindBuffet.PointOfSale
                 paymentChange %= 0.05;
 
                 ChangePennies = (int)(paymentChange / 0.01);
-
             }
             else
             {
+                CurrentChangeDue = 0;
                 ChangeHundreds = 0;
                 ChangeFifties = 0;
                 ChangeTwenties = 0;
@@ -220,7 +218,7 @@ namespace BleakwindBuffet.PointOfSale
         }
 
         // CASH DRAWER----------------------------------------------------------------
-
+        #region CashDrawer
         /// <summary>
         /// The Pennies contained within the CashDrawer
         /// </summary>
@@ -420,9 +418,9 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
-
+        #endregion
         //------------------------------------Customer's Money-------------------------------------------------------------
-
+        #region PaidCurrency
         /// <summary>
         /// The Pennies paid
         /// </summary>
@@ -435,24 +433,13 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 paidPennies = value;
+
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PaidPennies"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
+
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
             }
         }
 
@@ -473,19 +460,8 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+               
+                
             }
         }
 
@@ -506,19 +482,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+                
             }
         }
         /// <summary>
@@ -538,19 +502,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+                
             }
         }
         /// <summary>
@@ -570,19 +522,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+                
             }
         }
         /// <summary>
@@ -602,19 +542,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+               
             }
         }
         /// <summary>
@@ -634,19 +562,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+           
             }
         }
         /// <summary>
@@ -666,19 +582,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+
             }
         }
         /// <summary>
@@ -698,19 +602,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+              
             }
         }
 
@@ -731,19 +623,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+              
             }
         }
         /// <summary>
@@ -763,19 +643,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
                 CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+               
             }
         }
         /// <summary>
@@ -794,20 +662,7 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));               
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
-                CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+                CalculateChange(); 
             }
         }
         /// <summary>
@@ -825,27 +680,13 @@ namespace BleakwindBuffet.PointOfSale
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PaidHundreds"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentPayment"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SufficientPayment"));
-                
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AmountDue"));
-                CalculateChange();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+                CalculateChange();  
             }
         }
-
+        #endregion
         //--------------Change--------------------------------------------
-
+        #region ChangeProperties
         /// <summary>
         /// The Pennies for change
         /// </summary>
@@ -858,6 +699,8 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgPennies = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangePennies"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
 
@@ -873,6 +716,8 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgNickels = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeNickels"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
 
@@ -888,6 +733,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgDimes = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDimes"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -902,8 +750,12 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgQuarters = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeQuarters"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
+       
         /// <summary>
         /// The Dollars for change
         /// </summary>
@@ -916,6 +768,10 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgDollars = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
+                
             }
         }
         /// <summary>
@@ -930,6 +786,8 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgHalfDollars = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHalfDollars"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -944,6 +802,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgOnes = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeOnes"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -958,6 +819,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgTwos = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwos"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -972,6 +836,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgFives = value;
+               
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFives"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
 
@@ -987,6 +854,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgTens = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTens"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -1001,6 +871,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgTwenties = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeTwenties"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -1015,6 +888,9 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgFifties = value;
+                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeFifties"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
         /// <summary>
@@ -1029,9 +905,11 @@ namespace BleakwindBuffet.PointOfSale
             set
             {
                 chgHundreds = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeHundreds"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentChangeDue"));
             }
         }
-
+        #endregion
         /// <summary>
         /// The Total contained within the CashDrawer
         /// </summary>
@@ -1082,7 +960,7 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Prints the reciept
         /// </summary>
-        public void PrintReciept()
+        public void PrintCashReciept()
         {
             register.PrintLine("Order #" + menuContainer.OrderControl.Number);
             DateTime time = DateTime.Now;
@@ -1213,16 +1091,14 @@ namespace BleakwindBuffet.PointOfSale
             register.PrintLine("Subtotal:\t" + menuContainer.OrderControl.StringSubtotal);
             register.PrintLine("Tax:\t" + menuContainer.OrderControl.StringTax);
             register.PrintLine("Total:\t" + menuContainer.OrderControl.StringTotal);
-            register.PrintLine("Change Owed:\t" );
-            register.PrintLine("Payment Method:\tCash");
+            register.PrintLine("Payment Method:\tCash $" + string.Format("{0:0.00}", CurrentPayment));
+            register.PrintLine("Change Owed:\t$" + string.Format("{0:0.00}", CurrentChangeDue));
+            
             register.CutTape();
 
             menuContainer.OrderControl = new Order();
             menuContainer.currentItemsInOrderBorder.Child = new OrderList() { Container = menuContainer };
             menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
-
         }
-
-
     }
 }

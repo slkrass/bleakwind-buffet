@@ -86,7 +86,6 @@ namespace BleakwindBuffet.Data.Entrees
                 sausageLink = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("SausageLink"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -105,7 +104,6 @@ namespace BleakwindBuffet.Data.Entrees
                 egg = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Egg"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -124,7 +122,6 @@ namespace BleakwindBuffet.Data.Entrees
                 hashBrowns = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("HashBrowns"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
@@ -143,7 +140,6 @@ namespace BleakwindBuffet.Data.Entrees
                 pancake = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Pancake"));
                 OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
-                OnPropertyChanged(new PropertyChangedEventArgs("StringSpecialInstructions"));
             }
         }
 
