@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: PaymentTypeSelection.xaml.cs
+ * Purpose: Class used for interaction logic for AmountDue.xaml
+ */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;

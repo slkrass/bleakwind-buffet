@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: AmountDue.xaml.cs
+ * Purpose: Class used for interaction logic for AmountDue.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

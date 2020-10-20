@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: CurrencyLabel.xaml.cs
+ * Purpose: Class used for interaction logic for CurrencyLabel.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

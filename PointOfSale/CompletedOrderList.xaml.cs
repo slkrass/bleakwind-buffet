@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: CompletedOrderList.xaml.cs
+ * Purpose: Class used for interaction logic for CompletedOrderList.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -26,6 +31,9 @@ namespace BleakwindBuffet.PointOfSale
         private MenuContainer menuContainer;
         private Order order;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CompletedOrderList()
         {
             InitializeComponent();
