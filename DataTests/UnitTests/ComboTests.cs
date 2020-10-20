@@ -42,7 +42,9 @@ namespace BleakwindBuffet.DataTests.UnitTests
             BriarheartBurger bb = new BriarheartBurger();
             VokunSalad vs = new VokunSalad();
             double price = ww.Price + bb.Price + vs.Price - 1;
+            string strPrice = "$" + string.Format("{0:0.00}", price);
             Assert.Equal(price, combo.Price);
+            Assert.Equal(strPrice, combo.StringPrice);
         }
 
         [Fact]
@@ -74,6 +76,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
 
             Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboDrink.Size = Size.Medium);
             Assert.PropertyChanged(combo, "Price", () => combo.ComboDrink.Size = Size.Medium);
+            Assert.PropertyChanged(combo, "StringPrice", () => combo.ComboDrink.Size = Size.Medium);
             Assert.PropertyChanged(combo, "Calories", () => combo.ComboDrink.Size = Size.Medium);
 
         }
@@ -85,6 +88,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
 
             Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboSide = new DragonbornWaffleFries());
             Assert.PropertyChanged(combo, "Price", () => combo.ComboSide = new DragonbornWaffleFries());
+            Assert.PropertyChanged(combo, "StringPrice", () => combo.ComboSide = new DragonbornWaffleFries());
             Assert.PropertyChanged(combo, "Calories", () => combo.ComboSide = new DragonbornWaffleFries());
         }
 
@@ -95,6 +99,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
 
             Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboSide.Size = Size.Medium);
             Assert.PropertyChanged(combo, "Price", () => combo.ComboSide.Size = Size.Medium);
+            Assert.PropertyChanged(combo, "StringPrice", () => combo.ComboSide.Size = Size.Medium);
             Assert.PropertyChanged(combo, "Calories", () => combo.ComboSide.Size = Size.Medium);
         }
 
@@ -105,6 +110,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
 
             Assert.PropertyChanged(combo, "SpecialInstructions", () => combo.ComboEntree = new BriarheartBurger());
             Assert.PropertyChanged(combo, "Price", () => combo.ComboEntree = new BriarheartBurger());
+            Assert.PropertyChanged(combo, "StringPrice", () => combo.ComboEntree = new BriarheartBurger());
             Assert.PropertyChanged(combo, "Calories", () => combo.ComboEntree = new BriarheartBurger());
         }
 
@@ -116,6 +122,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
             SailorSoda soda = new SailorSoda();
             combo.ComboDrink = soda;
             Assert.PropertyChanged(combo, "SpecialInstructions", () => ((SailorSoda)combo.ComboDrink).Flavor = SodaFlavor.Blackberry);
+            Assert.PropertyChanged(combo, "SpecialInstructions", () => ((SailorSoda)combo.ComboDrink).Flavor = SodaFlavor.Grapefruit);
         }
 
         [Fact]
@@ -148,6 +155,13 @@ namespace BleakwindBuffet.DataTests.UnitTests
 
             foreach (string instruct in ((BriarheartBurger)combo.ComboEntree).SpecialInstructions)
                 Assert.Contains(instruct, combo.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectToString()
+        {
+            Combo combo = new Combo();
+            Assert.Equal("Combo", combo.Name);
         }
 
     }

@@ -32,11 +32,11 @@ namespace BleakwindBuffet.PointOfSale
     {
         #region Private Variables
         /*Private Variable*/
-        private double orderCost;
+        private double orderCost = 0;
         private bool sufficientPayment = false;
         private double currentPayment = 0;
-        private RegisterViewModel register = new RegisterViewModel();
-        private MenuContainer menuContainer;
+        private double amountDue = 0;
+        private double changeDue = 0;
 
         /* Private Variable Declarations For Customer Payment*/
         private int paidPennies = 0;
@@ -69,21 +69,6 @@ namespace BleakwindBuffet.PointOfSale
         private int chgHundreds = 0;
         #endregion
         public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// The menu container for the xaml
-        /// </summary>
-        public MenuContainer Container
-        {
-            get
-            {
-                return menuContainer;
-            }
-            set
-            {
-                menuContainer = value;
-            }
-        }
 
         /// <summary>
         /// The total cost of the order placed
@@ -123,7 +108,6 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
-        private double changeDue = 0;
         /// <summary>
         /// The current payment amount 
         /// </summary>
@@ -133,7 +117,6 @@ namespace BleakwindBuffet.PointOfSale
             set {changeDue = value;}
         }
 
-        private double amountDue;
         /// <summary>
         /// Amount still needed
         /// </summary>
@@ -154,7 +137,7 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// Calculates the coins needed for change
         /// </summary>
-        private void CalculateChange()
+        public  void CalculateChange()
         {
             if(SufficientPayment && (CurrentPayment > OrderCost))
             {
@@ -182,6 +165,8 @@ namespace BleakwindBuffet.PointOfSale
                 payment %= 2;
 
                 ChangeOnes = payment;
+
+                ChangeDollars = 0;
 
                 ChangeHalfDollars = (int)(paymentChange / 0.50);
                 paymentChange %= 0.50;
@@ -957,148 +942,6 @@ namespace BleakwindBuffet.PointOfSale
             Hundreds = Hundreds - ChangeHundreds + PaidHundreds;
         }
 
-        /// <summary>
-        /// Prints the reciept
-        /// </summary>
-        public void PrintCashReciept()
-        {
-            register.PrintLine("Order #" + menuContainer.OrderControl.Number);
-            DateTime time = DateTime.Now;
-            register.PrintLine(time.ToString());
-
-            foreach (IOrderItem item in menuContainer.OrderControl)//Print names and prices of items (may add special instructions)
-            {
-                if (item is AretinoAppleJuice aj)
-                {
-                    register.PrintLine(aj.Name + "\t" + aj.StringPrice);
-                    foreach (string str in aj.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is CandlehearthCoffee cc)
-                {
-                    register.PrintLine(cc.Name + "\t" + cc.StringPrice);
-                    foreach (string str in cc.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is MarkarthMilk mm)
-                {
-                    register.PrintLine(mm.Name + "\t" + mm.StringPrice);
-                    foreach (string str in mm.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is SailorSoda ss)
-                {
-                    register.PrintLine(ss.Name + "\t" + ss.StringPrice);
-                    foreach (string str in ss.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is WarriorWater ww)
-                {
-                    register.PrintLine(ww.Name + "\t" + ww.StringPrice);
-                    foreach (string str in ww.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is BriarheartBurger briar)
-                {
-                    register.PrintLine(briar.Name + "\t" + briar.StringPrice);
-                    foreach (string str in briar.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is DoubleDraugr draugr)
-                {
-                    register.PrintLine(draugr.Name + "\t" + draugr.StringPrice);
-                    foreach (string str in draugr.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is GardenOrcOmelette goo)
-                {
-                    register.PrintLine(goo.Name + "\t" + goo.StringPrice);
-                    foreach (string str in goo.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is PhillyPoacher pp)
-                {
-                    register.PrintLine(pp.Name + "\t" + pp.StringPrice);
-                    foreach (string str in pp.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is SmokehouseSkeleton skel)
-                {
-                    register.PrintLine(skel.Name + "\t" + skel.StringPrice);
-                    foreach (string str in skel.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is ThalmorTriple thal)
-                {
-                    register.PrintLine(thal.Name + "\t" + thal.StringPrice);
-                    foreach (string str in thal.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-                else if (item is ThugsTBone thugs)
-                {
-                    register.PrintLine(thugs.Name + "\t" + thugs.StringPrice);
-                }
-                else if (item is DragonbornWaffleFries dwf)
-                {
-                    register.PrintLine(dwf.Name + "\t" + dwf.StringPrice);
-                }
-                else if (item is FriedMiraak fm)
-                {
-                    register.PrintLine(fm.Name + "\t" + fm.StringPrice);
-                }
-                else if (item is MadOtarGrits mog)
-                {
-                    register.PrintLine(mog.Name + "\t" + mog.StringPrice);
-                }
-                else if (item is VokunSalad vs)
-                {
-                    register.PrintLine(vs.Name + "\t" + vs.StringPrice);
-                }
-                else if (item is Combo combo)
-                {
-                    register.PrintLine(combo.Name + "\t" + combo.StringPrice);
-                    foreach (string str in combo.SpecialInstructions)
-                    {
-                        register.PrintLine(str);
-                    }
-                }
-
-            }//end foreach
-
-            //Print Subtotal, Tax, and Total
-            register.PrintLine("Subtotal:\t" + menuContainer.OrderControl.StringSubtotal);
-            register.PrintLine("Tax:\t" + menuContainer.OrderControl.StringTax);
-            register.PrintLine("Total:\t" + menuContainer.OrderControl.StringTotal);
-            register.PrintLine("Payment Method:\tCash $" + string.Format("{0:0.00}", CurrentPayment));
-            register.PrintLine("Change Owed:\t$" + string.Format("{0:0.00}", CurrentChangeDue));
-            
-            register.CutTape();
-
-            menuContainer.OrderControl = new Order();
-            menuContainer.currentItemsInOrderBorder.Child = new OrderList() { Container = menuContainer };
-            menuContainer.menuBorder.Child = new MenuSelection() { Container = menuContainer };
-        }
+        
     }
 }
