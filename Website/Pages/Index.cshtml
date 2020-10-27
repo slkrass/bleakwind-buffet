@@ -4,7 +4,85 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Bleakwind Buffet</h1>
+
+<p>
+    <i>
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. 
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. 
+        Hack into a Smokehouse Skeleton with your dagger. 
+        Or vanquish the the mighty Thalmor Triple Burger! 
+        You’ve had a hard adventure and earned your loot, so spend it with us!
+    </i>
+</p>
+
+<h1>Menu</h1>
+
+<h2>Entrees</h2>
+<ul class="menu-section">
+    @foreach (BleakwindBuffet.Data.Entrees.Entree entree in BleakwindBuffet.Data.Menu.Entrees())
+    {
+        <li>
+            <div class="menu-item">
+                @{ if (entree is BleakwindBuffet.Data.Entrees.BriarheartBurger briar) {<h3>@briar.Name</h3>}
+                    else if (entree is BleakwindBuffet.Data.Entrees.DoubleDraugr draugr) { <h3>@draugr.Name</h3>}
+                    else if (entree is BleakwindBuffet.Data.Entrees.GardenOrcOmelette goo) { <h3>@goo.Name</h3>}
+                    else if (entree is BleakwindBuffet.Data.Entrees.PhillyPoacher pp) { <h3>@pp.Name</h3>}
+                    else if (entree is BleakwindBuffet.Data.Entrees.SmokehouseSkeleton shs) {<h3>@shs.Name</h3>}
+                    else if (entree is BleakwindBuffet.Data.Entrees.ThalmorTriple thal) {<h3>@thal.Name</h3>}
+                    else if (entree is BleakwindBuffet.Data.Entrees.ThugsTBone tBone) {<h3>@tBone.Name</h3>}
+                }
+            <div class="details">
+                <div class="item-price">Price: $@entree.Price</div>
+                <div class="item-calories">Calories: @entree.Calories</div>
+            </div>
+            </div>
+        </li>
+    }
+</ul>
+
+<h2>Sides</h2>
+<ul class="menu-section">
+    @foreach (BleakwindBuffet.Data.Sides.Side side in BleakwindBuffet.Data.Menu.Sides())
+    {
+        <li>
+            <div class="menu-item">
+                @{ 
+                    if (side is BleakwindBuffet.Data.Sides.DragonbornWaffleFries dwf) {<h3>@dwf.Name</h3>}
+                    else if (side is BleakwindBuffet.Data.Sides.FriedMiraak fm) {<h3>@fm.Name</h3>}
+                    else if (side is BleakwindBuffet.Data.Sides.MadOtarGrits mog) {<h3>@mog.Name</h3>}
+                    else if (side is BleakwindBuffet.Data.Sides.VokunSalad vs) {<h3>@vs.Name</h3>}
+                }
+                <div class="details">
+                <div class="item-price">Price: $@side.Price</div>
+                <div class="item-calories">Calories: @side.Calories</div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+
+<h2>Drinks</h2>
+<ul class="menu-section">
+    @foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Drinks())
+    {
+        <li>
+            <div class="menu-item">
+                @{ 
+                    if (drink is BleakwindBuffet.Data.Drinks.AretinoAppleJuice aj) {<h3>@aj.Name</h3>}
+                    else if (drink is BleakwindBuffet.Data.Drinks.CandlehearthCoffee cc) {<h3>@cc.Name</h3>}
+                    else if (drink is BleakwindBuffet.Data.Drinks.MarkarthMilk mm) {<h3>@mm.Name</h3>}
+                    else if (drink is BleakwindBuffet.Data.Drinks.SailorSoda ss) {<h3>@ss.Name</h3>}
+                    else if (drink is BleakwindBuffet.Data.Drinks.WarriorWater ww) {<h3>@ww.Name</h3>}
+                }
+                <div class="details">
+                <div class="item-price">Price: $@drink.Price</div>
+                <div class="item-calories">Calories: @drink.Calories</div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+
+<h2>Combo</h2>
+<div>A combo consists of a combination of any one entree, side, and drink. Combo's recieve a $1 discount.</div>
