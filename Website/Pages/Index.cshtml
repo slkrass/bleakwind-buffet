@@ -16,7 +16,7 @@
     </i>
 </p>
 
-<h1>Menu</h1>
+<h1>Menu</h1><!--If I wanted to add an image thats contained in my Point of Sale Project How would I?-->
 
 <h2>Entrees</h2>
 <ul class="menu-section">
@@ -24,7 +24,10 @@
     {
         <li>
             <div class="menu-item">
-                @{ if (entree is BleakwindBuffet.Data.Entrees.BriarheartBurger briar) {<h3>@briar.Name</h3>}
+                @{ if (entree is BleakwindBuffet.Data.Entrees.BriarheartBurger briar) {
+                        <h3>@briar.Name</h3>
+                        <img src="../Images/singleBurger.jpg" />
+                        }
                     else if (entree is BleakwindBuffet.Data.Entrees.DoubleDraugr draugr) { <h3>@draugr.Name</h3>}
                     else if (entree is BleakwindBuffet.Data.Entrees.GardenOrcOmelette goo) { <h3>@goo.Name</h3>}
                     else if (entree is BleakwindBuffet.Data.Entrees.PhillyPoacher pp) { <h3>@pp.Name</h3>}
