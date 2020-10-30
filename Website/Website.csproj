@@ -1,194 +1,194 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\appleJuice.jpg" />
-    <None Remove="Images\bacon.jpg" />
-    <None Remove="Images\blackberry.jpg" />
-    <None Remove="Images\breakfast.jpg" />
-    <None Remove="Images\broccoli.jpg" />
-    <None Remove="Images\bun.jpg" />
-    <None Remove="Images\cards.jpg" />
-    <None Remove="Images\cash.jpg" />
-    <None Remove="Images\cheese.jpg" />
-    <None Remove="Images\cherry.jpg" />
-    <None Remove="Images\coffee.jpg" />
-    <None Remove="Images\cream.jpg" />
-    <None Remove="Images\doubleBurger.jpg" />
-    <None Remove="Images\eggs.jpg" />
-    <None Remove="Images\fruitSalad.jpg" />
-    <None Remove="Images\grapefruit.jpg" />
-    <None Remove="Images\grits.jpg" />
-    <None Remove="Images\hashBrowns.jpg" />
-    <None Remove="Images\ice_cubes-.jpg" />
-    <None Remove="Images\ketchup.jpg" />
-    <None Remove="Images\lemon.jpg" />
-    <None Remove="Images\lettuce2.jpg" />
-    <None Remove="Images\mayo.jpg" />
-    <None Remove="Images\milk.jpg" />
-    <None Remove="Images\miraak.jpg" />
-    <None Remove="Images\mushrooms.jpg" />
-    <None Remove="Images\mustard.jpg" />
-    <None Remove="Images\omelette.jpg" />
-    <None Remove="Images\onion.jpg" />
-    <None Remove="Images\pancakes.jpg" />
-    <None Remove="Images\peach.jpg" />
-    <None Remove="Images\philly.jpg" />
-    <None Remove="Images\pickles.jpg" />
-    <None Remove="Images\roll.jpg" />
-    <None Remove="Images\sausage.jpg" />
-    <None Remove="Images\singleBurger.jpg" />
-    <None Remove="Images\sirloin.jpg" />
-    <None Remove="Images\soda.jpg" />
-    <None Remove="Images\tBone.jpg" />
-    <None Remove="Images\tomatoes.jpg" />
-    <None Remove="Images\tripleBurger.jpg" />
-    <None Remove="Images\waffleFries.jpg" />
-    <None Remove="Images\water2.jpg" />
-    <None Remove="Images\watermelon.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Images\appleJuice.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\bacon.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\blackberry.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\breakfast.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\broccoli.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\bun.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\cards.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\cash.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\cheese.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\cherry.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\coffee.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\cream.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\doubleBurger.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\eggs.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\fruitSalad.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\grapefruit.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\grits.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\hashBrowns.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\ice_cubes-.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\ketchup.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\lemon.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\lettuce2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\mayo.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\milk.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\miraak.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\mushrooms.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\mustard.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\omelette.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\onion.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\pancakes.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\peach.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\philly.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\pickles.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\roll.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\sausage.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\singleBurger.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\sirloin.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\soda.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\tBone.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\tomatoes.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\tripleBurger.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\waffleFries.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\water2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\watermelon.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Remove="wwwroot\Images\appleJuice.jpg" />
+    <None Remove="wwwroot\Images\bacon.jpg" />
+    <None Remove="wwwroot\Images\blackberry.jpg" />
+    <None Remove="wwwroot\Images\breakfast.jpg" />
+    <None Remove="wwwroot\Images\broccoli.jpg" />
+    <None Remove="wwwroot\Images\bun.jpg" />
+    <None Remove="wwwroot\Images\cards.jpg" />
+    <None Remove="wwwroot\Images\cash.jpg" />
+    <None Remove="wwwroot\Images\cheese.jpg" />
+    <None Remove="wwwroot\Images\cherry.jpg" />
+    <None Remove="wwwroot\Images\coffee.jpg" />
+    <None Remove="wwwroot\Images\cream.jpg" />
+    <None Remove="wwwroot\Images\doubleBurger.jpg" />
+    <None Remove="wwwroot\Images\eggs.jpg" />
+    <None Remove="wwwroot\Images\fruitSalad.jpg" />
+    <None Remove="wwwroot\Images\grapefruit.jpg" />
+    <None Remove="wwwroot\Images\grits.jpg" />
+    <None Remove="wwwroot\Images\hashBrowns.jpg" />
+    <None Remove="wwwroot\Images\ice_cubes-.jpg" />
+    <None Remove="wwwroot\Images\ketchup.jpg" />
+    <None Remove="wwwroot\Images\lemon.jpg" />
+    <None Remove="wwwroot\Images\lettuce2.jpg" />
+    <None Remove="wwwroot\Images\mayo.jpg" />
+    <None Remove="wwwroot\Images\milk.jpg" />
+    <None Remove="wwwroot\Images\miraak.jpg" />
+    <None Remove="wwwroot\Images\mushrooms.jpg" />
+    <None Remove="wwwroot\Images\mustard.jpg" />
+    <None Remove="wwwroot\Images\omelette.jpg" />
+    <None Remove="wwwroot\Images\onion.jpg" />
+    <None Remove="wwwroot\Images\pancakes.jpg" />
+    <None Remove="wwwroot\Images\peach.jpg" />
+    <None Remove="wwwroot\Images\philly.jpg" />
+    <None Remove="wwwroot\Images\pickles.jpg" />
+    <None Remove="wwwroot\Images\roll.jpg" />
+    <None Remove="wwwroot\Images\sausage.jpg" />
+    <None Remove="wwwroot\Images\singleBurger.jpg" />
+    <None Remove="wwwroot\Images\sirloin.jpg" />
+    <None Remove="wwwroot\Images\soda.jpg" />
+    <None Remove="wwwroot\Images\tBone.jpg" />
+    <None Remove="wwwroot\Images\tomatoes.jpg" />
+    <None Remove="wwwroot\Images\tripleBurger.jpg" />
+    <None Remove="wwwroot\Images\waffleFries.jpg" />
+    <None Remove="wwwroot\Images\water2.jpg" />
+    <None Remove="wwwroot\Images\watermelon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\PointOfSale\PointOfSale.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\Images\appleJuice.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\bacon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\blackberry.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\breakfast.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\broccoli.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\bun.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\cards.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\cash.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\cheese.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\cherry.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\coffee.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\cream.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\doubleBurger.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\eggs.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\fruitSalad.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\grapefruit.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\grits.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\hashBrowns.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\ice_cubes-.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\ketchup.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\lemon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\lettuce2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\mayo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\milk.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\miraak.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\mushrooms.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\mustard.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\omelette.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\onion.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\pancakes.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\peach.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\philly.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\pickles.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\roll.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\sausage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\singleBurger.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\sirloin.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\soda.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\tBone.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\tomatoes.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\tripleBurger.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\waffleFries.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\water2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\watermelon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

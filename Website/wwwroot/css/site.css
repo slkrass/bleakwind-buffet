@@ -30,7 +30,7 @@ ul.menu-section > li {
     flex-direction:row; 
 }
 
-.item-price, .item-calories {
+.item-size,.item-price, .item-calories {
     padding-left: 2em;
 }
 
