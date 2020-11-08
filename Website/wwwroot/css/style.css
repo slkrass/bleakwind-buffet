@@ -1,0 +1,148 @@
+﻿form#menu-database {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto;
+}
+form#menu-database {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto;
+}
+
+#search {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+}
+
+    #filters input[type=number] {
+        width: 3rem;
+    }
+
+    #filters h4 {
+        margin-bottom: 0.2rem;
+    }
+
+body, .navbar, .navbar-brand, .nav-item, #home {
+    background-color: black;
+    color: #ffffff;
+}
+
+.nav-link, #home {
+    color: #ffffff !important;
+}
+
+
+/*Set up the styling for the menu items*/
+ul.menu-section {
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid gray;
+}
+
+    ul.menu-section > li {
+        list-style-type: none;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        min-height: 50px;
+    }
+
+.details {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-size, .item-price, .item-calories {
+    padding-left: 2em;
+}
+
+.logo {
+    width: 50px;
+}
+
+.title {
+    display: inline-block;
+}
+
+.title-section > * {
+    vertical-align: bottom;
+}
+
+a:hover {
+    background-color: #3EF5CB;
+    color: white;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+}
+
+    #filters input[type=number] {
+        width: 3rem;
+    }
+
+    #filters h4 {
+        margin-bottom: 0.2rem;
+    }
+
+body, .navbar, .navbar-brand, .nav-item, #home {
+    background-color: black;
+    color: #ffffff;
+}
+
+.nav-link, #home {
+    color: #ffffff !important;
+}
+
+
+/*Set up the styling for the menu items*/
+ul.menu-section {
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid gray;
+}
+
+    ul.menu-section > li {
+        list-style-type: none;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        min-height: 50px;
+    }
+
+.details {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-size, .item-price, .item-calories {
+    padding-left: 2em;
+}
+
+.logo {
+    width: 50px;
+}
+
+.title {
+    display: inline-block;
+}
+
+.title-section > * {
+    vertical-align: bottom;
+}
+
+a:hover {
+    background-color: #3EF5CB;
+    color: white;
+}

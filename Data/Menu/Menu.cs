@@ -277,11 +277,13 @@ namespace BleakwindBuffet.Data
                 {
                     results.Add(entree);
                 }
-                else if (categories.Contains("Drink") && item is Drink drink)
+                
+                if (categories.Contains("Drink") && item is Drink drink)
                 {
                     results.Add(drink);
                 }
-                else if (categories.Contains("Side") && item is Side side)
+                
+                if (categories.Contains("Side") && item is Side side)
                 {
                     results.Add(side);
                 }
@@ -357,7 +359,7 @@ namespace BleakwindBuffet.Data
             {
                 foreach (IOrderItem item in menu)
                 {
-                    if (item.Price <= max) results.Add(item);
+                    if (Math.Round(item.Price,2) <= max) results.Add(item);
                 }
                 return results;
             }
@@ -367,7 +369,7 @@ namespace BleakwindBuffet.Data
             {
                 foreach (IOrderItem item in menu)
                 {
-                    if (item.Price >= min) results.Add(item);
+                    if (Math.Round(item.Price, 2) >= min) results.Add(item);
                 }
                 return results;
             }
@@ -375,7 +377,7 @@ namespace BleakwindBuffet.Data
             // Both minimum and maximum specified
             foreach (IOrderItem item in menu)
             {
-                if (item.Price >= min && item.Price <= max)
+                if (Math.Round(item.Price, 2) >= min && Math.Round(item.Price, 2) <= max)
                 {
                     results.Add(item);
                 }
