@@ -30,7 +30,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Gets the name of the miraak
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }

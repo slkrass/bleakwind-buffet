@@ -30,7 +30,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Gets the name of the grits
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }

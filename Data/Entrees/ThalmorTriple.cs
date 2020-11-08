@@ -36,7 +36,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the name of the burger
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }

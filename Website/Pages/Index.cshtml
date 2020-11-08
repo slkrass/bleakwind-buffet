@@ -4,20 +4,324 @@
     ViewData["Title"] = "Home page";
 }
 <div class="title-section">
-    <img class="logo" src="~/Images/skyrimLOgo.jpg" />
-    <h1 class="title">Bleakwind Buffet</h1>
+    <img class="logo" src="~/Images/skyrimLogo.jpg" />
+    <h1 class="title" style="font-size:75px ">Bleakwind Buffet</h1>
 </div>
 <p>
     <i>
-        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. 
-        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. 
-        Hack into a Smokehouse Skeleton with your dagger. 
-        Or vanquish the the mighty Thalmor Triple Burger! 
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+        Hack into a Smokehouse Skeleton with your dagger.
+        Or vanquish the the mighty Thalmor Triple Burger!
         You’ve had a hard adventure and earned your loot, so spend it with us!
     </i>
 </p>
+<form id="menu-database">
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search">
+    </div>
 
-<h1>Menu</h1><!--If I wanted to add an image thats contained in my Point of Sale Project How would I?-->
+    <div id="filters">
+        <h4>Category</h4>
+        @foreach (String category in BleakwindBuffet.Data.Menu.Categories)
+        {
+            <label>
+                <input type="checkbox" name="Category" value="@category" checked="@Model.Category.Contains(category)" />
+                @category
+            </label>
+        }
+        <h4>Calories</h4>
+        <div>
+            Between
+            <input name="CaloriesMin" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.CaloriesMin" />
+            and
+            <input name="CaloriesMax" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.CaloriesMax" />
+        </div>
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="PriceMin" type="number" min="0" max="10" step="0.01" placeholder="min" value="@Model.PriceMin" />
+            and
+            <input name="PriceMax" type="number" min="0" max="10" step="0.01" placeholder="max" value="@Model.PriceMax" />
+        </div>
+    </div>
+    <div id="results">
+
+
+        <h1>Menu Search Results</h1><!--If I wanted to add an image thats contained in my Point of Sale Project How would I?-->
+
+
+
+        @{
+            int friesCount = 0;
+            int mirCount = 0;
+            int gritCount = 0;
+            int saladCount = 0;
+            int ajCount = 0;
+            int coffeeCount = 0;
+            int milkCount = 0;
+            int sodaCount = 0;
+            int waterCount = 0;
+            <ul class="menu-section">
+                @{
+                    foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
+                    {
+
+                        if (item is BleakwindBuffet.Data.Entrees.Entree entree)
+                        {
+                            <li>
+                                <div class="menu-item">
+                                    @{ if (entree is BleakwindBuffet.Data.Entrees.BriarheartBurger briar)
+                                        {
+                                            <h3>@briar.Name</h3>
+                                            <!--<img src="~/Images/singleBurger.jpg" />-->
+                                        }
+                                        else if (entree is BleakwindBuffet.Data.Entrees.DoubleDraugr draugr)
+                                        {
+                                            <h3>@draugr.Name</h3>
+                                            <!--<img src="~/Images/doubleBurger.jpg" />-->
+                                        }
+                                        else if (entree is BleakwindBuffet.Data.Entrees.GardenOrcOmelette goo)
+                                        {
+                                            <h3>@goo.Name</h3>
+                                            <!--<img src="~/Images/omelette.jpg" />-->
+                                        }
+                                        else if (entree is BleakwindBuffet.Data.Entrees.PhillyPoacher pp)
+                                        {
+                                            <h3>@pp.Name</h3>
+                                            <!--<img src="~/Images/philly.jpg" />-->
+                                        }
+                                        else if (entree is BleakwindBuffet.Data.Entrees.SmokehouseSkeleton shs)
+                                        {
+                                            <h3>@shs.Name</h3>
+                                            <!--<img src="~/Images/breakfast.jpg" />-->
+                                        }
+                                        else if (entree is BleakwindBuffet.Data.Entrees.ThalmorTriple thal)
+                                        {
+                                            <h3>@thal.Name</h3>
+                                            <!--<img src="~/Images/tripleBurger.jpg" />-->
+                                        }
+                                        else if (entree is BleakwindBuffet.Data.Entrees.ThugsTBone tBone)
+                                        {
+                                            <h3>@tBone.Name</h3>
+                                            <!--<img src="~/Images/tBone.jpg" />-->
+                                        }
+
+                                    }
+                                    <div class="details">
+                                        <div class="item-price">Price: $@entree.Price</div>
+                                        <div class="item-calories">Calories: @entree.Calories</div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        }
+                        else if (item is BleakwindBuffet.Data.Sides.Side side)
+                        {
+
+
+                            if (side is BleakwindBuffet.Data.Sides.DragonbornWaffleFries dwf)
+                            {
+                                <li>
+                                    <div class="menu-item">
+                                        @if (friesCount == 0)
+                                        {
+                                            <h3>Dragonborn Waffle Fries</h3>
+                                            <!--<img src="~/Images/waffleFries.jpg" />-->
+                                        }
+                                        <div class="details">
+                                            <div class="item-size">@side.Size</div>
+                                            <div class="item-price">Price: $@side.Price</div>
+                                            <div class="item-calories">Calories: @side.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                friesCount++;
+                            }
+                            else if (side is BleakwindBuffet.Data.Sides.FriedMiraak fm)
+                            {
+                                <li>
+                                    <div class="menu-item">
+                                        @if (mirCount == 0)
+                                        {
+                                            <h3>Fried Miraak</h3>
+                                            <!--<img src="~/Images/miraak.jpg" />-->
+
+                                        }
+
+
+                                        <div class="details">
+                                            <div class="item-size">@side.Size</div>
+                                            <div class="item-price">Price: $@side.Price</div>
+                                            <div class="item-calories">Calories: @side.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                mirCount++;
+                            }
+                            else if (side is BleakwindBuffet.Data.Sides.MadOtarGrits mog)
+                            {
+                                <li>
+                                    <div class="menu-item">
+                                        @if (gritCount == 0)
+                                        {
+                                            <h3>Mad Otar Grits</h3>
+                                            <!--<img src="~/Images/grits.jpg" />-->
+
+                                        }
+
+
+                                        <div class="details">
+                                            <div class="item-size">@side.Size</div>
+                                            <div class="item-price">Price: $@side.Price</div>
+                                            <div class="item-calories">Calories: @side.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                gritCount++;
+                            }
+                            else if (side is BleakwindBuffet.Data.Sides.VokunSalad vs)
+                            {
+                                <li>
+                                    <div class="menu-item">
+                                        @if (saladCount == 0)
+                                        {
+                                            <h3>Vokun Salad</h3>
+                                            <!--<img src="~/Images/fruitSalad.jpg" />-->
+
+                                        }
+                                        <div class="details">
+                                            <div class="item-size">@side.Size</div>
+                                            <div class="item-price">Price: $@side.Price</div>
+                                            <div class="item-calories">Calories: @side.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                saladCount++;
+                            }
+
+
+
+
+                        }
+                        else if (item is BleakwindBuffet.Data.Drinks.Drink drink)
+                        {
+
+                            if (drink is BleakwindBuffet.Data.Drinks.AretinoAppleJuice aj && ajCount < 3)
+                            {<!---->
+                                <li>
+                                    <div class="menu-item">
+                                        @{ if (ajCount == 0)
+                                            {
+                                                <h3>Aretino Apple Juice</h3>
+                                                <!--<img src="~/Images/appleJuice.jpg" />-->
+
+                                            }
+                                        }
+                                        <div class="details">
+                                            <div class="item-size">@drink.Size</div>
+                                            <div class="item-price">Price: $@drink.Price</div>
+                                            <div class="item-calories">Calories: @drink.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                ajCount++;
+                            }
+                            else if (drink is BleakwindBuffet.Data.Drinks.CandlehearthCoffee cc && coffeeCount < 3)
+                            {<!--List a decaf option-->
+                                <li>
+                                    <div class="menu-item">
+                                        @if (coffeeCount == 0)
+                                        {
+                                            <h3>Candlehearth Coffee</h3>
+                                            <div class="item-extraInfo">&lowast; Decaf is available on request</div>
+                                            <!--<img src="~/Images/coffee.jpg" />-->
+
+                                        }
+
+                                        <div class="details">
+                                            <div class="item-size">@drink.Size</div>
+                                            <div class="item-price">Price: $@drink.Price</div>
+                                            <div class="item-calories">Calories: @drink.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                coffeeCount++;
+                            }
+                            else if (drink is BleakwindBuffet.Data.Drinks.MarkarthMilk mm && milkCount < 3)
+                            {
+                                <li>
+                                    <div class="menu-item">
+                                        @if (milkCount == 0)
+                                        {
+                                            <h3>Markarth Milk</h3>
+                                            <!--<img src="~/Images/milk.jpg" />-->
+
+                                        }
+                                        <div class="details">
+                                            <div class="item-size">@drink.Size</div>
+                                            <div class="item-price">Price: $@drink.Price</div>
+                                            <div class="item-calories">Calories: @drink.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                milkCount++;
+                            }
+                            else if (drink is BleakwindBuffet.Data.Drinks.SailorSoda ss && sodaCount < 3)
+                            {<!--Maybe do an if substring x is ___ to add images of the flavors-->
+                                <li>
+                                    <div class="menu-item">
+                                        @if (sodaCount == 0)
+                                        {
+                                            <h3>Sailor Soda</h3>
+                                            <div class="item-extraInfo">&lowast;Available Flavors: Blackberry, Cherry, Grapefruit, Lemon, Peach, Watermelon</div>
+                                            <!--<img src="~/Images/soda.jpg" />-->
+
+
+                                        }
+
+                                        <div class="details">
+                                            <div class="item-size">@drink.Size</div>
+                                            <div class="item-price">Price: $@drink.Price</div>
+                                            <div class="item-calories">Calories: @drink.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                sodaCount++;
+                            }
+                            else if (drink is BleakwindBuffet.Data.Drinks.WarriorWater ww && waterCount < 3)
+                            {
+                                <li>
+                                    <div class="menu-item">
+                                        @if (waterCount == 0)
+                                        {
+                                            <h3>Warrior Water</h3>
+                                            <!--<img src="~/Images/water2.jpg" />-->
+
+                                        }
+                                        <div class="details">
+                                            <div class="item-size">@drink.Size</div>
+                                            <div class="item-price">Price: $@drink.Price</div>
+                                            <div class="item-calories">Calories: @drink.Calories</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                waterCount++;
+
+                            }
+                        }
+
+
+                    }//end foreach
+                }
+
+            </ul>
+        }
+    </div>
+</form>
+
+<h1>Full Menu</h1>
 
 <h2>Entrees</h2>
 <ul class="menu-section">
@@ -66,101 +370,99 @@
                     <div class="item-calories">Calories: @entree.Calories</div>
                 </div>
             </div>
-                </li>
-                }
-            </ul>
+        </li>
+    }
+</ul>
 
 <h2>Sides</h2>
 <ul class="menu-section">
     @{
-        int friesCount = 0;
-        int mirCount = 0;
-        int gritCount = 0;
-        int saladCount = 0;
+        int friesCount1 = 0;
+        int mirCount1 = 0;
+        int gritCount1 = 0;
+        int saladCount1 = 0;
         foreach (BleakwindBuffet.Data.Sides.Side side in BleakwindBuffet.Data.Menu.Sides())
         {
-                if (side is BleakwindBuffet.Data.Sides.DragonbornWaffleFries dwf)
-                {
-                    <li>
-                            <div class="menu-item">
-                                @if (friesCount == 0)
-                                {
-                                    <h3>Dragonborn Waffle Fries</h3>
-                                    <!--<img src="~/Images/waffleFries.jpg" />-->
-                                
-
-                                }
-                                <div class="details">
-                                    <div class="item-size">@side.Size</div>
-                                    <div class="item-price">Price: $@side.Price</div>
-                                    <div class="item-calories">Calories: @side.Calories</div>
-                                </div>
-                            </div>
-                    </li>
-                    friesCount++;
-                }
-                else if (side is BleakwindBuffet.Data.Sides.FriedMiraak fm)
-                {
-                    <li>
-                        <div class="menu-item">
-                            @if (mirCount == 0)
-                            {
-                                <h3>Fried Miraak</h3>
-                                <!--<img src="~/Images/miraak.jpg" />-->
-                            
-                            }
-
-
-                            <div class="details">
-                                <div class="item-size">@side.Size</div>
-                                <div class="item-price">Price: $@side.Price</div>
-                                <div class="item-calories">Calories: @side.Calories</div>
-                            </div>
+            if (side is BleakwindBuffet.Data.Sides.DragonbornWaffleFries dwf)
+            {
+                <li>
+                    <div class="menu-item">
+                        @if (friesCount1 == 0)
+                        {
+                            <h3>Dragonborn Waffle Fries</h3>
+                            <!--<img src="~/Images/waffleFries.jpg" />-->
+                        }
+                        <div class="details">
+                            <div class="item-size">@side.Size</div>
+                            <div class="item-price">Price: $@side.Price</div>
+                            <div class="item-calories">Calories: @side.Calories</div>
                         </div>
-                    </li>
-                    mirCount++;
-                }
-                else if (side is BleakwindBuffet.Data.Sides.MadOtarGrits mog)
-                {
-                    <li>
-                        <div class="menu-item">
-                            @if (gritCount == 0)
-                            {
-                                <h3>Mad Otar Grits</h3>
-                                <!--<img src="~/Images/grits.jpg" />-->
-                            
-                            }
+                    </div>
+                </li>
+                friesCount1++;
+            }
+            else if (side is BleakwindBuffet.Data.Sides.FriedMiraak fm)
+            {
+                <li>
+                    <div class="menu-item">
+                        @if (mirCount1 == 0)
+                        {
+                            <h3>Fried Miraak</h3>
+                            <!--<img src="~/Images/miraak.jpg" />-->
+
+                        }
 
 
-                            <div class="details">
-                                <div class="item-size">@side.Size</div>
-                                <div class="item-price">Price: $@side.Price</div>
-                                <div class="item-calories">Calories: @side.Calories</div>
-                            </div>
+                        <div class="details">
+                            <div class="item-size">@side.Size</div>
+                            <div class="item-price">Price: $@side.Price</div>
+                            <div class="item-calories">Calories: @side.Calories</div>
                         </div>
-                    </li>
-                    gritCount++;
-                }
-                else if (side is BleakwindBuffet.Data.Sides.VokunSalad vs)
-                {
-                    <li>
-                        <div class="menu-item">
-                            @if (saladCount == 0)
-                            {
-                                <h3>Vokun Salad</h3>
-                                <!--<img src="~/Images/fruitSalad.jpg" />-->
-                            
-                            }
-                            <div class="details">
-                                <div class="item-size">@side.Size</div>
-                                <div class="item-price">Price: $@side.Price</div>
-                                <div class="item-calories">Calories: @side.Calories</div>
-                            </div>
+                    </div>
+                </li>
+                mirCount1++;
+            }
+            else if (side is BleakwindBuffet.Data.Sides.MadOtarGrits mog)
+            {
+                <li>
+                    <div class="menu-item">
+                        @if (gritCount1 == 0)
+                        {
+                            <h3>Mad Otar Grits</h3>
+                            <!--<img src="~/Images/grits.jpg" />-->
+
+                        }
+
+
+                        <div class="details">
+                            <div class="item-size">@side.Size</div>
+                            <div class="item-price">Price: $@side.Price</div>
+                            <div class="item-calories">Calories: @side.Calories</div>
                         </div>
-                    </li>
-                    saladCount++;
-                }
-            
+                    </div>
+                </li>
+                gritCount1++;
+            }
+            else if (side is BleakwindBuffet.Data.Sides.VokunSalad vs)
+            {
+                <li>
+                    <div class="menu-item">
+                        @if (saladCount1 == 0)
+                        {
+                            <h3>Vokun Salad</h3>
+                            <!--<img src="~/Images/fruitSalad.jpg" />-->
+
+                        }
+                        <div class="details">
+                            <div class="item-size">@side.Size</div>
+                            <div class="item-price">Price: $@side.Price</div>
+                            <div class="item-calories">Calories: @side.Calories</div>
+                        </div>
+                    </div>
+                </li>
+                saladCount1++;
+            }
+
         }
     }
 </ul>
@@ -168,23 +470,23 @@
 <h2>Drinks</h2>
 <ul class="menu-section">
     @{
-        int ajCount = 0;
-        int coffeeCount = 0;
-        int milkCount = 0;
-        int sodaCount = 0;
-        int waterCount = 0;
+        int ajCount1 = 0;
+        int coffeeCount1 = 0;
+        int milkCount1 = 0;
+        int sodaCount1 = 0;
+        int waterCount1 = 0;
         foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Drinks())
         {
-            if (drink is BleakwindBuffet.Data.Drinks.AretinoAppleJuice aj && ajCount < 3)
+            if (drink is BleakwindBuffet.Data.Drinks.AretinoAppleJuice aj && ajCount1 < 3)
             {<!---->
                 <li>
                     <div class="menu-item">
-                        @{ if (ajCount == 0)
+                        @{ if (ajCount1 == 0)
                             {
                                 <h3>Aretino Apple Juice</h3>
                                 <!--<img src="~/Images/appleJuice.jpg" />-->
-                            
-                        }
+
+                            }
                         }
                         <div class="details">
                             <div class="item-size">@drink.Size</div>
@@ -193,18 +495,18 @@
                         </div>
                     </div>
                 </li>
-                ajCount++;
+                ajCount1++;
             }
-            else if (drink is BleakwindBuffet.Data.Drinks.CandlehearthCoffee cc && coffeeCount < 3)
+            else if (drink is BleakwindBuffet.Data.Drinks.CandlehearthCoffee cc && coffeeCount1 < 3)
             {<!--List a decaf option-->
                 <li>
                     <div class="menu-item">
-                        @if (coffeeCount == 0)
+                        @if (coffeeCount1 == 0)
                         {
                             <h3>Candlehearth Coffee</h3>
                             <div class="item-extraInfo">&lowast; Decaf is available on request</div>
                             <!--<img src="~/Images/coffee.jpg" />-->
-                        
+
                         }
 
                         <div class="details">
@@ -214,17 +516,17 @@
                         </div>
                     </div>
                 </li>
-                coffeeCount++;
+                coffeeCount1++;
             }
-            else if (drink is BleakwindBuffet.Data.Drinks.MarkarthMilk mm && milkCount < 3)
+            else if (drink is BleakwindBuffet.Data.Drinks.MarkarthMilk mm && milkCount1 < 3)
             {
                 <li>
                     <div class="menu-item">
-                        @if (milkCount == 0)
+                        @if (milkCount1 == 0)
                         {
                             <h3>Markarth Milk</h3>
                             <!--<img src="~/Images/milk.jpg" />-->
-                        
+
                         }
                         <div class="details">
                             <div class="item-size">@drink.Size</div>
@@ -233,18 +535,18 @@
                         </div>
                     </div>
                 </li>
-                milkCount++;
+                milkCount1++;
             }
-            else if (drink is BleakwindBuffet.Data.Drinks.SailorSoda ss && sodaCount < 3)
+            else if (drink is BleakwindBuffet.Data.Drinks.SailorSoda ss && sodaCount1 < 3)
             {<!--Maybe do an if substring x is ___ to add images of the flavors-->
                 <li>
                     <div class="menu-item">
-                        @if (sodaCount == 0)
+                        @if (sodaCount1 == 0)
                         {
                             <h3>Sailor Soda</h3>
                             <div class="item-extraInfo">&lowast;Available Flavors: Blackberry, Cherry, Grapefruit, Lemon, Peach, Watermelon</div>
                             <!--<img src="~/Images/soda.jpg" />-->
-                        
+
 
                         }
 
@@ -255,17 +557,17 @@
                         </div>
                     </div>
                 </li>
-                sodaCount++;
+                sodaCount1++;
             }
-            else if (drink is BleakwindBuffet.Data.Drinks.WarriorWater ww && waterCount < 3)
+            else if (drink is BleakwindBuffet.Data.Drinks.WarriorWater ww && waterCount1 < 3)
             {
                 <li>
                     <div class="menu-item">
-                        @if (waterCount == 0)
+                        @if (waterCount1 == 0)
                         {
                             <h3>Warrior Water</h3>
                             <!--<img src="~/Images/water2.jpg" />-->
-                        
+
                         }
                         <div class="details">
                             <div class="item-size">@drink.Size</div>
@@ -274,7 +576,7 @@
                         </div>
                     </div>
                 </li>
-                waterCount++;
+                waterCount1++;
 
             }
         }

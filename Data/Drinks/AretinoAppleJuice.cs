@@ -32,7 +32,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the name of the apple juice
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }

@@ -30,7 +30,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the name of the Sailor's Soda
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }

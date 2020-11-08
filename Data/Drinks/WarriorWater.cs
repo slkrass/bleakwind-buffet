@@ -31,7 +31,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the name of the Warrior Water
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }

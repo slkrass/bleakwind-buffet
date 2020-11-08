@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace BleakwindBuffet.Data
 {
@@ -18,6 +21,19 @@ namespace BleakwindBuffet.Data
     /// </summary>
     public static class Menu
     {
+        /// <summary>
+        /// Gets the possible menu item categories
+        /// </summary>
+        public static string[] Categories
+        {
+            get => new string[]
+            {
+                "Entree",
+                "Side",
+                "Drink"
+            };
+        }
+
         /// <summary>
         /// Returns an IEnumerable of all the entrees on the menu
         /// </summary>
@@ -149,6 +165,223 @@ namespace BleakwindBuffet.Data
                 fullMenu.Add(drink);
 
             return fullMenu;
+        }
+
+        /// <summary>
+        /// Searches the menu for matching items
+        /// </summary>
+        /// <param name="terms">The terms to search for</param>
+        /// <returns>A collection of menu items</returns>
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (terms == null) return FullMenu();
+
+            foreach (IOrderItem item in FullMenu())
+            {
+                if (item is Entree entree)
+                {
+                    if (entree is BriarheartBurger briar && briar.Name != null && briar.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(briar);
+                    }
+                    else if (entree is DoubleDraugr draugr && draugr.Name != null && draugr.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(draugr);
+                    }
+                    else if (entree is GardenOrcOmelette goo && goo.Name != null && goo.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(goo);
+                    }
+                    else if (entree is PhillyPoacher pp && pp.Name != null && pp.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(pp);
+                    }
+                    else if (entree is SmokehouseSkeleton shs && shs.Name != null && shs.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(shs);
+                    }
+                    else if (entree is ThalmorTriple thal && thal.Name != null && thal.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(thal);
+                    }
+                    else if (entree is ThugsTBone tBone && tBone.Name != null && tBone.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(tBone);
+                    }
+                }
+                else if (item is Drink drink)
+                {//&& entree.Name != null && entree.Name.Contains(terms)  results.Add();
+                    if (drink is AretinoAppleJuice aj && aj.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(aj);
+                    }
+                    else if (drink is CandlehearthCoffee cc && cc.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(cc);
+                    }
+                    else if (drink is MarkarthMilk mm && mm.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(mm);
+                    }
+                    else if (drink is SailorSoda ss && ss.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(ss);
+                    }
+                    else if (drink is WarriorWater ww && ww.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(ww);
+                    }
+                }
+                else if (item is Side side)
+                {// results.Add();
+                    if (side is DragonbornWaffleFries dwf && dwf.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(dwf);
+                    }
+                    else if (side is FriedMiraak fm && fm.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(fm);
+                    }
+                    else if (side is MadOtarGrits mog && mog.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(mog);
+                    }
+                    else if (side is VokunSalad vs && vs.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        results.Add(vs);
+                    }
+                }
+            }
+
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the provided menu
+        /// </summary>
+        /// <param name="movies">The collection of menu items to filter</param>
+        /// <param name="genres">The categories to include</param>
+        /// <returns>A collection containing only menu items that match the filter</returns>
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> categories)
+        {
+            // If no filter is specified, just return the provided collection
+            if (categories == null || categories.Count() == 0) return menu;
+
+            var results = new List<IOrderItem>();
+            foreach (IOrderItem item in menu)
+            {
+                
+                if (categories.Contains("Entree") && item is Entree entree)
+                {
+                    results.Add(entree);
+                }
+                else if (categories.Contains("Drink") && item is Drink drink)
+                {
+                    results.Add(drink);
+                }
+                else if (categories.Contains("Side") && item is Side side)
+                {
+                    results.Add(side);
+                }
+            }
+
+            return results;
+
+        }
+        /// <summary>
+        /// Filters the provided menu
+        /// to those with calories falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="menu">The collection of menu items to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered menu collection</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, double? min, double? max)
+        {
+            if (min == null && max == null) return menu;
+
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            // only a minimum specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in menu)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+
+        }
+
+        /// <summary>
+        /// Filters the provided menu
+        /// to those with their price falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="menu">The collection of menu items to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered menu collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
+        {
+            if (min == null && max == null) return menu;
+
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            // only a minimum specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in menu)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+
         }
     }
 }

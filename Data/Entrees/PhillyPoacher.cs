@@ -28,7 +28,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the name of the philly poacher
         /// </summary>
-        public string Name
+        public override string Name
         {
             get => this.ToString();
         }
