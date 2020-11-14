@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             MarkarthMilk milk = new MarkarthMilk();
             Assert.IsAssignableFrom<Drink>(milk);
+            Assert.Equal("Drink", milk.ItemType);
+            Assert.Equal("Hormone-free organic 2% milk.", milk.Description);
         }
 
         [Fact]

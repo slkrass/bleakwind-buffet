@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
             Assert.IsAssignableFrom<Drink>(coffee);
+            Assert.Equal("Drink", coffee.ItemType);
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.", coffee.Description);
         }
 
         [Fact]

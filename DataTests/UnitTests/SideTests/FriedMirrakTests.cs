@@ -28,6 +28,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             FriedMiraak fm = new FriedMiraak();
             Assert.IsAssignableFrom<Side>(fm);
+            Assert.Equal("Side", fm.ItemType);
+            Assert.Equal("Perfectly prepared hash brown pancakes.", fm.Description);
         }
 
         [Fact]

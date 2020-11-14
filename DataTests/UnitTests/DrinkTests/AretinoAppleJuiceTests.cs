@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.IsAssignableFrom<Drink>(aj);
+            Assert.Equal("Drink", aj.ItemType);
+            Assert.Equal("Fresh squeezed apple juice.", aj.Description);
         }
 
         [Fact]

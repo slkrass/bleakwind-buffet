@@ -28,6 +28,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             WarriorWater water = new WarriorWater();
             Assert.IsAssignableFrom<Drink>(water);
+            Assert.Equal("Drink", water.ItemType);
+            Assert.Equal("It’s water. Just water.", water.Description);
         }
 
         [Fact]

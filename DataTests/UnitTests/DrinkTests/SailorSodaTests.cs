@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda soda = new SailorSoda();
             Assert.IsAssignableFrom<Drink>(soda);
+            Assert.Equal("Drink", soda.ItemType);
+            Assert.Equal("An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.", soda.Description);
         }
 
         [Fact]

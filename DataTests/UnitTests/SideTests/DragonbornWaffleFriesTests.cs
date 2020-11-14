@@ -28,6 +28,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries fries = new DragonbornWaffleFries();
             Assert.IsAssignableFrom<Side>(fries);
+            Assert.Equal("Side", fries.ItemType);
+            Assert.Equal("Crispy fried potato waffle fries.", fries.Description);
         }
 
         [Fact]

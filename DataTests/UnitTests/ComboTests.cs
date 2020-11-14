@@ -21,6 +21,13 @@ namespace BleakwindBuffet.DataTests.UnitTests
     public class ComboTests
     {
         [Fact]
+        public void ItemTypeAndDescriptionShouldBeEmptyStrings()
+        {
+            Combo combo = new Combo();
+            Assert.Equal("", combo.Description);
+            Assert.Equal("", combo.ItemType);
+        }
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             Combo combo = new Combo();

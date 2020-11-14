@@ -28,6 +28,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             MadOtarGrits grits = new MadOtarGrits();
             Assert.IsAssignableFrom<Side>(grits);
+            Assert.Equal("Side", grits.ItemType);
+            Assert.Equal("Cheesey Grits.", grits.Description);
         }
 
         [Fact]

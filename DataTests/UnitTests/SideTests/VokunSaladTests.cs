@@ -28,6 +28,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             VokunSalad salad = new VokunSalad();
             Assert.IsAssignableFrom<Side>(salad);
+            Assert.Equal("Side", salad.ItemType);
+            Assert.Equal("A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.", salad.Description);
         }
 
         [Fact]

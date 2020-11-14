@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette omelette = new GardenOrcOmelette();
             Assert.IsAssignableFrom<Entree>(omelette);
+            Assert.Equal("Entree", omelette.ItemType);
+            Assert.Equal("Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.", omelette.Description);
         }
 
         [Fact]

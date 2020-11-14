@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone tBone = new ThugsTBone();
             Assert.IsAssignableFrom<Entree>(tBone);
+            Assert.Equal("Entree", tBone.ItemType);
+            Assert.Equal("Juicy T-Bone, not much else to say.", tBone.Description);
         }
 
         [Fact]

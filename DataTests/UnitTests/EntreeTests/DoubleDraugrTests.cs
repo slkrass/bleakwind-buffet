@@ -27,6 +27,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             DoubleDraugr burger = new DoubleDraugr();
             Assert.IsAssignableFrom<Entree>(burger);
+            Assert.Equal("Entree", burger.ItemType);
+            Assert.Equal("Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.", burger.Description);
         }
 
         [Fact]
