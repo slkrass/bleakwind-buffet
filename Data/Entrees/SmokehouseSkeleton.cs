@@ -27,6 +27,11 @@ namespace BleakwindBuffet.Data.Entrees
         private bool pancake = true;        // Holds whether or not the breakfast combo has pancakes
 
         /// <summary>
+        /// The description of the smokehouse skeleton
+        /// </summary>
+        public override string Description => "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+
+        /// <summary>
         /// Gets the name of the smokehouse skeleton
         /// </summary>
         public override string Name

@@ -31,5 +31,20 @@ namespace BleakwindBuffet.Data
         /// The special instructions to prepare the order item
         /// </summary>
         List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// The description of the order item
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
+        /// The Name of the order item
+        /// </summary>
+        public String Name { get; }
+
+        /// <summary>
+        /// The type of the order item
+        /// </summary>
+        public string ItemType { get; }
     }
 }

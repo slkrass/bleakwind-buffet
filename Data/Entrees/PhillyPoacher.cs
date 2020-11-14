@@ -26,6 +26,11 @@ namespace BleakwindBuffet.Data.Entrees
         private bool roll = true;       // Holds whether or not there is roll on the Philly Poacher
 
         /// <summary>
+        /// The description of the philly poacher
+        /// </summary>
+        public override string Description => "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+
+        /// <summary>
         /// Gets the name of the philly poacher
         /// </summary>
         public override string Name

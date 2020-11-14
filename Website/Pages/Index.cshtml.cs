@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: Index.cshtml.cs
+ * Purpose: Class used for interaction logic for Index.cshtml
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,35 +49,62 @@ namespace Website.Pages
         /// The filtered calories maximum
         /// </summary>
         [BindProperty(SupportsGet = true)]
-        public int CaloriesMax { get; set; } = 1000;
+        public int? CaloriesMax { get; set; } = 1000;
 
         /// <summary>
         /// The filtered calories minimum
         /// </summary>
         [BindProperty(SupportsGet = true)]
-        public int CaloriesMin { get; set; }
+        public int? CaloriesMin { get; set; }
 
         /// <summary>
         /// The filtered price maximum
         /// </summary>
         [BindProperty(SupportsGet = true)]
-        public double PriceMax { get; set; } = 10;
+        public double? PriceMax { get; set; } = 10;
 
         /// <summary>
         /// The filtered price minimum
         /// </summary>
         [BindProperty(SupportsGet = true)]
-        public double PriceMin { get; set; }
+        public double? PriceMin { get; set; }
 
         /// <summary>
         /// Gets the search results for displaying on the page
         /// </summary>
         public void OnGet()
         {
-            MenuItems = Menu.Search(SearchTerms);//MenuItems,
-            MenuItems = Menu.FilterByCategory(MenuItems, Category);//Add a IEnumerable<string>
-            MenuItems = Menu.FilterByCalories(MenuItems, CaloriesMin, CaloriesMax);
-            MenuItems = Menu.FilterByPrice(MenuItems, PriceMin, PriceMax);
+            MenuItems = Menu.FullMenu();
+            //MenuItems = Menu.Search(SearchTerms);//MenuItems,
+            if(SearchTerms != null)
+            {
+                MenuItems = MenuItems.Where(item => item.Name != null && item.Description != null &&
+                (item.Name.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase) ||
+                item.Description.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)));
+            }
+            //MenuItems = Menu.FilterByCategory(MenuItems, Category);//Add a IEnumerable<string>
+            if (Category != null && Category.Length != 0)
+            {
+                MenuItems = MenuItems.Where(item => item.ItemType != null && Category.Contains(item.ItemType));
+            }
+            //MenuItems = Menu.FilterByCalories(MenuItems, CaloriesMin, CaloriesMax);
+            if(CaloriesMax != null)
+            {
+                MenuItems = MenuItems.Where(item => item.Calories <= CaloriesMax);
+            }
+            if(CaloriesMin != null)
+            {
+                MenuItems = MenuItems.Where(item => item.Calories >= CaloriesMin);
+            }
+            //MenuItems = Menu.FilterByPrice(MenuItems, PriceMin, PriceMax);
+            if (PriceMax != null)
+            {
+                MenuItems = MenuItems.Where(item => item.Price <= PriceMax);
+            }
+            if (PriceMin != null)
+            {
+                MenuItems = MenuItems.Where(item => item.Price >= PriceMin);
+            }
         }
     }
 }

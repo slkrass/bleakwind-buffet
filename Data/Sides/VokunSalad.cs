@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Sides
         private Size size = Size.Small; // The size of Vokun Salad
 
         /// <summary>
+        /// The description of the salad
+        /// </summary>
+        public override string Description => "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+
+        /// <summary>
         /// Gets the name of the salad
         /// </summary>
         public override string Name

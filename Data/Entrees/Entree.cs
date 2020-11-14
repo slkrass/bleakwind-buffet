@@ -18,9 +18,19 @@ namespace BleakwindBuffet.Data.Entrees
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// The item type
+        /// </summary>
+        public string ItemType => "Entree";
+        
+        /// <summary>
         /// The Name of the entree
         /// </summary>
         public abstract String Name { get; }
+
+        /// <summary>
+        /// The description of the entree
+        /// </summary>
+        public abstract string Description { get; }
 
         /// <summary>
         /// The price of the entree

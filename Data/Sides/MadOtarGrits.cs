@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Sides
         private Size size = Size.Small; // The size of Mad Otar Grits
 
         /// <summary>
+        /// The description of the grits
+        /// </summary>
+        public override string Description => "Cheesey Grits.";
+
+        /// <summary>
         /// Gets the name of the grits
         /// </summary>
         public override string Name

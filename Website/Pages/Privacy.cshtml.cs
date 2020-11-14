@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Stephanie Krass
+ * Class name: Privacy.cshtml.cs
+ * Purpose: Class used for interaction logic for Privacy.cshtml
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

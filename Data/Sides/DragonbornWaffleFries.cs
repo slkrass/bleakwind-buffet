@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Sides
         private Size size = Size.Small;     // The size of Dragonborn Waffle Fries
 
         /// <summary>
+        /// The description of the fries
+        /// </summary>
+        public override string Description => "Crispy fried potato waffle fries.";
+
+        /// <summary>
         /// Gets the name of the fries
         /// </summary>
         public override string Name

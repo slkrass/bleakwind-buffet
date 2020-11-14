@@ -146,3 +146,22 @@ a:hover {
     background-color: #3EF5CB;
     color: white;
 }
+
+@media (max-width: 490px) {
+    /* Reset the columns to render with the flow of the page */
+    .float-columns > div {
+        float: none;
+        width: 100%;
+    }
+}
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 490px) {
+    .flex-columns {
+        flex-direction: column;
+    }
+}

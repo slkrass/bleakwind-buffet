@@ -19,9 +19,19 @@ namespace BleakwindBuffet.Data.Sides
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// The item type
+        /// </summary>
+        public string ItemType => "Side";
+
+        /// <summary>
         /// The Name of the side
         /// </summary>
         public abstract String Name { get; }
+
+        /// <summary>
+        /// The description of the side
+        /// </summary>
+        public abstract string Description { get; }
 
         /// <summary>
         /// The size of the side

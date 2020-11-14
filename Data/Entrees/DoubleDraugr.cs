@@ -20,8 +20,6 @@ namespace BleakwindBuffet.Data.Entrees
     /// </remarks>
     public class DoubleDraugr : Entree
     {
-
-
         /* Private variable declaration for the Double Draugr Burger */
         private bool ketchup = true;    // Holds whether or not there is ketchup on the burger
         private bool bun = true;        // Holds whether or not there a bun for the burger
@@ -31,6 +29,11 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true;     // Holds whether or not there is tomato on the burger
         private bool lettuce = true;    // Holds whether or not there is lettuce on the burger
         private bool mayo = true;       // Holds whether or not there is mayo on the burger
+
+        /// <summary>
+        /// The description of the burger
+        /// </summary>
+        public override string Description => "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
 
         /// <summary>
         /// Gets the name of the burger

@@ -28,6 +28,10 @@ namespace BleakwindBuffet.Data.Drinks
         private Size size = Size.Small; // The size of Aretino Apple Juice
         private bool ice = false;       // If there is ice in Aretino Apple Juice
 
+        /// <summary>
+        /// The description of the apple juice
+        /// </summary>
+        public override string Description => "Fresh squeezed apple juice.";
 
         /// <summary>
         /// Gets the name of the apple juice

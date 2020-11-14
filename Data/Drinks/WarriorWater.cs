@@ -29,6 +29,11 @@ namespace BleakwindBuffet.Data.Drinks
         private bool lemon = false;     // If there is lemon in Warrior Water
 
         /// <summary>
+        /// The description of the water
+        /// </summary>
+        public override string Description => "It’s water. Just water.";
+
+        /// <summary>
         /// Gets the name of the Warrior Water
         /// </summary>
         public override string Name

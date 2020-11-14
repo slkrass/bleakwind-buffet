@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = false;           // If there is ice in Markarth Milk
 
         /// <summary>
+        /// The description of the milk
+        /// </summary>
+        public override string Description => "Hormone-free organic 2% milk.";
+
+        /// <summary>
         /// Gets the name of the markarth milk
         /// </summary>
         public override string Name

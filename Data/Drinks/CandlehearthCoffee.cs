@@ -29,6 +29,10 @@ namespace BleakwindBuffet.Data.Drinks
         private bool roomForCream = false;  // If there is room for cream in Candlehearth Coffee
         private bool decaf = false;         // If the coffee is decaf Candlehearth Coffee
 
+        /// <summary>
+        /// The description of the coffee
+        /// </summary>
+        public override string Description => "Fair trade, fresh ground dark roast coffee.";
 
         /// <summary>
         /// Gets the name of the coffee

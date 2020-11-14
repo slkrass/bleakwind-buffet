@@ -24,6 +24,11 @@ namespace BleakwindBuffet.Data
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// The item type
+        /// </summary>
+        public string ItemType => "";
+
         /* Private Variables */
         private Drink drink = new WarriorWater();
         private Entree entree = new BriarheartBurger();
@@ -38,6 +43,11 @@ namespace BleakwindBuffet.Data
             drink.PropertyChanged += ItemChangeListener;
             side.PropertyChanged += ItemChangeListener;
         }
+
+        /// <summary>
+        /// The description of the combo
+        /// </summary>
+        public string Description => "";
 
         /// <summary>
         /// Gets the name of the Combo

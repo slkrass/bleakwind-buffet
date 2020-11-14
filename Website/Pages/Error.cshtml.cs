@@ -1,3 +1,8 @@
+/*
+ * Author: Stephanie Krass
+ * Class name: Error.cshtml.cs
+ * Purpose: Class used for interaction logic for Error.cshtml
+ */
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

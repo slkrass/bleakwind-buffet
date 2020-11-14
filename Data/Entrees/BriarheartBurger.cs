@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Entrees
         private bool pickle = true;     // Holds whether or not there is pickles on the burger
         private bool cheese = true;     // Holds whether or not there is cheese on the burger
 
+        /// <summary>
+        /// The description of the burger
+        /// </summary>
+        public override string Description => "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
+
         /// <value>
         /// Gets the price of the burger
         /// </value>

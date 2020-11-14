@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Drinks
         private SodaFlavor flavor = SodaFlavor.Cherry;  // The flavor of the soda
 
         /// <summary>
+        /// The description of the sailor's soda
+        /// </summary>
+        public override string Description => "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+
+        /// <summary>
         /// Gets the name of the Sailor's Soda
         /// </summary>
         public override string Name

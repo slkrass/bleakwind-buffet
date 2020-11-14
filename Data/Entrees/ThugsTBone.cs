@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
+        /// The description of the TBone
+        /// </summary>
+        public override string Description => "Juicy T-Bone, not much else to say.";
+
+        /// <summary>
         /// Gets a string representation of the SpecialInstructions
         /// </summary>
         public string StringSpecialInstructions

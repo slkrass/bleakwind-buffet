@@ -1,3 +1,8 @@
+/*
+ * Author: Stephanie Krass
+ * Class name: About.cshtml.cs
+ * Purpose: Class used for interaction logic for About.cshtml
+ */
 using System;
 using System.Collections.Generic;
 using System.Linq;

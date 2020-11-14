@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Sides
         private Size size = Size.Small; // The size of Fried Miraak
 
         /// <summary>
+        /// The description of the miraak
+        /// </summary>
+        public override string Description => "Perfectly prepared hash brown pancakes.";
+
+        /// <summary>
         /// Gets the name of the miraak
         /// </summary>
         public override string Name

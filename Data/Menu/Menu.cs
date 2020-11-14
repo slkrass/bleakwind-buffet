@@ -182,7 +182,10 @@ namespace BleakwindBuffet.Data
             {
                 if (item is Entree entree)
                 {
-                    if (entree is BriarheartBurger briar && briar.Name != null && briar.Name.Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                    if (entree is BriarheartBurger briar 
+                        && briar.Name != null 
+                        && briar.Name.Contains(terms, 
+                        StringComparison.InvariantCultureIgnoreCase))
                     {
                         results.Add(briar);
                     }

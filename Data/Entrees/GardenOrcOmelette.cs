@@ -27,6 +27,11 @@ namespace BleakwindBuffet.Data.Entrees
         private bool cheddar = true; // Holds whether or not there is cheddar on the omelette
 
         /// <summary>
+        /// The description of the omelette
+        /// </summary>
+        public override string Description => "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+
+        /// <summary>
         /// Gets the name of the omelette
         /// </summary>
         public override string Name
