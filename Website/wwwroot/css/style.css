@@ -147,6 +147,15 @@ a:hover {
     color: white;
 }
 
+.float-columns > div {
+    float: left;
+    width: 33%;
+}
+
+.clearfix {
+    clear: both;
+}
+
 @media (max-width: 490px) {
     /* Reset the columns to render with the flow of the page */
     .float-columns > div {
@@ -165,3 +174,7 @@ a:hover {
         flex-direction: column;
     }
 }
+.float-columns > div > h2 {
+    padding: 5px;
+}
+
